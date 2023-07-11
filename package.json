@@ -1,0 +1,26 @@
+{
+  "name": "dbsder-api-types",
+  "version": "1.0.8",
+  "description": "",
+  "main": "dist/dbsderApiTypes.js",
+  "types": "index.ts",
+  "scripts": {
+    "build": "tsc",
+    "prepublish": "npm run build",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Cour-de-cassation/decision-type.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Cour-de-cassation/decision-type/issues"
+  },
+  "homepage": "https://github.com/Cour-de-cassation/decision-type#readme",
+  "devDependencies": {
+    "typescript": "5.1.6"
+  }
+}
