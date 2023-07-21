@@ -1,27 +1,24 @@
-export enum LabelStatus {
-    TOBETREATED = 'toBeTreated',
-    LOADED = 'loaded',
-    DONE = 'done',
-    TOIGNORE = 'toIgnore'
+export declare enum LabelStatus {
+    TOBETREATED = "toBeTreated",
+    LOADED = "loaded",
+    DONE = "done",
+    TOIGNORE = "toIgnore"
 }
-
-export enum TypePartie {
-    PP = 'PP',
-    PM = 'PM',
-    AA = 'AA'
+export declare enum TypePartie {
+    PP = "PP",
+    PM = "PM",
+    AA = "AA"
 }
-
-export enum QualitePartie {
-    F = 'F',
-    G = 'G',
-    I = 'I',
-    J = 'J',
-    K = 'K',
-    L = 'L',
-    M = 'M',
-    N = 'N'
+export declare enum QualitePartie {
+    F = "F",
+    G = "G",
+    I = "I",
+    J = "J",
+    K = "K",
+    L = "L",
+    M = "M",
+    N = "N"
 }
-
 export type labelTreatmentsType = Array<{
     annotations: Array<{
         category: string;
@@ -31,8 +28,7 @@ export type labelTreatmentsType = Array<{
     }>;
     source: string;
     order: number;
-}>
-
+}>;
 export interface DecisionAnalyse {
     analyse: string[];
     doctrine: string;
@@ -43,28 +39,23 @@ export interface DecisionAnalyse {
     target: string;
     title: string[];
 }
-
 export interface Partie {
-    type: TypePartie
-    nom: string
-    prenom?: string
-    civilite?: string
-    qualite?: QualitePartie
+    type: TypePartie;
+    nom: string;
+    prenom?: string;
+    civilite?: string;
+    qualite?: QualitePartie;
 }
-
-
 export interface DecisionOccultation {
     additionalTerms: string;
     categoriesToOmit: string[];
 }
-
-export enum Sources {
-    CC = 'CC',
-    TJ = 'TJ',
-    CA = 'CA',
-    JURITJ = 'juriTJ'
+export declare enum Sources {
+    CC = "CC",
+    TJ = "TJ",
+    CA = "CA",
+    JURITJ = "juriTJ"
 }
-
 export interface DecisionDTO {
     id: string;
     analysis: DecisionAnalyse;
@@ -100,6 +91,6 @@ export interface DecisionDTO {
     endCaseCode?: string;
     filenameSource?: string;
     labelTreatments?: string[];
-    parties?: Partie[],
+    parties?: Partie[];
     pubCategory?: string;
 }

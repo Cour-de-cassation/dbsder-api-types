@@ -4,23 +4,23 @@ Afin d'harmoniser nos types de données dans nos différents répertoires, nous 
 
 Le type **DecisionDTO** est le suivant :
 
-Tous les types sont renseignés dans **dbsderApiTypes.d.ts**
+Tous les types sont renseignés dans **index.d.ts**
 
 ```typescript
-export class DecisionDTO {
-    id: string
+export interface DecisionDTO {
+    id: string;
     
     analysis: DecisionAnalyse
     
-    appeals: Array<string>
+    appeals: string[]
     
     chamberId: string
     
     chamberName: string
     
-    dateCreation?: string
+    dateCreation: string
     
-    dateDecision?: string
+    dateDecision: string
     
     decatt: number[]
     
@@ -32,24 +32,15 @@ export class DecisionDTO {
     
     labelStatus: LabelStatus
     
-    labelTreatments: labelTreatmentsType
-    
-    occultation: {
-        additionalTerms: string
-        categoriesToOmit: string[]
-    }
+    occultation: DecisionOccultation
     
     originalText: string
     
-    parties: Array<any>
+    pseudoStatus?: string
     
-    pseudoStatus: string
+    pseudoText?: string
     
-    pseudoText: string
-    
-    pubCategory: string
-    
-    publication: string[]
+    public?: boolean
     
     registerNumber: string
     
@@ -57,31 +48,38 @@ export class DecisionDTO {
     
     sourceId: number
     
-    sourceName: string
+    sourceName: Sources
     
-    zoning?: {
-        introduction_subzonage: {
-            publication: string[]
-        }
-    }
+    zoning?: object
+    
+    publication: string[]
     
     formation: string
     
     blocOccultation: number
     
-    natureAffaireCivil?: string
+    NAOCode: string
+    
+    natureAffaireCivil: string
     
     natureAffairePenal: string
     
-    codeMatiereCivil?: string
-    
-    NAOCode: string
+    codeMatiereCivil: string
     
     NACCode?: string
     
+    NPCode?: string
+    
     endCaseCode?: string
     
-    filenameSource: string
+    filenameSource?: string
+    
+    labelTreatments?: string[]
+    
+    parties?: Partie[],
+    
+    pubCategory?: string
+    
 }
 ```
 
