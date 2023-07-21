@@ -65,7 +65,6 @@ export enum Sources {
     JURITJ = 'juriTJ'
 }
 
-
 export interface DecisionDTO {
     id: string;
     analysis: DecisionAnalyse;
@@ -102,4 +101,5 @@ export interface DecisionDTO {
     endCaseCode?: string;
     filenameSource?: string;
     labelTreatments?: string[];
+    parties?: Partie[]
 }
