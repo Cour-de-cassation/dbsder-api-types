@@ -101,5 +101,6 @@ export interface DecisionDTO {
     endCaseCode?: string;
     filenameSource?: string;
     labelTreatments?: string[];
-    parties?: Partie[]
+    parties?: Partie[],
+    pubCategory?: string;
 }
