@@ -53,11 +53,10 @@ export interface DecisionOccultation {
 export declare enum Sources {
     CC = "CC",
     TJ = "TJ",
-    CA = "CA",
-    JURITJ = "juriTJ"
+    CA = "CA"
 }
 export interface DecisionDTO {
-    id: string;
+    _id: string;
     analysis: DecisionAnalyse;
     appeals: string[];
     chamberId: string;

@@ -4,11 +4,11 @@ Afin d'harmoniser nos types de données dans nos différents répertoires, nous 
 
 Le type **DecisionDTO** est le suivant :
 
-Tous les types sont renseignés dans **index.d.ts**
+Tous les types sont renseignés dans **index.ts**
 
 ```typescript
 export interface DecisionDTO {
-    id: string;
+    _id: string
     
     analysis: DecisionAnalyse
     

@@ -30,5 +30,4 @@ var Sources;
     Sources["CC"] = "CC";
     Sources["TJ"] = "TJ";
     Sources["CA"] = "CA";
-    Sources["JURITJ"] = "juriTJ";
 })(Sources || (exports.Sources = Sources = {}));
