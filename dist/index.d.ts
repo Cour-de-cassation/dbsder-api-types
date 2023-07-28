@@ -2,7 +2,9 @@ export declare enum LabelStatus {
     TOBETREATED = "toBeTreated",
     LOADED = "loaded",
     DONE = "done",
-    TOIGNORE = "toIgnore"
+    TOIGNORE = "toIgnore",
+    IGNORED_DECISIONNONPUBLIQUE = "ignored_decisionNonPublique",
+    IGNORED_DATEDECISIONINCOHERENTE = "ignored_dateDecisionIncoherente"
 }
 export declare enum TypePartie {
     PP = "PP",

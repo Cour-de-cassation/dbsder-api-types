@@ -3,7 +3,8 @@ export enum LabelStatus {
     LOADED = 'loaded',
     DONE = 'done',
     TOIGNORE = 'toIgnore',
-    IGNORED_DECISIONNONPUBLIQUE = 'ignored_decisionNonPublique'
+    IGNORED_DECISIONNONPUBLIQUE = 'ignored_decisionNonPublique',
+    IGNORED_DATEDECISIONINCOHERENTE = 'ignored_dateDecisionIncoherente'
 }
 
 export enum TypePartie {

@@ -7,6 +7,8 @@ var LabelStatus;
     LabelStatus["LOADED"] = "loaded";
     LabelStatus["DONE"] = "done";
     LabelStatus["TOIGNORE"] = "toIgnore";
+    LabelStatus["IGNORED_DECISIONNONPUBLIQUE"] = "ignored_decisionNonPublique";
+    LabelStatus["IGNORED_DATEDECISIONINCOHERENTE"] = "ignored_dateDecisionIncoherente";
 })(LabelStatus || (exports.LabelStatus = LabelStatus = {}));
 var TypePartie;
 (function (TypePartie) {
