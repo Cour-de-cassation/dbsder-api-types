@@ -2,7 +2,8 @@ export enum LabelStatus {
     TOBETREATED = 'toBeTreated',
     LOADED = 'loaded',
     DONE = 'done',
-    TOIGNORE = 'toIgnore'
+    TOIGNORE = 'toIgnore',
+    IGNORED_DECISIONNONPUBLIQUE = 'ignored_decisionNonPublique'
 }
 
 export enum TypePartie {
@@ -51,7 +52,6 @@ export interface Partie {
     civilite?: string
     qualite?: QualitePartie
 }
-
 
 export interface DecisionOccultation {
     additionalTerms: string;
