@@ -8,8 +8,11 @@ var LabelStatus;
     LabelStatus["DONE"] = "done";
     LabelStatus["EXPORTED"] = "exported";
     LabelStatus["BLOCKED"] = "blocked";
-    LabelStatus["IGNORED_DECISIONNONPUBLIQUE"] = "ignored_decisionNonPublique";
-    LabelStatus["IGNORED_DATEDECISIONINCOHERENTE"] = "ignored_dateDecisionIncoherente";
+    LabelStatus["IGNORED_DECISION_NON_PUBLIQUE"] = "ignored_decisionNonPublique";
+    LabelStatus["IGNORED_DATE_DECISION_INCOHERENTE"] = "ignored_dateDecisionIncoherente";
+    LabelStatus["IGNORED_CODE_NAC_NON_TRANSMIS_CC"] = "ignored_codeNACnonTransmisCC";
+    LabelStatus["IGNORED_CODE_NAC_DECISION_NON_PUBLIQUE"] = "ignored_codeNACdeDecisionNonPublique";
+    LabelStatus["IGNORED_CODE_NAC_DECISION_PARTIELLEMENT_PUBLIQUE"] = "ignored_codeNACdeDecisionPartiellementPublique";
 })(LabelStatus || (exports.LabelStatus = LabelStatus = {}));
 var TypePartie;
 (function (TypePartie) {

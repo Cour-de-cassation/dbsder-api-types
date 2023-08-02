@@ -4,8 +4,11 @@ export declare enum LabelStatus {
     DONE = "done",
     EXPORTED = "exported",
     BLOCKED = "blocked",
-    IGNORED_DECISIONNONPUBLIQUE = "ignored_decisionNonPublique",
-    IGNORED_DATEDECISIONINCOHERENTE = "ignored_dateDecisionIncoherente"
+    IGNORED_DECISION_NON_PUBLIQUE = "ignored_decisionNonPublique",
+    IGNORED_DATE_DECISION_INCOHERENTE = "ignored_dateDecisionIncoherente",
+    IGNORED_CODE_NAC_NON_TRANSMIS_CC = "ignored_codeNACnonTransmisCC",
+    IGNORED_CODE_NAC_DECISION_NON_PUBLIQUE = "ignored_codeNACdeDecisionNonPublique",
+    IGNORED_CODE_NAC_DECISION_PARTIELLEMENT_PUBLIQUE = "ignored_codeNACdeDecisionPartiellementPublique"
 }
 export declare enum TypePartie {
     PP = "PP",
