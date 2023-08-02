@@ -2,7 +2,8 @@ export enum LabelStatus {
     TOBETREATED = 'toBeTreated',
     LOADED = 'loaded',
     DONE = 'done',
-    TOIGNORE = 'toIgnore',
+    EXPORTED = 'exported',
+    BLOCKED = 'blocked',
     IGNORED_DECISIONNONPUBLIQUE = 'ignored_decisionNonPublique',
     IGNORED_DATEDECISIONINCOHERENTE = 'ignored_dateDecisionIncoherente'
 }
