@@ -69,20 +69,20 @@ export enum Sources {
     CA = 'CA'
 }
 
- interface DecisionAssociee {
+ export interface DecisionAssociee {
     numeroRegistre: string
     numeroRoleGeneral: string
     idJuridiction: string
     date: string
 }
- interface President {
+ export interface President {
     fonction: string
     nom: string
     prenom?: string
     civilite?: string
 
 }
-enum Occultation {
+export enum Occultation {
     AUCUNE = 'aucune',
     CONFORME = 'conforme',
     SUBSTITUANT = 'substituant',
