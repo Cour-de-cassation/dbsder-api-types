@@ -51,7 +51,7 @@ export interface DecisionAnalyse {
 }
 
 export interface Partie {
-    type: TypePartie
+    type?: TypePartie
     nom: string
     prenom?: string
     civilite?: string
@@ -67,6 +67,26 @@ export enum Sources {
     CC = 'CC',
     TJ = 'TJ',
     CA = 'CA'
+}
+
+ interface DecisionAssociee {
+    numeroRegistre: string
+    numeroRoleGeneral: string
+    idJuridiction: string
+    date: string
+}
+ interface President {
+    fonction: string
+    nom: string
+    prenom?: string
+    civilite?: string
+
+}
+enum Occultation {
+    AUCUNE = 'aucune',
+    CONFORME = 'conforme',
+    SUBSTITUANT = 'substituant',
+    COMPLEMENT = 'complément'
 }
 
 export interface DecisionDTO {
@@ -106,4 +126,24 @@ export interface DecisionDTO {
     labelTreatments?: string[];
     parties?: Partie[],
     pubCategory?: string;
+}
+
+export interface DecisionTJDTO extends DecisionDTO {
+    codeDecision:string;
+    codeNature:string;
+    codeService:string;
+    debatPublic:boolean;
+    decisionAssociee : DecisionAssociee;
+    libelleCodeDecision:string;
+    libelleNAC:string;
+    libelleNature:string;
+    libelleService:string;
+    matiereDeterminee:boolean;
+    numeroRoleGeneral:string;
+    pourvoiCourDeCassation:boolean;
+    pourvoiLocal:boolean;
+    president?:President;
+    recommandationOccultation : Occultation;
+    sommaire?: string
+    selection: boolean
 }
