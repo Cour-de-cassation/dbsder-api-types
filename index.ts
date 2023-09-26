@@ -146,4 +146,5 @@ export interface DecisionTJDTO extends DecisionDTO {
     recommandationOccultation : Occultation;
     sommaire?: string
     selection: boolean
+    indicateurQPC?: boolean
 }

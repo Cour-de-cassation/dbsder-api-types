@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.Sources = exports.QualitePartie = exports.TypePartie = exports.LabelStatus = void 0;
+exports.Occultation = exports.Sources = exports.QualitePartie = exports.TypePartie = exports.LabelStatus = void 0;
 var LabelStatus;
 (function (LabelStatus) {
     LabelStatus["TOBETREATED"] = "toBeTreated";
@@ -37,3 +37,10 @@ var Sources;
     Sources["TJ"] = "TJ";
     Sources["CA"] = "CA";
 })(Sources || (exports.Sources = Sources = {}));
+var Occultation;
+(function (Occultation) {
+    Occultation["AUCUNE"] = "aucune";
+    Occultation["CONFORME"] = "conforme";
+    Occultation["SUBSTITUANT"] = "substituant";
+    Occultation["COMPLEMENT"] = "compl\u00E9ment";
+})(Occultation || (exports.Occultation = Occultation = {}));
