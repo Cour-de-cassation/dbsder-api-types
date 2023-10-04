@@ -64,9 +64,9 @@ export interface DecisionOccultation {
 }
 
 export enum Sources {
-    CC = 'CC',
-    TJ = 'TJ',
-    CA = 'CA'
+    CC = 'jurinet',
+    TJ = 'juritj',
+    CA = 'jurica',
 }
 
  export interface DecisionAssociee {
@@ -91,13 +91,13 @@ export enum Occultation {
 
 export interface DecisionDTO {
     _id: string;
-    analysis: DecisionAnalyse;
+    analysis?: DecisionAnalyse;
     appeals: string[];
     chamberId: string;
     chamberName: string;
     dateCreation: string;
     dateDecision: string;
-    decatt: number[];
+    decatt?: number[];
     jurisdictionCode: string;
     jurisdictionId: string;
     jurisdictionName: string;
@@ -108,17 +108,17 @@ export interface DecisionDTO {
     pseudoText?: string;
     public?: boolean;
     registerNumber: string;
-    solution: string;
+    solution?: string;
     sourceId: number;
     sourceName: Sources;
     zoning?: object;
-    publication: string[];
-    formation: string;
+    publication?: string[];
+    formation?: string;
     blocOccultation: number;
-    NAOCode: string;
-    natureAffaireCivil: string;
-    natureAffairePenal: string;
-    codeMatiereCivil: string;
+    NAOCode?: string;
+    natureAffaireCivil?: string;
+    natureAffairePenal?: string;
+    codeMatiereCivil?: string;
     NACCode?: string;
     NPCode?: string;
     endCaseCode?: string;
@@ -136,7 +136,7 @@ export interface DecisionTJDTO extends DecisionDTO {
     decisionAssociee : DecisionAssociee;
     libelleCodeDecision:string;
     libelleNAC:string;
-    libelleNature:string;
+    libelleNatureParticuliere:string;
     libelleService:string;
     matiereDeterminee:boolean;
     numeroRoleGeneral:string;

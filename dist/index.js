@@ -33,9 +33,9 @@ var QualitePartie;
 })(QualitePartie || (exports.QualitePartie = QualitePartie = {}));
 var Sources;
 (function (Sources) {
-    Sources["CC"] = "CC";
-    Sources["TJ"] = "TJ";
-    Sources["CA"] = "CA";
+    Sources["CC"] = "jurinet";
+    Sources["TJ"] = "juritj";
+    Sources["CA"] = "jurica";
 })(Sources || (exports.Sources = Sources = {}));
 var Occultation;
 (function (Occultation) {
