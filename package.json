@@ -5,10 +5,8 @@
   "main": "dist/index.js",
   "types": "index.ts",
   "scripts": {
-    "build": "tsc",
-    "prepublish": "npm run build",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "publish": "npm run build && npm publish"
+    "prepublish": "tsc",
+    "publish": "npm publish"
   },
   "repository": {
     "type": "git",
