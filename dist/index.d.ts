@@ -123,6 +123,8 @@ export interface DecisionTJDTO extends DecisionDTO {
     codeService: string;
     debatPublic: boolean;
     decisionAssociee: DecisionAssociee;
+    indicateurQPC?: boolean;
+    idDecisionWinci?: string;
     libelleCodeDecision: string;
     libelleNAC: string;
     libelleNatureParticuliere: string;
@@ -135,5 +137,4 @@ export interface DecisionTJDTO extends DecisionDTO {
     recommandationOccultation: Occultation;
     sommaire?: string;
     selection: boolean;
-    indicateurQPC?: boolean;
 }
