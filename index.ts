@@ -28,16 +28,18 @@ export enum QualitePartie {
     N = 'N'
 }
 
-export type labelTreatmentsType = Array<{
-    annotations: Array<{
-        category: string;
-        entityId: string;
-        start: number;
-        text: string;
-    }>;
+export interface Annotation {
+    category: string;
+    entityId: string;
+    start: number;
+    text: string;
+}
+
+export interface LabelTreatment {
+    annotations: Annotation[];
     source: string;
     order: number;
-}>
+}
 
 export interface DecisionAnalyse {
     analyse: string[];
@@ -123,8 +125,8 @@ export interface DecisionDTO {
     NPCode?: string;
     endCaseCode?: string;
     filenameSource?: string;
-    labelTreatments?: string[];
-    parties?: Partie[],
+    labelTreatments?: LabelTreatment[];
+    parties?: Partie[];
     pubCategory?: string;
 }
 

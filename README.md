@@ -24,7 +24,7 @@ Une fois vos modifications faites :
   "version": "1.0.0"
 ```
 
-> Après chaque mise à jour, incrémenter la version par de 1 exemple : 1.0.1 puis 1.0.2 etc...
+> Après chaque mise à jour, incrémenter la version de 1, par exemple : 1.0.1 puis 1.0.2 etc...
 
 
 2. Lancer un prepublish afin de mettre à jour le dossier dist avec la commande :
