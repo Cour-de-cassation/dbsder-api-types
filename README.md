@@ -23,6 +23,7 @@ Une fois vos modifications faites :
 ```
 npm run prepublish
 ```
+Note : versionner une majeure ou une mineure se fait manuellement
 
 2. Une fois le prepublish réussi, enregistrer et publier le code sur github : 
 
