@@ -77,6 +77,7 @@ export enum Sources {
     numeroRoleGeneral: string
     idJuridiction: string
     date: string
+    idDecisionWinci?: string
 }
  export interface President {
     fonction: string

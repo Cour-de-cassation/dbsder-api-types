@@ -68,6 +68,7 @@ export interface DecisionAssociee {
     numeroRoleGeneral: string;
     idJuridiction: string;
     date: string;
+    idDecisionWinci?: string;
 }
 export interface President {
     fonction: string;
