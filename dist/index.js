@@ -14,12 +14,32 @@ var LabelStatus;
     LabelStatus["IGNORED_CODE_NAC_DECISION_NON_PUBLIQUE"] = "ignored_codeNACdeDecisionNonPublique";
     LabelStatus["IGNORED_CODE_NAC_DECISION_PARTIELLEMENT_PUBLIQUE"] = "ignored_codeNACdeDecisionPartiellementPublique";
 })(LabelStatus || (exports.LabelStatus = LabelStatus = {}));
+/**
+ * typePartie:
+ * PP = personne physique,
+ * PM = personne morale,
+ * AA = autorité administrative
+ */
 var TypePartie;
 (function (TypePartie) {
     TypePartie["PP"] = "PP";
     TypePartie["PM"] = "PM";
     TypePartie["AA"] = "AA";
 })(TypePartie || (exports.TypePartie = TypePartie = {}));
+/**
+ *Qualité de la partie :
+ * Si Personne Physique :
+ *  I = Demandeur
+ *  K = Défendeur
+ *  M = Partie intervenante
+ *  F = Autre partie
+ *
+ * Si Personne Morale :
+ *  J = Demandeur
+ *  L = Défendeur
+ *  G = Autre
+ *  N = Partie intervenante
+ */
 var QualitePartie;
 (function (QualitePartie) {
     QualitePartie["F"] = "F";

@@ -10,11 +10,31 @@ export declare enum LabelStatus {
     IGNORED_CODE_NAC_DECISION_NON_PUBLIQUE = "ignored_codeNACdeDecisionNonPublique",
     IGNORED_CODE_NAC_DECISION_PARTIELLEMENT_PUBLIQUE = "ignored_codeNACdeDecisionPartiellementPublique"
 }
+/**
+ * typePartie:
+ * PP = personne physique,
+ * PM = personne morale,
+ * AA = autorité administrative
+ */
 export declare enum TypePartie {
     PP = "PP",
     PM = "PM",
     AA = "AA"
 }
+/**
+ *Qualité de la partie :
+ * Si Personne Physique :
+ *  I = Demandeur
+ *  K = Défendeur
+ *  M = Partie intervenante
+ *  F = Autre partie
+ *
+ * Si Personne Morale :
+ *  J = Demandeur
+ *  L = Défendeur
+ *  G = Autre
+ *  N = Partie intervenante
+ */
 export declare enum QualitePartie {
     F = "F",
     G = "G",
