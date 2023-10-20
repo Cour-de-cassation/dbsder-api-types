@@ -75,7 +75,7 @@ export interface DecisionAnalyse {
     title: string[];
 }
 
-export interface Partie {
+export interface PartieTJ {
     type?: TypePartie
     nom?: string
     prenom?: string
@@ -150,7 +150,7 @@ export interface DecisionDTO {
     endCaseCode?: string;
     filenameSource?: string;
     labelTreatments?: LabelTreatment[];
-    parties?: Partie[];
+    parties?: PartieTJ[] | object[];
     pubCategory?: string;
 }
 
