@@ -142,7 +142,6 @@ export interface DecisionDTO {
 }
 export interface DecisionTJDTO extends DecisionDTO {
     codeDecision: string;
-    codeNature: string;
     codeService: string;
     debatPublic: boolean;
     decisionAssociee: DecisionAssociee;
