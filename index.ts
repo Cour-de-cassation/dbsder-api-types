@@ -77,7 +77,7 @@ export interface DecisionAnalyse {
 
 export interface Partie {
     type?: TypePartie
-    nom: string
+    nom?: string
     prenom?: string
     civilite?: string
     qualite?: QualitePartie
