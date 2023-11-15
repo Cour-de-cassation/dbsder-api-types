@@ -205,5 +205,6 @@ export interface CodeNAC {
     indicateurDecisionRenduePubliquement?: boolean;
     indicateurDebatsPublics?: boolean;
     indicateurAffaireSignalee?: boolean;
-    categoriesToOmit: Record<Occultation, Categories[]>;
+    categoriesToOmitTJ: Record<Occultation, Categories[]>;
+    categoriesToOmitCA: Record<Occultation, Categories[]>;
 }
