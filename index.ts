@@ -19,25 +19,25 @@ export enum LabelStatus {
  */
 
 export enum TypePartie {
-  PP = 'PP',
-  PM = 'PM',
-  AA = 'AA'
+    PP = 'PP',
+    PM = 'PM',
+    AA = 'AA'
 }
 
 /**
- *Qualité de la partie :
- * Si Personne Physique :
- *  I = Demandeur
- *  K = Défendeur
- *  M = Partie intervenante
- *  F = Autre partie
- *
- * Si Personne Morale :
- *  J = Demandeur
- *  L = Défendeur
- *  G = Autre
- *  N = Partie intervenante
- */
+   *Qualité de la partie :
+   * Si Personne Physique :
+   *  I = Demandeur
+   *  K = Défendeur
+   *  M = Partie intervenante
+   *  F = Autre partie
+   * 
+   * Si Personne Morale :
+   *  J = Demandeur
+   *  L = Défendeur
+   *  G = Autre
+   *  N = Partie intervenante
+   */
 
 export enum QualitePartie {
   F = 'F',
@@ -95,23 +95,45 @@ export enum Sources {
 }
 
 export interface DecisionAssociee {
-  numeroRegistre: string
-  numeroRoleGeneral: string
-  idJuridiction: string
-  date: string
-  idDecisionWinci?: string
+    numeroRegistre: string
+    numeroRoleGeneral: string
+    idJuridiction: string
+    date: string
+    idDecisionWinci?: string
 }
 export interface President {
-  fonction: string
-  nom: string
-  prenom?: string
-  civilite?: string
+    fonction: string
+    nom: string
+    prenom?: string
+    civilite?: string
+
 }
 export enum Occultation {
   AUCUNE = 'aucune',
   CONFORME = 'conforme',
   SUBSTITUANT = 'substituant',
   COMPLEMENT = 'complément'
+}
+
+export enum Categories {
+    adresse = "adresse",
+    cadastre = "cadastre",
+    personneMorale = "personneMorale",
+    personnePhysique = "personnePhysique",
+    professionnelAvocat = "professionnelAvocat",
+    professionnelMagistratGreffier = "professionnelMagistratGreffier",
+    dateNaissance = "dateNaissance",
+    dateDeces = "dateDeces",
+    dateMariage = "dateMariage",
+    insee = "insee",
+    plaqueImmatriculation = "plaqueImmatriculation",
+    compteBancaire = "compteBancaire",
+    localite = "localite",
+    numeroSiretSiren = "numeroSiretSiren",
+    // annotationSupplementaire = "annotationSupplementaire",
+    siteWebSensible = "siteWebSensible",
+    etablissement = "etablissement",
+    telephoneFax = "telephoneFax",
 }
 
 export interface DecisionDTO {
@@ -172,4 +194,16 @@ export interface DecisionTJDTO extends DecisionDTO {
   recommandationOccultation: Occultation
   sommaire?: string
   selection: boolean
+}
+
+
+export interface CodeNAC {
+    codeNAC: string;
+    libelleNAC: string;
+    blocOccultationCA?: number;
+    blocOccultationTJ?: number;
+    indicateurDecisionRenduePubliquement?: boolean;
+    indicateurDebatsPublics?: boolean;
+    indicateurAffaireSignalee?: boolean;
+    categoriesToOmit: Record<Occultation, Categories[]>;
 }
