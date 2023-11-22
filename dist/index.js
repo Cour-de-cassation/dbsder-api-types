@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.Occultation = exports.Sources = exports.QualitePartie = exports.TypePartie = exports.LabelStatus = void 0;
+exports.Categories = exports.Occultation = exports.Sources = exports.QualitePartie = exports.TypePartie = exports.LabelStatus = void 0;
 var LabelStatus;
 (function (LabelStatus) {
     LabelStatus["TOBETREATED"] = "toBeTreated";
@@ -64,3 +64,24 @@ var Occultation;
     Occultation["SUBSTITUANT"] = "substituant";
     Occultation["COMPLEMENT"] = "compl\u00E9ment";
 })(Occultation || (exports.Occultation = Occultation = {}));
+var Categories;
+(function (Categories) {
+    Categories["ADRESSE"] = "adresse";
+    Categories["CADASTRE"] = "cadastre";
+    Categories["PERSONNEMORALE"] = "personneMorale";
+    Categories["PERSONNEPHYSIQUE"] = "personnePhysique";
+    Categories["PROFESSIONNELAVOCAT"] = "professionnelAvocat";
+    Categories["PROFESSIONNELMAGISTRATGREFFIER"] = "professionnelMagistratGreffier";
+    Categories["DATENAISSANCE"] = "dateNaissance";
+    Categories["DATEDECES"] = "dateDeces";
+    Categories["DATEMARIAGE"] = "dateMariage";
+    Categories["INSEE"] = "insee";
+    Categories["PLAQUEIMMATRICULATION"] = "plaqueImmatriculation";
+    Categories["COMPTEBANCAIRE"] = "compteBancaire";
+    Categories["LOCALITE"] = "localite";
+    Categories["NUMEROSIRETSIREN"] = "numeroSiretSiren";
+    Categories["SITEWEBSENSIBLE"] = "siteWebSensible";
+    Categories["ETABLISSEMENT"] = "etablissement";
+    Categories["TELEPHONEFAX"] = "telephoneFax";
+    // ANNOTATIONSUPPLEMENTAIRE = "annotationSupplementaire",
+})(Categories || (exports.Categories = Categories = {}));

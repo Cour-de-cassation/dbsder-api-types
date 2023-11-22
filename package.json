@@ -1,6 +1,6 @@
 {
   "name": "dbsder-api-types",
-  "version": "1.1.25",
+  "version": "1.1.26",
   "description": "Librairie facilitant les interactions avec l'API DBSDER",
   "main": "dist/index.js",
   "author": "Cour de Cassation",

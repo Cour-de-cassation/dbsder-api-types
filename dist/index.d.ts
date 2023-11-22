@@ -102,6 +102,25 @@ export declare enum Occultation {
     SUBSTITUANT = "substituant",
     COMPLEMENT = "compl\u00E9ment"
 }
+export declare enum Categories {
+    ADRESSE = "adresse",
+    CADASTRE = "cadastre",
+    PERSONNEMORALE = "personneMorale",
+    PERSONNEPHYSIQUE = "personnePhysique",
+    PROFESSIONNELAVOCAT = "professionnelAvocat",
+    PROFESSIONNELMAGISTRATGREFFIER = "professionnelMagistratGreffier",
+    DATENAISSANCE = "dateNaissance",
+    DATEDECES = "dateDeces",
+    DATEMARIAGE = "dateMariage",
+    INSEE = "insee",
+    PLAQUEIMMATRICULATION = "plaqueImmatriculation",
+    COMPTEBANCAIRE = "compteBancaire",
+    LOCALITE = "localite",
+    NUMEROSIRETSIREN = "numeroSiretSiren",
+    SITEWEBSENSIBLE = "siteWebSensible",
+    ETABLISSEMENT = "etablissement",
+    TELEPHONEFAX = "telephoneFax"
+}
 export interface DecisionDTO {
     _id: string;
     analysis?: DecisionAnalyse;
@@ -159,4 +178,15 @@ export interface DecisionTJDTO extends DecisionDTO {
     recommandationOccultation: Occultation;
     sommaire?: string;
     selection: boolean;
+}
+export interface CodeNAC {
+    codeNAC: string;
+    libelleNAC: string;
+    blocOccultationCA?: number;
+    blocOccultationTJ?: number;
+    indicateurDecisionRenduePubliquement?: boolean;
+    indicateurDebatsPublics?: boolean;
+    indicateurAffaireSignalee?: boolean;
+    categoriesToOmitTJ: Record<Occultation, Categories[]>;
+    categoriesToOmitCA: Record<Occultation, Categories[]>;
 }
