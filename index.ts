@@ -19,25 +19,25 @@ export enum LabelStatus {
  */
 
 export enum TypePartie {
-    PP = 'PP',
-    PM = 'PM',
-    AA = 'AA'
+  PP = 'PP',
+  PM = 'PM',
+  AA = 'AA'
 }
 
 /**
-   *Qualité de la partie :
-   * Si Personne Physique :
-   *  I = Demandeur
-   *  K = Défendeur
-   *  M = Partie intervenante
-   *  F = Autre partie
-   * 
-   * Si Personne Morale :
-   *  J = Demandeur
-   *  L = Défendeur
-   *  G = Autre
-   *  N = Partie intervenante
-   */
+ *Qualité de la partie :
+ * Si Personne Physique :
+ *  I = Demandeur
+ *  K = Défendeur
+ *  M = Partie intervenante
+ *  F = Autre partie
+ *
+ * Si Personne Morale :
+ *  J = Demandeur
+ *  L = Défendeur
+ *  G = Autre
+ *  N = Partie intervenante
+ */
 
 export enum QualitePartie {
   F = 'F',
@@ -95,18 +95,17 @@ export enum Sources {
 }
 
 export interface DecisionAssociee {
-    numeroRegistre: string
-    numeroRoleGeneral: string
-    idJuridiction: string
-    date: string
-    idDecisionWinci?: string
+  numeroRegistre: string
+  numeroRoleGeneral: string
+  idJuridiction: string
+  date: string
+  idDecisionWinci?: string
 }
 export interface President {
-    fonction: string
-    nom: string
-    prenom?: string
-    civilite?: string
-
+  fonction: string
+  nom: string
+  prenom?: string
+  civilite?: string
 }
 export enum Occultation {
   AUCUNE = 'aucune',
@@ -116,24 +115,24 @@ export enum Occultation {
 }
 
 export enum Categories {
-    ADRESSE = "adresse",
-    CADASTRE = "cadastre",
-    PERSONNEMORALE = "personneMorale",
-    PERSONNEPHYSIQUE = "personnePhysique",
-    PROFESSIONNELAVOCAT = "professionnelAvocat",
-    PROFESSIONNELMAGISTRATGREFFIER = "professionnelMagistratGreffier",
-    DATENAISSANCE = "dateNaissance",
-    DATEDECES = "dateDeces",
-    DATEMARIAGE = "dateMariage",
-    INSEE = "insee",
-    PLAQUEIMMATRICULATION = "plaqueImmatriculation",
-    COMPTEBANCAIRE = "compteBancaire",
-    LOCALITE = "localite",
-    NUMEROSIRETSIREN = "numeroSiretSiren",
-    SITEWEBSENSIBLE = "siteWebSensible",
-    ETABLISSEMENT = "etablissement",
-    TELEPHONEFAX = "telephoneFax",
-    // ANNOTATIONSUPPLEMENTAIRE = "annotationSupplementaire",
+  ADRESSE = 'adresse',
+  CADASTRE = 'cadastre',
+  PERSONNEMORALE = 'personneMorale',
+  PERSONNEPHYSIQUE = 'personnePhysique',
+  PROFESSIONNELAVOCAT = 'professionnelAvocat',
+  PROFESSIONNELMAGISTRATGREFFIER = 'professionnelMagistratGreffier',
+  DATENAISSANCE = 'dateNaissance',
+  DATEDECES = 'dateDeces',
+  DATEMARIAGE = 'dateMariage',
+  INSEE = 'insee',
+  PLAQUEIMMATRICULATION = 'plaqueImmatriculation',
+  COMPTEBANCAIRE = 'compteBancaire',
+  LOCALITE = 'localite',
+  NUMEROSIRETSIREN = 'numeroSiretSiren',
+  SITEWEBSENSIBLE = 'siteWebSensible',
+  ETABLISSEMENT = 'etablissement',
+  TELEPHONEFAX = 'telephoneFax'
+  // ANNOTATIONSUPPLEMENTAIRE = "annotationSupplementaire",
 }
 
 export interface DecisionDTO {
@@ -196,15 +195,14 @@ export interface DecisionTJDTO extends DecisionDTO {
   selection: boolean
 }
 
-
 export interface CodeNAC {
-    codeNAC: string;
-    libelleNAC: string;
-    blocOccultationCA?: number;
-    blocOccultationTJ?: number;
-    indicateurDecisionRenduePubliquement?: boolean;
-    indicateurDebatsPublics?: boolean;
-    indicateurAffaireSignalee?: boolean;
-    categoriesToOmitTJ: Record<Occultation, Categories[]>;
-    categoriesToOmitCA: Record<Occultation, Categories[]>;
+  codeNAC: string
+  libelleNAC: string
+  blocOccultationCA?: number
+  blocOccultationTJ?: number
+  indicateurDecisionRenduePubliquement?: boolean
+  indicateurDebatsPublics?: boolean
+  indicateurAffaireSignalee?: boolean
+  categoriesToOmitTJ: Record<Occultation, Categories[]>
+  categoriesToOmitCA: Record<Occultation, Categories[]>
 }
