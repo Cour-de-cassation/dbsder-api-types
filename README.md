@@ -2,7 +2,7 @@
 
 Afin d'harmoniser nos types de données dans nos différents répertoires, nous proposons cette librairie définissant une décision comme modèle à maintenir.
 
-## Installation de la librairie
+## Utilisation de la librairie sur votre projet
 
 Sur le répertoire de votre choix avec la commande :
 ```
@@ -14,18 +14,28 @@ Puis importer le type souhaité :
 import { DecisionDTO } from 'dbsder-api-types'
 ```
 
+## Installation du package 
+Pour installer les packages nécessaires au bon fonctionnement de la librairie, ouvrir un terminal et entrer la commande suivante : 
+```bash
+npm install
+```  
+N'oubliez pas d'installer **husky** pour obtenir les hooks de commit/push
+```bash
+npx husky install
+```
+
 ## Publication du package
 
 Une fois vos modifications faites :
 
-1. Lancer un prepublish afin de mettre à jour le dossier dist et la version du package avec la commande :
+1. Lancer un build afin de mettre à jour le dossier dist et la version du package avec la commande :
 
 ```
-npm run prepublish
+npm run build
 ```
 Note : versionner une majeure ou une mineure se fait manuellement
 
-2. Une fois le prepublish réussi, enregistrer et publier le code sur github : 
+2. Une fois le build réussi, enregistrer et publier le code sur github : 
 
 ```
 git add .
