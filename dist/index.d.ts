@@ -4,9 +4,10 @@ export declare enum LabelStatus {
     DONE = "done",
     EXPORTED = "exported",
     BLOCKED = "blocked",
+    IGNORED_DEBAT_NON_PUBLIC = "ignored_debatNonPublic",
     IGNORED_DECISION_NON_PUBLIQUE = "ignored_decisionNonPublique",
+    IGNORED_CODE_DECISION_BLOQUE_CC = "ignored_codeDecisionBloqueCC",
     IGNORED_DATE_DECISION_INCOHERENTE = "ignored_dateDecisionIncoherente",
-    IGNORED_CODE_DECISION_NON_TRANSMIS_CC = "ignored_codeDecisionNonTransmisCC",
     IGNORED_CODE_NAC_DECISION_NON_PUBLIQUE = "ignored_codeNACdeDecisionNonPublique",
     IGNORED_CODE_NAC_DECISION_PARTIELLEMENT_PUBLIQUE = "ignored_codeNACdeDecisionPartiellementPublique"
 }
@@ -68,8 +69,8 @@ export interface DecisionAnalyse {
     title: string[];
 }
 export interface PartieTJ {
-    type?: TypePartie;
-    nom?: string;
+    type: TypePartie;
+    nom: string;
     prenom?: string;
     civilite?: string;
     qualite?: QualitePartie;
