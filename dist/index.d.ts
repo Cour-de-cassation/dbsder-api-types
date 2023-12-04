@@ -123,7 +123,7 @@ export declare enum Categories {
     TELEPHONEFAX = "telephoneFax"
 }
 export interface DecisionDTO {
-    _id: string;
+    _id?: string;
     analysis?: DecisionAnalyse;
     appeals: string[];
     chamberId: string;
@@ -159,6 +159,7 @@ export interface DecisionDTO {
     labelTreatments?: LabelTreatment[];
     parties?: PartieTJ[] | object[];
     pubCategory?: string;
+    idDecisionTJ?: string;
 }
 export interface DecisionTJDTO extends DecisionDTO {
     codeDecision: string;
@@ -166,6 +167,7 @@ export interface DecisionTJDTO extends DecisionDTO {
     debatPublic: boolean;
     decisionAssociee: DecisionAssociee;
     indicateurQPC?: boolean;
+    idDecisionTJ: string;
     idDecisionWinci?: string;
     libelleCodeDecision: string;
     libelleNAC: string;
