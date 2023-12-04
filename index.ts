@@ -173,7 +173,6 @@ export interface DecisionDTO {
   labelTreatments?: LabelTreatment[]
   parties?: PartieTJ[] | object[]
   pubCategory?: string
-  idDecisionTJ?: string
 }
 
 export interface DecisionTJDTO extends DecisionDTO {
