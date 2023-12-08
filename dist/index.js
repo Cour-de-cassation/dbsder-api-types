@@ -14,6 +14,7 @@ var LabelStatus;
     LabelStatus["IGNORED_DATE_DECISION_INCOHERENTE"] = "ignored_dateDecisionIncoherente";
     LabelStatus["IGNORED_CODE_NAC_DECISION_NON_PUBLIQUE"] = "ignored_codeNACdeDecisionNonPublique";
     LabelStatus["IGNORED_CODE_NAC_DECISION_PARTIELLEMENT_PUBLIQUE"] = "ignored_codeNACdeDecisionPartiellementPublique";
+    LabelStatus["IGNORED_CODE_NAC_INCONNU"] = "ignored_codeNACInconnu";
 })(LabelStatus || (exports.LabelStatus = LabelStatus = {}));
 /**
  * typePartie:
