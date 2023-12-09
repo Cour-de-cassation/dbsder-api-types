@@ -13,13 +13,32 @@ export enum LabelStatus {
   IGNORED_CODE_NAC_INCONNU = 'ignored_codeNACInconnu'
 }
 
+/**
+ * publishStatus:
+ *  toBePublished = décision à publier (positionné lorsque labelStatus passe à 'done' dans Label)
+ *  pending = en cours de traitement (préparation et optimisation en vue de l'indexation)
+ *  success =  publication effectuée avec succès
+ *  failure_preparing = échec lors de la préparation (côté plateforme privée)
+ *  failure_indexing = échec lors de l'indexation (côté plateforme publique/Elasticsearch)
+ *  blocked = publication bloquée (positionné en amont suivant les besoins, par exemple lors du passage
+ *            de labelStatus à 'done' pour une décision qui nécessiterait une validation finale avant
+ *            publication)
+ *  unpublished = décision dépubliée (devra repasser à 'toBePublished', manuellement ou automatiquement,
+ *                afin que la décision soit à nouveau publiée)
+ * 
+ * Could have:
+ *  toBePublishedImmediately = à publier immédiatement (via un job hors "schedule" tournant en continu
+ *                             et indépendant du job traitant les décisions 'toBePublished')
+ */
 export enum PublishStatus {
   TOBEPUBLISHED = 'toBePublished',
+  // TOBEPUBLISHEDIMMEDIATELY = 'toBePublishedImmediately',
   PENDING = 'pending',
   SUCCESS = 'success',
   FAILURE_PREPARING = 'failure_preparing',
   FAILURE_INDEXING = 'failure_indexing',
-  BLOCKED = 'blocked'
+  BLOCKED = 'blocked',
+  UNPUBLISHED = 'unpublished'
 }
 
 /**
