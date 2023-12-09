@@ -13,6 +13,15 @@ export enum LabelStatus {
   IGNORED_CODE_NAC_INCONNU = 'ignored_codeNACInconnu'
 }
 
+export enum PublishStatus {
+  TOBEPUBLISHED = 'toBePublished',
+  PENDING = 'pending',
+  SUCCESS = 'success',
+  FAILURE_PREPARING = 'failure_preparing',
+  FAILURE_INDEXING = 'failure_indexing',
+  BLOCKED = 'blocked'
+}
+
 /**
  * typePartie:
  * PP = personne physique,
@@ -150,6 +159,7 @@ export interface DecisionDTO {
   jurisdictionId: string
   jurisdictionName: string
   labelStatus: LabelStatus
+  publishStatus: PublishStatus
   occultation: DecisionOccultation
   originalText: string
   pseudoStatus?: string
