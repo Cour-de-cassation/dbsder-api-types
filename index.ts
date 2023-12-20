@@ -180,7 +180,7 @@ export interface DecisionDTO {
   jurisdictionId: string
   jurisdictionName: string
   labelStatus: LabelStatus
-  publishStatus: PublishStatus
+  publishStatus?: PublishStatus
   occultation: DecisionOccultation
   originalText: string
   pseudoStatus?: string
