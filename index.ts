@@ -10,7 +10,9 @@ export enum LabelStatus {
   IGNORED_DATE_DECISION_INCOHERENTE = 'ignored_dateDecisionIncoherente',
   IGNORED_CODE_NAC_DECISION_NON_PUBLIQUE = 'ignored_codeNACdeDecisionNonPublique',
   IGNORED_CODE_NAC_DECISION_PARTIELLEMENT_PUBLIQUE = 'ignored_codeNACdeDecisionPartiellementPublique',
-  IGNORED_CODE_NAC_INCONNU = 'ignored_codeNACInconnu'
+  IGNORED_CODE_NAC_INCONNU = 'ignored_codeNACInconnu',
+  IGNORED_CARACTERE_INCONNU = 'ignored_caractereInconnu',
+  IGNORED_DATE_AVANT_MISE_EN_SERVICE = 'ignored_dateAvantMiseEnService',
 }
 
 /**

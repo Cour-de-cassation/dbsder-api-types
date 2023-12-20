@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.Categories = exports.Occultation = exports.Sources = exports.QualitePartie = exports.TypePartie = exports.LabelStatus = void 0;
+exports.Categories = exports.Occultation = exports.Sources = exports.QualitePartie = exports.TypePartie = exports.PublishStatus = exports.LabelStatus = void 0;
 var LabelStatus;
 (function (LabelStatus) {
     LabelStatus["TOBETREATED"] = "toBeTreated";
@@ -15,7 +15,37 @@ var LabelStatus;
     LabelStatus["IGNORED_CODE_NAC_DECISION_NON_PUBLIQUE"] = "ignored_codeNACdeDecisionNonPublique";
     LabelStatus["IGNORED_CODE_NAC_DECISION_PARTIELLEMENT_PUBLIQUE"] = "ignored_codeNACdeDecisionPartiellementPublique";
     LabelStatus["IGNORED_CODE_NAC_INCONNU"] = "ignored_codeNACInconnu";
+    LabelStatus["IGNORED_CARACTERE_INCONNU"] = "ignored_caractereInconnu";
+    LabelStatus["IGNORED_DATE_AVANT_MISE_EN_SERVICE"] = "ignored_dateAvantMiseEnService";
 })(LabelStatus || (exports.LabelStatus = LabelStatus = {}));
+/**
+ * publishStatus:
+ *  toBePublished = décision à publier (positionné lorsque labelStatus passe à 'done' dans Label)
+ *  pending = en cours de traitement (préparation et optimisation en vue de l'indexation)
+ *  success =  publication effectuée avec succès
+ *  failure_preparing = échec lors de la préparation (côté plateforme privée)
+ *  failure_indexing = échec lors de l'indexation (côté plateforme publique/Elasticsearch)
+ *  blocked = publication bloquée (positionné en amont suivant les besoins, par exemple lors du passage
+ *            de labelStatus à 'done' pour une décision qui nécessiterait une validation finale avant
+ *            publication)
+ *  unpublished = décision dépubliée (devra repasser à 'toBePublished', manuellement ou automatiquement,
+ *                afin que la décision soit à nouveau publiée)
+ *
+ * Could have:
+ *  toBePublishedImmediately = à publier immédiatement (via un job hors "schedule" tournant en continu
+ *                             et indépendant du job traitant les décisions 'toBePublished')
+ */
+var PublishStatus;
+(function (PublishStatus) {
+    PublishStatus["TOBEPUBLISHED"] = "toBePublished";
+    // TOBEPUBLISHEDIMMEDIATELY = 'toBePublishedImmediately',
+    PublishStatus["PENDING"] = "pending";
+    PublishStatus["SUCCESS"] = "success";
+    PublishStatus["FAILURE_PREPARING"] = "failure_preparing";
+    PublishStatus["FAILURE_INDEXING"] = "failure_indexing";
+    PublishStatus["BLOCKED"] = "blocked";
+    PublishStatus["UNPUBLISHED"] = "unpublished";
+})(PublishStatus || (exports.PublishStatus = PublishStatus = {}));
 /**
  * typePartie:
  * PP = personne physique,
