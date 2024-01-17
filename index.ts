@@ -12,7 +12,7 @@ export enum LabelStatus {
   IGNORED_CODE_NAC_DECISION_PARTIELLEMENT_PUBLIQUE = 'ignored_codeNACdeDecisionPartiellementPublique',
   IGNORED_CODE_NAC_INCONNU = 'ignored_codeNACInconnu',
   IGNORED_CARACTERE_INCONNU = 'ignored_caractereInconnu',
-  IGNORED_DATE_AVANT_MISE_EN_SERVICE = 'ignored_dateAvantMiseEnService',
+  IGNORED_DATE_AVANT_MISE_EN_SERVICE = 'ignored_dateAvantMiseEnService'
 }
 
 /**
@@ -27,7 +27,7 @@ export enum LabelStatus {
  *            publication)
  *  unpublished = décision dépubliée (devra repasser à 'toBePublished', manuellement ou automatiquement,
  *                afin que la décision soit à nouveau publiée)
- * 
+ *
  * Could have:
  *  toBePublishedImmediately = à publier immédiatement (via un job hors "schedule" tournant en continu
  *                             et indépendant du job traitant les décisions 'toBePublished')
