@@ -217,7 +217,7 @@ export interface DecisionTJDTO extends DecisionDTO {
   idDecisionWinci?: string
   libelleCodeDecision: string
   libelleNAC: string
-  libelleNatureParticuliere: string
+  libelleNatureParticuliere?: string
   libelleService: string
   matiereDeterminee: boolean
   numeroRoleGeneral: string
