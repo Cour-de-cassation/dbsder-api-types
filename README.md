@@ -6,7 +6,7 @@ Afin d'harmoniser nos types de données dans nos différents répertoires, nous 
 
 Sur le répertoire de votre choix avec la commande :
 
-```
+```sh
 npm install dbsder-api-types
 ```
 
@@ -34,24 +34,24 @@ npx husky install
 
 Une fois vos modifications faites :
 
-1. Lancer un build afin de mettre à jour le dossier dist et la version du package avec la commande :
+### 1. Lancer un build afin de mettre à jour le dossier dist et la version du package avec la commande
 
-```
+```sh
 npm run build
 ```
 
 Note : versionner une majeure ou une mineure se fait manuellement
 
-2. Une fois le build réussi, enregistrer et publier le code sur github :
+### 2. Une fois le build réussi, enregistrer et publier le code sur github
 
-```
+```sh
 git add .
 git commit -m "feat:(description de la modificiation)"
 git push origin
 ```
 
-3. Puis publiez sur npmjs.org :
+### 3. Puis publiez sur npmjs.org
 
-```
+```sh
 npm publish
 ```
