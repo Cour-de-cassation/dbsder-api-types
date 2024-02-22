@@ -5,21 +5,27 @@ Afin d'harmoniser nos types de données dans nos différents répertoires, nous 
 ## Utilisation de la librairie sur votre projet
 
 Sur le répertoire de votre choix avec la commande :
+
 ```
 npm install dbsder-api-types
 ```
 
 Puis importer le type souhaité :
+
 ```typescript
 import { DecisionDTO } from 'dbsder-api-types'
 ```
 
-## Installation du package 
-Pour installer les packages nécessaires au bon fonctionnement de la librairie, ouvrir un terminal et entrer la commande suivante : 
+## Installation du package
+
+Pour installer les packages nécessaires au bon fonctionnement de la librairie, ouvrir un terminal et entrer la commande suivante :
+
 ```bash
 npm install
 ```  
+
 N'oubliez pas d'installer **husky** pour obtenir les hooks de commit/push
+
 ```bash
 npx husky install
 ```
@@ -33,9 +39,10 @@ Une fois vos modifications faites :
 ```
 npm run build
 ```
+
 Note : versionner une majeure ou une mineure se fait manuellement
 
-2. Une fois le build réussi, enregistrer et publier le code sur github : 
+2. Une fois le build réussi, enregistrer et publier le code sur github :
 
 ```
 git add .
@@ -44,7 +51,7 @@ git push origin
 ```
 
 3. Puis publiez sur npmjs.org :
+
 ```
 npm publish
 ```
-
