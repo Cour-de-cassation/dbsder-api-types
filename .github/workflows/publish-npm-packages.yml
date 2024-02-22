@@ -1,0 +1,30 @@
+name: Publish NPM packages
+
+on:
+    push:
+      branches:
+        - master
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: 20
+    
+    - name: Install dependancies
+      run: npm install
+
+    - name: Compile typescript code
+      run: npm build && npm format
+    
+    - name: Publish npm package
+      uses: mikeal/merge-release@master
+      env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
