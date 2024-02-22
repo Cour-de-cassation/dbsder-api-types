@@ -22,6 +22,7 @@ jobs:
 
     - name: Compile typescript code
       run: npm run build && npm run format
+
     
     - name: Publish npm package
       uses: mikeal/merge-release@master
