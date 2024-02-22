@@ -17,6 +17,7 @@ var LabelStatus;
     LabelStatus["IGNORED_CODE_NAC_INCONNU"] = "ignored_codeNACInconnu";
     LabelStatus["IGNORED_CARACTERE_INCONNU"] = "ignored_caractereInconnu";
     LabelStatus["IGNORED_DATE_AVANT_MISE_EN_SERVICE"] = "ignored_dateAvantMiseEnService";
+    LabelStatus["IGNORED_CONTROLE_REQUIS"] = "ignored_controleRequis";
 })(LabelStatus || (exports.LabelStatus = LabelStatus = {}));
 /**
  * publishStatus:
