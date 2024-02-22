@@ -44,7 +44,6 @@ Note : versionner une majeure ou une mineure se fait manuellement
 
 ### 2. Une fois le build réussi, enregistrer et publier le code sur github
 
-
 ```sh
 git add .
 git commit -m "feat:(description de la modificiation)"
