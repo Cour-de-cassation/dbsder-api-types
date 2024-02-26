@@ -24,11 +24,9 @@ jobs:
       run: npm run build && npm run format
 
     
-    - name: Publish npm package in npm registry
+    - name: Publish npm package
       uses: github-actions-community/merge-release@main
       env:
-          DEPLOY_DIR: ./
-          SRC_PACKAGE_DIR: ./
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
 
