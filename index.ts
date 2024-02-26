@@ -209,14 +209,14 @@ export interface DecisionDTO {
 }
 
 export interface DecisionTJDTO extends DecisionDTO {
-  codeDecision: string
+  endCaseCode: string
   codeService: string
   debatPublic: boolean
   decisionAssociee: DecisionAssociee
   indicateurQPC?: boolean
   idDecisionTJ: string
   idDecisionWinci?: string
-  libelleCodeDecision: string
+  libelleEndCaseCode: string
   libelleNAC: string
   libelleNatureParticuliere?: string
   libelleService: string
