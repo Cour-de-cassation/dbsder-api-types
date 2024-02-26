@@ -25,7 +25,9 @@ jobs:
 
     
     - name: Publish npm package
-      uses: mikeal/merge-release@main
+      uses: github-actions-community/merge-release@main
       env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
+
+          
