@@ -7,7 +7,7 @@ Le package est publié automatiquement sur NPM lorsque la PR est fusionnée dans
 Les versions sont gérées automatiquement par le [Github Actions](/.github/workflows/publish-npm-packages.yml):
 
 Le nom de votre PR conditionne la montée de version du package :
-- Si `BREAKING CHANGE` est présent dans le titre ==> version majeure
+- Si `BREAKING CHANGE` ou `!` est présent dans le titre ==> version majeure
 - Si `feat` est présent dans le titre ==> version mineure
 - Sinon ==> version patch 
 

@@ -35,7 +35,7 @@ npx husky install
 * Créer une branch pour faire vos modifications
 * Une fois les modifications terminées ouvrir une PR sur github
 * Le nom de votre PR conditionne la montée de version du package :
-    - Si `BREAKING CHANGE` est présent dans le titre ==> version majeure
+    - Si `BREAKING CHANGE` ou `!` est présent dans le titre ==> version majeure
     - Si `feat` est présent dans le titre ==> version mineure
     - Sinon ==> version patch 
 * Une fois votre PR merge vérifier le bon fonctionnement du github action.
