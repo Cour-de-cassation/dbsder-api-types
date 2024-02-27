@@ -6,7 +6,7 @@ on:
         - master
 
 jobs:
-  Compile & publish to npm:
+  compile-and-publish-to-npm:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout repository
