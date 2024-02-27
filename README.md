@@ -30,28 +30,12 @@ N'oubliez pas d'installer **husky** pour obtenir les hooks de commit/push
 npx husky install
 ```
 
-## Publication du package
+## Modifier et publier le package
 
-Une fois vos modifications faites :
-
-### 1. Lancer un build afin de mettre à jour le dossier dist et la version du package avec la commande
-
-```sh
-npm run build
-```
-
-Note : versionner une majeure ou une mineure se fait manuellement
-
-### 2. Une fois le build réussi, enregistrer et publier le code sur github
-
-```sh
-git add .
-git commit -m "feat:(description de la modificiation)"
-git push origin
-```
-
-### 3. Puis publiez sur npmjs.org
-
-```sh
-npm publish
-```
+* Créer une branch pour faire vos modifications
+* Une fois les modifications terminées ouvrir une PR sur github
+* Le nom de votre PR conditionne la montée de version du package :
+    - Si `BREAKING CHANGE` ou `!` est présent dans le titre ==> version majeure
+    - Si `feat` est présent dans le titre ==> version mineure
+    - Sinon ==> version patch 
+* Une fois votre PR merge vérifier le bon fonctionnement du github action.
