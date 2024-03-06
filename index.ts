@@ -158,6 +158,7 @@ export enum Categories {
   DATEDECES = 'dateDeces',
   DATEMARIAGE = 'dateMariage',
   INSEE = 'insee',
+  NUMEROIDENTIFIANT = "numeroIdentifiant",
   PLAQUEIMMATRICULATION = 'plaqueImmatriculation',
   COMPTEBANCAIRE = 'compteBancaire',
   LOCALITE = 'localite',
