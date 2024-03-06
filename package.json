@@ -1,6 +1,5 @@
 {
   "name": "dbsder-api-types",
-  "version": "1.1.29",
   "description": "Librairie facilitant les interactions avec l'API DBSDER",
   "main": "dist/index.js",
   "author": "Cour de Cassation",
@@ -19,8 +18,8 @@
   "homepage": "https://github.com/Cour-de-cassation/decision-type#readme",
   "devDependencies": {
     "husky": "8.0.3",
-    "parse-json": "7.0.0",
-    "prettier": "3.1.0",
-    "typescript": "5.1.6"
+    "parse-json": "8.1.0",
+    "prettier": "3.2.4",
+    "typescript": "5.3.3"
   }
 }

@@ -9,7 +9,39 @@ export enum LabelStatus {
   IGNORED_CODE_DECISION_BLOQUE_CC = 'ignored_codeDecisionBloqueCC',
   IGNORED_DATE_DECISION_INCOHERENTE = 'ignored_dateDecisionIncoherente',
   IGNORED_CODE_NAC_DECISION_NON_PUBLIQUE = 'ignored_codeNACdeDecisionNonPublique',
-  IGNORED_CODE_NAC_DECISION_PARTIELLEMENT_PUBLIQUE = 'ignored_codeNACdeDecisionPartiellementPublique'
+  IGNORED_CODE_NAC_DECISION_PARTIELLEMENT_PUBLIQUE = 'ignored_codeNACdeDecisionPartiellementPublique',
+  IGNORED_CODE_NAC_INCONNU = 'ignored_codeNACInconnu',
+  IGNORED_CARACTERE_INCONNU = 'ignored_caractereInconnu',
+  IGNORED_DATE_AVANT_MISE_EN_SERVICE = 'ignored_dateAvantMiseEnService',
+  IGNORED_CONTROLE_REQUIS = 'ignored_controleRequis'
+}
+
+/**
+ * publishStatus:
+ *  toBePublished = décision à publier (positionné lorsque labelStatus passe à 'done' dans Label)
+ *  pending = en cours de traitement (préparation et optimisation en vue de l'indexation)
+ *  success =  publication effectuée avec succès
+ *  failure_preparing = échec lors de la préparation (côté plateforme privée)
+ *  failure_indexing = échec lors de l'indexation (côté plateforme publique/Elasticsearch)
+ *  blocked = publication bloquée (positionné en amont suivant les besoins, par exemple lors du passage
+ *            de labelStatus à 'done' pour une décision qui nécessiterait une validation finale avant
+ *            publication)
+ *  unpublished = décision dépubliée (devra repasser à 'toBePublished', manuellement ou automatiquement,
+ *                afin que la décision soit à nouveau publiée)
+ *
+ * Could have:
+ *  toBePublishedImmediately = à publier immédiatement (via un job hors "schedule" tournant en continu
+ *                             et indépendant du job traitant les décisions 'toBePublished')
+ */
+export enum PublishStatus {
+  TOBEPUBLISHED = 'toBePublished',
+  // TOBEPUBLISHEDIMMEDIATELY = 'toBePublishedImmediately',
+  PENDING = 'pending',
+  SUCCESS = 'success',
+  FAILURE_PREPARING = 'failure_preparing',
+  FAILURE_INDEXING = 'failure_indexing',
+  BLOCKED = 'blocked',
+  UNPUBLISHED = 'unpublished'
 }
 
 /**
@@ -149,6 +181,7 @@ export interface DecisionDTO {
   jurisdictionId: string
   jurisdictionName: string
   labelStatus: LabelStatus
+  publishStatus?: PublishStatus
   occultation: DecisionOccultation
   originalText: string
   pseudoStatus?: string
@@ -176,16 +209,16 @@ export interface DecisionDTO {
 }
 
 export interface DecisionTJDTO extends DecisionDTO {
-  codeDecision: string
+  endCaseCode: string
   codeService: string
   debatPublic: boolean
   decisionAssociee: DecisionAssociee
   indicateurQPC?: boolean
   idDecisionTJ: string
   idDecisionWinci?: string
-  libelleCodeDecision: string
+  libelleEndCaseCode: string
   libelleNAC: string
-  libelleNatureParticuliere: string
+  libelleNatureParticuliere?: string
   libelleService: string
   matiereDeterminee: boolean
   numeroRoleGeneral: string
