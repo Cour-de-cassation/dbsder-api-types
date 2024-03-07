@@ -210,7 +210,6 @@ export interface DecisionDTO {
 }
 
 export interface DecisionTJDTO extends DecisionDTO {
-  endCaseCode: string
   codeService: string
   debatPublic: boolean
   decisionAssociee: DecisionAssociee
