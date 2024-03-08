@@ -127,6 +127,34 @@ export enum Sources {
   CA = 'jurica'
 }
 
+export interface Zoning {
+  zones?: ZoningZones
+  introduction_subzonage?: ZoningIntroductionSubzonage
+  visa?: string[] 
+  is_public?: boolean 
+  is_public_text?: string[]
+  arret_id: number
+}
+
+export interface ZoningZones {
+  'introduction'?: object,
+  'moyens'?: object[],
+  'expose du litige'?: object[],
+  'motivations'?: object[],
+  'dispositif'?: object,
+  'moyens annexes'?:  object
+}
+
+export interface ZoningIntroductionSubzonage {
+  'n_arret'?: string
+  'formation'?: string
+  'publication'?: string[]
+  'juridiction': string
+  'chambre': string
+  'pourvoi'?: string[]
+  'composition'?: object
+}
+
 export interface DecisionAssociee {
   numeroRegistre: string
   numeroRoleGeneral: string
@@ -192,7 +220,9 @@ export interface DecisionDTO {
   solution?: string
   sourceId: number
   sourceName: Sources
-  zoning?: object
+  zoning?: object // Deprecated : replaced by originalTextZoning and pseudoTextZoning
+  originalTextZoning: Zoning
+  pseudoTextZoning?: Zoning
   publication?: string[]
   formation?: string
   blocOccultation: number
