@@ -39,3 +39,9 @@ npx husky install
     - Si `feat` est présent dans le titre ==> version mineure
     - Sinon ==> version patch 
 * Une fois votre PR merge vérifier le bon fonctionnement du github action.
+
+
+# Pour utiliser le package en local sur un projet
+
+* `npm run build`
+* Dans le projet ou vous souhaitez utiliser le package : `npm install --save ~/PATH/TO/THE/REPO/dbsder-api-types`
