@@ -13,7 +13,9 @@ export enum LabelStatus {
   IGNORED_CODE_NAC_INCONNU = 'ignored_codeNACInconnu',
   IGNORED_CARACTERE_INCONNU = 'ignored_caractereInconnu',
   IGNORED_DATE_AVANT_MISE_EN_SERVICE = 'ignored_dateAvantMiseEnService',
-  IGNORED_CONTROLE_REQUIS = 'ignored_controleRequis'
+  IGNORED_CONTROLE_REQUIS = 'ignored_controleRequis',
+  IGNORED_DECISION_NON_PUBLIQUE_PAR_ZONAGE = 'ignored_decisionNonPubliqueParZonage',
+  IGNORED_CODE_NAC_DECISION_PARTIELLEMENT_PUBLIQUE_PAR_ZONAGE = 'ignored_codeNACdeDecisionPartiellementPubliqueParZonage'
 }
 
 /**
@@ -131,7 +133,7 @@ export interface Zoning {
   zones?: ZoningZones
   introduction_subzonage?: ZoningIntroductionSubzonage
   visa?: string[] 
-  is_public?: boolean 
+  is_public?: number
   is_public_text?: string[]
   arret_id: number
 }
