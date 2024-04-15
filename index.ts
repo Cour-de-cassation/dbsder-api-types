@@ -132,29 +132,29 @@ export enum Sources {
 export interface Zoning {
   zones?: ZoningZones
   introduction_subzonage?: ZoningIntroductionSubzonage
-  visa?: string[] 
+  visa?: string[]
   is_public?: number
   is_public_text?: string[]
   arret_id: number
 }
 
 export interface ZoningZones {
-  'introduction'?: object,
-  'moyens'?: object[],
-  'expose du litige'?: object[],
-  'motivations'?: object[],
-  'dispositif'?: object,
-  'moyens annexes'?:  object
+  introduction?: object
+  moyens?: object[]
+  'expose du litige'?: object[]
+  motivations?: object[]
+  dispositif?: object
+  'moyens annexes'?: object
 }
 
 export interface ZoningIntroductionSubzonage {
-  'n_arret'?: string
-  'formation'?: string
-  'publication'?: string[]
-  'juridiction': string
-  'chambre': string
-  'pourvoi'?: string[]
-  'composition'?: object
+  n_arret?: string
+  formation?: string
+  publication?: string[]
+  juridiction: string
+  chambre: string
+  pourvoi?: string[]
+  composition?: object
 }
 
 export interface DecisionAssociee {
@@ -188,7 +188,7 @@ export enum Categories {
   DATEDECES = 'dateDeces',
   DATEMARIAGE = 'dateMariage',
   INSEE = 'insee',
-  NUMEROIDENTIFIANT = "numeroIdentifiant",
+  NUMEROIDENTIFIANT = 'numeroIdentifiant',
   PLAQUEIMMATRICULATION = 'plaqueImmatriculation',
   COMPTEBANCAIRE = 'compteBancaire',
   LOCALITE = 'localite',
