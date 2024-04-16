@@ -13,7 +13,10 @@ export enum LabelStatus {
   IGNORED_CODE_NAC_INCONNU = 'ignored_codeNACInconnu',
   IGNORED_CARACTERE_INCONNU = 'ignored_caractereInconnu',
   IGNORED_DATE_AVANT_MISE_EN_SERVICE = 'ignored_dateAvantMiseEnService',
-  IGNORED_CONTROLE_REQUIS = 'ignored_controleRequis'
+  IGNORED_CONTROLE_REQUIS = 'ignored_controleRequis',
+  IGNORED_DECISION_NON_PUBLIQUE_PAR_ZONAGE = 'ignored_decisionNonPubliqueParZonage',
+  IGNORED_DECISION_PARTIELLEMENT_PUBLIQUE_PAR_ZONAGE = 'ignored_decisionPartiellementPubliqueParZonage',
+  IGNORED_CODE_NAC_OBSOLETE = 'ignored_codeNacObsolete'
 }
 
 /**
@@ -130,29 +133,29 @@ export enum Sources {
 export interface Zoning {
   zones?: ZoningZones
   introduction_subzonage?: ZoningIntroductionSubzonage
-  visa?: string[] 
-  is_public?: boolean 
+  visa?: string[]
+  is_public?: number
   is_public_text?: string[]
   arret_id: number
 }
 
 export interface ZoningZones {
-  'introduction'?: object,
-  'moyens'?: object[],
-  'expose du litige'?: object[],
-  'motivations'?: object[],
-  'dispositif'?: object,
-  'moyens annexes'?:  object
+  introduction?: { start: number; end: number }
+  moyens?: { start: number; end: number }
+  'expose du litige'?: { start: number; end: number }
+  motivations?: { start: number; end: number }
+  dispositif?: { start: number; end: number }
+  'moyens annexes'?: { start: number; end: number }
 }
 
 export interface ZoningIntroductionSubzonage {
-  'n_arret'?: string
-  'formation'?: string
-  'publication'?: string[]
-  'juridiction': string
-  'chambre': string
-  'pourvoi'?: string[]
-  'composition'?: object
+  n_arret?: string
+  formation?: string
+  publication?: string[]
+  juridiction: string
+  chambre: string
+  pourvoi?: string[]
+  composition?: object
 }
 
 export interface DecisionAssociee {
@@ -186,7 +189,7 @@ export enum Categories {
   DATEDECES = 'dateDeces',
   DATEMARIAGE = 'dateMariage',
   INSEE = 'insee',
-  NUMEROIDENTIFIANT = "numeroIdentifiant",
+  NUMEROIDENTIFIANT = 'numeroIdentifiant',
   PLAQUEIMMATRICULATION = 'plaqueImmatriculation',
   COMPTEBANCAIRE = 'compteBancaire',
   LOCALITE = 'localite',

@@ -10,12 +10,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Cour-de-cassation/decision-type.git"
+    "url": "git+https://github.com/Cour-de-cassation/dbsder-api-types.git"
   },
   "bugs": {
-    "url": "https://github.com/Cour-de-cassation/decision-type/issues"
+    "url": "https://github.com/Cour-de-cassation/dbsder-api-types/issues"
   },
-  "homepage": "https://github.com/Cour-de-cassation/decision-type#readme",
+  "homepage": "https://github.com/Cour-de-cassation/dbsder-api-types#readme",
   "devDependencies": {
     "husky": "8.0.3",
     "parse-json": "8.1.0",
