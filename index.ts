@@ -140,12 +140,12 @@ export interface Zoning {
 }
 
 export interface ZoningZones {
-  introduction?: { start: number; end: number } | Array<{ start: number; end: number }>
+  introduction?: { start: number; end: number }
   moyens?: { start: number; end: number } | Array<{ start: number; end: number }>
   'expose du litige'?: { start: number; end: number } | Array<{ start: number; end: number }>
   motivations?: { start: number; end: number } | Array<{ start: number; end: number }>
-  dispositif?: { start: number; end: number } | Array<{ start: number; end: number }>
-  'moyens annexes'?: { start: number; end: number } | Array<{ start: number; end: number }>
+  dispositif?: { start: number; end: number }
+  'moyens annexes'?: { start: number; end: number }
 }
 
 export interface ZoningIntroductionSubzonage {
