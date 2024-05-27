@@ -122,6 +122,7 @@ export interface PartieTJ {
 export interface DecisionOccultation {
   additionalTerms: string
   categoriesToOmit: string[]
+  motivationOccultation: boolean
 }
 
 export enum Sources {
