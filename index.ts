@@ -225,7 +225,7 @@ export interface DecisionDTO {
   sourceId: number
   sourceName: Sources
   zoning?: object // Deprecated : replaced by originalTextZoning and pseudoTextZoning
-  originalTextZoning: Zoning
+  originalTextZoning?: Zoning
   pseudoTextZoning?: Zoning
   publication?: string[]
   formation?: string
