@@ -94,7 +94,6 @@ export interface Annotation {
   certaintyScore: number
 }
 
-
 type nlpVersionDetails = {
   version: string
   date: string
@@ -106,7 +105,7 @@ type nlpVersion = {
   pseudonymisationApi: nlpVersionDetails
   model: {
     name: string
-  };
+  }
 }
 
 export interface LabelTreatment {
