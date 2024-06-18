@@ -112,7 +112,7 @@ export interface LabelTreatment {
   annotations: Annotation[]
   source: string
   order: number
-  nlpVersions?: nlpVersion
+  version?: nlpVersion
 }
 
 export interface DecisionAnalyse {
