@@ -94,10 +94,25 @@ export interface Annotation {
   certaintyScore: number
 }
 
+type nlpVersionDetails = {
+  version: string
+  date: string
+}
+
+type nlpVersion = {
+  juriSpacyTokenizer: nlpVersionDetails
+  juritools: nlpVersionDetails
+  pseudonymisationApi: nlpVersionDetails
+  model: {
+    name: string
+  }
+}
+
 export interface LabelTreatment {
   annotations: Annotation[]
   source: string
   order: number
+  version?: nlpVersion
 }
 
 export interface DecisionAnalyse {
