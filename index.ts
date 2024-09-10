@@ -16,7 +16,8 @@ export enum LabelStatus {
   IGNORED_CONTROLE_REQUIS = 'ignored_controleRequis',
   IGNORED_DECISION_NON_PUBLIQUE_PAR_ZONAGE = 'ignored_decisionNonPubliqueParZonage',
   IGNORED_DECISION_PARTIELLEMENT_PUBLIQUE_PAR_ZONAGE = 'ignored_decisionPartiellementPubliqueParZonage',
-  IGNORED_BLOC_OCCULATION_NON_DEFINI = 'ignored_blocOcculationNonDefini'
+  IGNORED_BLOC_OCCULATION_NON_DEFINI = 'ignored_blocOcculationNonDefini',
+  IGNORED_RECOMMANDATION_OCCULTATION_NON_SUIVIE = 'ignored_recommandationOccultationNonSuivie'
 }
 
 /**
