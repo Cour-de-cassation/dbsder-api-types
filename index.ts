@@ -53,12 +53,14 @@ export enum PublishStatus {
  * PP = personne physique,
  * PM = personne morale,
  * AA = autorité administrative
+ * NA = non applicable ou non disponible (TCOM)
  */
 
 export enum TypePartie {
   PP = 'PP',
   PM = 'PM',
-  AA = 'AA'
+  AA = 'AA',
+  NA = 'NA'
 }
 
 /**
