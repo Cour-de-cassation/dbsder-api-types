@@ -146,7 +146,8 @@ export interface DecisionOccultation {
 export enum Sources {
   CC = 'jurinet',
   TJ = 'juritj',
-  CA = 'jurica'
+  CA = 'jurica',
+  TCOM = 'juritcom'
 }
 
 export interface Zoning {
