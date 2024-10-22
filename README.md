@@ -4,6 +4,8 @@ Afin d'harmoniser nos types de données dans nos différents répertoires, nous 
 
 ## Utilisation de la librairie sur votre projet
 
+[![npm](https://img.shields.io/npm/v/dbsder-api-types)](https://www.npmjs.com/package/dbsder-api-types)
+
 Sur le répertoire de votre choix avec la commande :
 
 ```sh
