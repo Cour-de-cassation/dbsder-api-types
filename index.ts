@@ -116,6 +116,7 @@ export interface LabelTreatment {
   source: string
   order: number
   version?: nlpVersion
+  treatmentDate?: string
 }
 
 export interface DecisionAnalyse {
