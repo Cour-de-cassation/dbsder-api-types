@@ -284,6 +284,16 @@ export interface DecisionTJDTO extends DecisionDTO {
   selection: boolean
 }
 
+export interface DecisionTCOMDTO extends DecisionDTO {
+  idGroupement: string,
+  debatPublic: boolean
+  idDecisionTCOM: string
+  codeProcedure?: string
+  libelleMatiere?: string
+  selection: boolean,
+  composition?: object[]
+}
+
 export interface CodeNAC {
   codeNAC: string
   libelleNAC: string
