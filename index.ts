@@ -176,7 +176,7 @@ export interface ZoningIntroductionSubzonage {
   juridiction: string
   chambre: string
   pourvoi?: string[]
-  composition?: object
+  composition?: { start: number; end: number }
 }
 
 export interface DecisionAssociee {
