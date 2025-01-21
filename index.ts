@@ -48,6 +48,15 @@ export enum PublishStatus {
   UNPUBLISHED = 'unpublished'
 }
 
+export enum LabelRoute {
+  AUTOMATIC = 'automatic',
+  EXHAUSTIVE = 'exhaustive',
+  SIMPLE = 'simple',
+  CONFIRMATION = 'confirmation',
+  REQUEST = 'request',
+  DEFAULT = 'default'
+}
+
 /**
  * typePartie:
  * PP = personne physique,
@@ -285,13 +294,23 @@ export interface DecisionTJDTO extends DecisionDTO {
 }
 
 export interface DecisionTCOMDTO extends DecisionDTO {
-  idGroupement: string,
+  idGroupement: string
   debatPublic: boolean
   idDecisionTCOM: string
   codeProcedure?: string
   libelleMatiere?: string
-  selection: boolean,
+  selection: boolean
   composition?: object[]
+}
+
+export interface CategorieCodeDecision {
+  code: string
+  libelle: string
+}
+
+export interface CategorieCodeNAC {
+  code: string
+  libelle: string
 }
 
 export interface CodeNAC {
@@ -304,4 +323,17 @@ export interface CodeNAC {
   indicateurAffaireSignalee?: boolean
   categoriesToOmitTJ: Record<Occultation, Categories[]>
   categoriesToOmitCA: Record<Occultation, Categories[]>
+  niveau1NAC: CategorieCodeNAC
+  niveau2NAC: CategorieCodeNAC
+  routeRelecture?: LabelRoute
+}
+
+export interface CodeDecision {
+  codeDecision: string
+  libelleCodeDecision?: string
+  categorieCodeDecision?: CategorieCodeDecision
+  isTransmissibleToCC?: boolean
+  overwritesNAC?: boolean
+  routeCA?: LabelRoute
+  routeTJ?: LabelRoute
 }
