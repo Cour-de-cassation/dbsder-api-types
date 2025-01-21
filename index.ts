@@ -185,7 +185,7 @@ export interface ZoningIntroductionSubzonage {
   juridiction: string
   chambre: string
   pourvoi?: string[]
-  composition?: object
+  composition?: { start: number; end: number }
 }
 
 export interface DecisionAssociee {
@@ -293,6 +293,15 @@ export interface DecisionTJDTO extends DecisionDTO {
   selection: boolean
 }
 
+export interface DecisionTCOMDTO extends DecisionDTO {
+  idGroupement: string
+  debatPublic: boolean
+  idDecisionTCOM: string
+  codeProcedure?: string
+  libelleMatiere?: string
+  selection: boolean
+  composition?: object[]
+}
 
 export interface CategorieCodeDecision {
   code: string
@@ -303,7 +312,6 @@ export interface CategorieCodeNAC {
   code: string
   libelle: string
 }
-
 
 export interface CodeNAC {
   codeNAC: string
@@ -327,5 +335,5 @@ export interface CodeDecision {
   isTransmissibleToCC?: boolean
   overwritesNAC?: boolean
   routeCA?: LabelRoute
-  routeTJ?: LabelRoute 
+  routeTJ?: LabelRoute
 }
