@@ -133,8 +133,8 @@ export type Check = {
     entityId: string
     end: number
   }[]
-  sentences?: { start: number; end: number }[]
-  metadata_text?: string[]
+  sentences: { start: number; end: number }[]
+  metadata_text: string[]
 }
 
 export interface LabelTreatment {
