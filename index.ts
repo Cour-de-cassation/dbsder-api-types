@@ -120,12 +120,30 @@ type nlpVersion = {
   }
 }
 
+export type Check = {
+  check_type: string
+  message: string
+  short_message: string
+  entities: {
+    text: string
+    start: number
+    category: string
+    source: string
+    score: number
+    entityId: string
+    end: number
+  }[]
+  sentences: { start: number; end: number }[]
+  metadata_text: string[]
+}
+
 export interface LabelTreatment {
   annotations: Annotation[]
   source: string
   order: number
   version?: nlpVersion
   treatmentDate?: string
+  checklist?: Check[]
 }
 
 export interface DecisionAnalyse {
