@@ -103,7 +103,8 @@ export interface Annotation {
   entityId: string
   start: number
   text: string
-  certaintyScore: number
+  score: number
+  source: string
 }
 
 type nlpVersionDetails = {
