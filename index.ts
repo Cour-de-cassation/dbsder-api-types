@@ -290,6 +290,7 @@ export interface DecisionDTO {
   labelTreatments?: LabelTreatment[]
   parties?: PartieTJ[] | object[]
   pubCategory?: string
+  selection: boolean
 }
 
 export interface DecisionTJDTO extends DecisionDTO {
@@ -310,7 +311,6 @@ export interface DecisionTJDTO extends DecisionDTO {
   president?: President
   recommandationOccultation: Occultation
   sommaire?: string
-  selection: boolean
 }
 
 export interface DecisionTCOMDTO extends DecisionDTO {
@@ -319,7 +319,6 @@ export interface DecisionTCOMDTO extends DecisionDTO {
   idDecisionTCOM: string
   codeProcedure?: string
   libelleMatiere?: string
-  selection: boolean
   composition?: object[]
 }
 
