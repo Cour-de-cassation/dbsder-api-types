@@ -291,6 +291,7 @@ export interface DecisionDTO {
   parties?: PartieTJ[] | object[]
   pubCategory?: string
   selection: boolean
+  sommaire?: string
 }
 
 export interface DecisionTJDTO extends DecisionDTO {
@@ -310,7 +311,6 @@ export interface DecisionTJDTO extends DecisionDTO {
   pourvoiLocal: boolean
   president?: President
   recommandationOccultation: Occultation
-  sommaire?: string
 }
 
 export interface DecisionTCOMDTO extends DecisionDTO {
