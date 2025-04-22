@@ -1,14 +1,16 @@
 {
   "compilerOptions": {
     "module": "commonjs",
-    "target": "es2022",
+    "target": "es2020",
     "outDir": "./dist",
-    "baseUrl": "./",
+    "rootDir": "src",
     "declaration": true,
     "moduleResolution": "node",
     "esModuleInterop": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
-    "strict": true
-  }
+    "strict": true,
+  },
+  "exclude": ["deprecated"],
+  "include": ["src/**/*"]
 }

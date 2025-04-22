@@ -6,7 +6,8 @@
   "license": "MIT",
   "scripts": {
     "build": "tsc && npm version patch --no-git-tag-version",
-    "format": "prettier --write \"*.ts\""
+    "format": "prettier --write \"*.ts\"",
+    "watch": "tsc --watch"
   },
   "repository": {
     "type": "git",
@@ -21,5 +22,9 @@
     "parse-json": "8.1.0",
     "prettier": "3.2.4",
     "typescript": "5.3.3"
+  },
+  "dependencies": {
+    "mongodb": "^6.15.0",
+    "zod": "^3.24.2"
   }
 }
