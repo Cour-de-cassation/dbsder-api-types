@@ -12,11 +12,11 @@ import { Decision, UnIdentifiedDecision } from '../types'
 import { zObjectId } from './common.zod'
 import { ObjectId } from 'mongodb'
 
-export function isUnIdentifiedDecision(x: any): UnIdentifiedDecision {
-  const sourceName = x.sourceName
-  if (!isSourceName(sourceName)) throw new Error('sourceName is invalid')
+export function isUnIdentifiedDecision(x: unknown): UnIdentifiedDecision {
+  const isValidX = typeof x === "object" && !!x && "sourceName" in x
+  if (!isValidX || !isSourceName(x.sourceName)) throw new Error('sourceName is invalid in decision')
 
-  switch (sourceName) {
+  switch (x.sourceName) {
     case 'jurinet':
       return isDecisionCc(x)
     case 'jurica':
@@ -27,20 +27,21 @@ export function isUnIdentifiedDecision(x: any): UnIdentifiedDecision {
       return isDecisionDila(x)
     default:
       // hack to create type error on a non handled sourceName
-      const exhaustiveness: never = sourceName
+      const exhaustiveness: never = x.sourceName
       throw new Error('unexpected error')
   }
 }
 
-export function isDecision(x: any): Decision {
-  const _id = x._id
-  const unIdentifiedDecision = isUnIdentifiedDecision(x)
+export function isDecision(x: unknown): Decision {
+  const isValidX = typeof x === "object" && !!x && "_id" in x
+  if(!isValidX || !isId(x._id)) throw new Error('_id is invalid in decision')
+  
+  const decision = isUnIdentifiedDecision(x)
 
-  if (!isId(_id)) throw new Error(`Decision is Unidentified`)
-  return { _id, ...unIdentifiedDecision }
+  return { _id: x._id, ...decision }
 }
 
-export function isId(x: any): x is ObjectId {
+export function isId(x: unknown): x is ObjectId {
   try {
     return !!zObjectId.parse(x)
   } catch (_) {
@@ -48,7 +49,7 @@ export function isId(x: any): x is ObjectId {
   }
 }
 
-export function isSourceName(x: any): x is Decision['sourceName'] {
+export function isSourceName(x: unknown): x is Decision['sourceName'] {
   try {
     return !!decisionCaSchema
       .pick({ sourceName: true })

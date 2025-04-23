@@ -93,7 +93,7 @@ export const zObjectId = z.string().refine((id: string) => {
   return ObjectId.isValid(id) && new ObjectId(id).toString() === id
 }).transform(_ => new ObjectId(_))
 
-export function isLabelStatus(x: any): x is LabelStatus {
+export function isLabelStatus(x: unknown): x is LabelStatus {
   try {
     return !!zLabelStatus.parse(x)
   } catch (_) {
@@ -101,7 +101,7 @@ export function isLabelStatus(x: any): x is LabelStatus {
   }
 }
 
-export function isLabelTreatment(x: any): x is LabelTreatment {
+export function isLabelTreatment(x: unknown): x is LabelTreatment {
   try {
     return !!zLabelTreatment.parse(x)
   } catch (_) {
@@ -109,7 +109,7 @@ export function isLabelTreatment(x: any): x is LabelTreatment {
   }
 }
 
-export function isPublishStatus(x: any): x is PublishStatus {
+export function isPublishStatus(x: unknown): x is PublishStatus {
   try {
     return !!zPublishStatus.parse(x)
   } catch (_) {
