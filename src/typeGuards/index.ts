@@ -34,8 +34,8 @@ export function isUnIdentifiedDecision(x: unknown): UnIdentifiedDecision {
 
 export function isDecision(x: unknown): Decision {
   const isValidX = typeof x === "object" && !!x && "_id" in x
-  if(!isValidX || !isId(x._id)) throw new Error('_id is invalid in decision')
-  
+  if (!isValidX || !isId(x._id)) throw new Error('_id is invalid in decision')
+
   const decision = isUnIdentifiedDecision(x)
 
   return { _id: x._id, ...decision }
@@ -56,7 +56,7 @@ export function isSourceName(x: unknown): x is Decision['sourceName'] {
       .or(decisionCcSchema.pick({ sourceName: true }))
       .or(decisionTjSchema.pick({ sourceName: true }))
       .or(decisionDilaSchema.pick({ sourceName: true }))
-      .parse(x)
+      .parse({ sourceName: x })
   } catch (_) {
     return false
   }
