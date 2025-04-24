@@ -2,7 +2,7 @@
 import { z } from 'zod'
 
 import {
-  zBlocOccultationEnum,
+  zBlocOccultation,
   zLabelStatus,
   zLabelTreatment,
   zObjectId,
@@ -81,7 +81,7 @@ export const decisionTjSchema = z.object({
   pourvoiLocal: z.boolean(),
   selection: z.boolean(),
   sommaire: z.string().optional(),
-  blocOccultation: zBlocOccultationEnum,
+  blocOccultation: zBlocOccultation,
   recommandationOccultation: zSuiviOccultation,
   occultation: zOccultation,
   president: presidentTJSchema.optional(),

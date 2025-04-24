@@ -2,12 +2,12 @@
 import { z } from 'zod'
 
 import {
-  zBlocOccultationEnum,
+  zBlocOccultation,
   zLabelStatus,
   zLabelTreatment,
   zObjectId,
   zOccultation,
-  zPseudoStatusEnum,
+  zPseudoStatus,
   zPublishStatus,
   zQualitePartie,
   zSuiviOccultation,
@@ -75,11 +75,11 @@ export const decisionCaSchema = z.object({
   selection: z.boolean().optional(),
   sommaire: z.string().optional(),
   solution: z.string().optional().nullable(),
-  blocOccultation: zBlocOccultationEnum.optional().nullable(),
+  blocOccultation: zBlocOccultation.optional().nullable(),
   occultation: zOccultation.optional(),
   recommandationOccultation: zSuiviOccultation.optional(),
   pubCategory: publicationCategoryCaSchema,
-  pseudoStatus: zPseudoStatusEnum,
+  pseudoStatus: zPseudoStatus,
   parties: z.union([z.array(partieCaSchema), z.object({})]),
   natureAffaireCivil: z.null().optional(),
   natureAffairePenal: z.null().optional(),

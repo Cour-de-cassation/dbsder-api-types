@@ -5,9 +5,9 @@ import {
   zOccultation,
   zLabelStatus,
   zLabelTreatment,
-  zPseudoStatusEnum,
+  zPseudoStatus,
   zPublishStatus,
-  zBlocOccultationEnum,
+  zBlocOccultation,
   zObjectId
 } from './common.zod'
 import { UnIdentifiedDecision, UnIdentifiedDecisionCc, Decision, DecisionCc } from '../types'
@@ -106,14 +106,14 @@ export const decisionCcSchema = z.object({
   chamberId: z.string().nullable(),
   chamberName: z.null(),
   pubCategory: publicationCategoryCcSchema.nullable(),
-  pseudoStatus: zPseudoStatusEnum,
+  pseudoStatus: zPseudoStatus,
   appeals: z.array(z.string()),
   analysis: decisionAnalysisCcSchema,
   decatt: z
     .union([z.array(z.string()), z.array(z.number().or(z.nan()))])
     .optional()
     .nullable(),
-  blocOccultation: zBlocOccultationEnum.optional().nullable(),
+  blocOccultation: zBlocOccultation.optional().nullable(),
   natureAffaireCivil: z.string().optional().nullable(),
   natureAffairePenal: z.string().optional().nullable(),
   codeMatiereCivil: z.string().optional().nullable(),

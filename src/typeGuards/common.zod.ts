@@ -71,7 +71,7 @@ export const zLabelTreatment = z.object({
   checklist: z.array(zCheck).optional()
 })
 
-export const zPseudoStatusEnum = z.nativeEnum(PseudoStatus)
+export const zPseudoStatus = z.nativeEnum(PseudoStatus)
 
 export const zOccultation = z.object({
   additionalTerms: z.string(),
@@ -85,9 +85,9 @@ export const zQualitePartie = z.nativeEnum(QualitePartieExhaustive)
 
 export const zTypePartie = z.nativeEnum(TypePartieExhaustive)
 
-export const zBlocOccultationEnum = z.nativeEnum(BlocOccultation)
+export const zBlocOccultation = z.nativeEnum(BlocOccultation)
 
-export const zLabelRouteEnum = z.nativeEnum(LabelRoute)
+export const zLabelRoute = z.nativeEnum(LabelRoute)
 
 export const zObjectId = z.string().refine((id: string) => {
   return ObjectId.isValid(id) && new ObjectId(id).toString() === id

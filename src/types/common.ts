@@ -113,7 +113,7 @@ export type LabelTreatment = {
   checklist?: Check[]
 }
 
-export declare enum PseudoStatus {
+export enum PseudoStatus {
   A_PSEUDONYMISER = 0,
   EN_COURS_DE_PSEUDONYMISATION = 1,
   PSEUDONYMISE = 2,
@@ -156,7 +156,7 @@ export enum TypePartieExhaustive {
 
 export type TypePartie = TypePartieExhaustive | ''
 
-export declare enum BlocOccultation {
+export enum BlocOccultation {
   CODE_NAC_NON_VALIDE = 0,
   TOUTES_CATAGORIES = 1,
   TOUTES_CATEGORIES_SAUF_DATES = 2,
@@ -164,7 +164,7 @@ export declare enum BlocOccultation {
   TOUTES_CATEGORIES_SAUF_DATES_ET_PERSONNES_MORALES = 4
 }
 
-export declare enum LabelRoute {
+export enum LabelRoute {
   DOUBLE_RELECTURE = 'double',
   RELECTURE_SYSTEMATIQUE = 'systematique',
   RELECTURE_ALEATOIRE_DE_DECISIONS_SENSIBLES = 'aleatoireSensible',
