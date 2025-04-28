@@ -10,14 +10,14 @@ import {
   TypePartie,
 } from "./common";
 
-type PresidentTJ = {
+type PresidentTj = {
   nom: string;
   prenom: string;
   fonction: string;
   civilite: string;
 };
 
-type DecisionAssocieeTJ = {
+type DecisionAssocieeTj = {
   idJuridiction: string;
   numeroRegistre: string;
   numeroRoleGeneral: string;
@@ -25,7 +25,7 @@ type DecisionAssocieeTJ = {
   idDecisionWinci?: string;
 };
 
-type PartieTJ = {
+type PartieTj = {
   type: TypePartie;
   nom: string;
   prenom?: string;
@@ -94,8 +94,8 @@ export type DecisionTj = {
   recommandationOccultation: SuiviOccultation;
   occultation: Occultation;
 
-  president?: PresidentTJ;
-  parties: PartieTJ[];
+  president?: PresidentTj;
+  parties: PartieTj[];
 
   filenameSource: string;
   idDecisionTJ: string;
@@ -105,7 +105,7 @@ export type DecisionTj = {
   appeals: string[];
   decatt: never[];
   publication: never[];
-  decisionAssociee?: DecisionAssocieeTJ;
+  decisionAssociee?: DecisionAssocieeTj;
 };
 
 export type UnIdentifiedDecisionTj = Omit<DecisionTj, "_id">
