@@ -8,12 +8,12 @@ export { DecisionTj, UnIdentifiedDecisionTj } from './decisions_tj'
 export { DecisionCa, UnIdentifiedDecisionCa } from './decisions_ca'
 export { DecisionCc, UnIdentifiedDecisionCc } from './decisions_cc'
 export { DecisionDila, UnIdentifiedDecisionDila } from './decisions_dila'
-export { DecisionTcom, UnIdentifiedDecisionTcom } from './decisions_tcom'
+export { DecisionTcom, UnIdentifiedDecisionTcom, JusticeFunctionTcom, JusticeRoleTcom } from './decisions_tcom'
 
 export { CodeNac } from './codeNacs'
 export { CodeDecision } from './codeDecisions'
 
-export { LabelTreatment, LabelStatus, PublishStatus, TypePartieExhaustive, QualitePartieExhaustive, SuiviOccultation } from './common'
+export { LabelTreatment, LabelStatus, PublishStatus, TypePartieExhaustive, QualitePartieExhaustive, SuiviOccultation, Category } from './common'
 
 export type Decision = DecisionTj | DecisionTcom | DecisionCa | DecisionCc | DecisionDila
 export type UnIdentifiedDecision =

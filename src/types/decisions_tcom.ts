@@ -67,8 +67,8 @@ export type DecisionTcom = {
     originalTextZoning?: { [k: string]: unknown };
     pseudoTextZoning?: { [k: string]: unknown };
 
-    chamberId: string;
-    chamberName: string;
+    chamberId?: string;
+    chamberName?: string;
 
     debatPublic: boolean;
     selection: boolean;

@@ -11,6 +11,7 @@ import { decisionDilaSchema, isDecisionDila } from './decisions_dila.zod'
 import { Decision, UnIdentifiedDecision } from '../types'
 import { zObjectId } from './common.zod'
 import { ObjectId } from 'mongodb'
+import { isDecisionTcom } from './decisions_tcom.zod'
 
 export function isId(x: unknown): x is ObjectId {
   try {
@@ -46,6 +47,8 @@ export function isUnIdentifiedDecision(x: unknown): UnIdentifiedDecision {
       return isDecisionTj(x)
     case 'dila':
       return isDecisionDila(x)
+    case 'juritcom':
+      return isDecisionTcom(x)
     default:
       // hack to create type error on a non handled sourceName
       const exhaustiveness: never = x.sourceName
