@@ -88,6 +88,6 @@ export function hasSourceNameDila(
   return x.sourceName === 'dila'
 }
 
-export function isDecisionDila(x: unknown): UnIdentifiedDecisionDila {
+export function parseDecisionDila(x: unknown): UnIdentifiedDecisionDila {
   return decisionDilaSchema.omit({ _id: true }).parse(x)
 }

@@ -1,17 +1,17 @@
-export { isDecisionTj, hasSourceNameTj } from './decisions_tj.zod'
-export { isDecisionCa, hasSourceNameCa } from './decisions_ca.zod'
-export { isDecisionCc, hasSourceNameCc } from './decisions_cc.zod'
-export { isDecisionDila, hasSourceNameDila } from './decisions_dila.zod'
+export { parseDecisionTj, hasSourceNameTj } from './decisions_tj.zod'
+export { parseDecisionCa, hasSourceNameCa } from './decisions_ca.zod'
+export { parseDecisionCc, hasSourceNameCc } from './decisions_cc.zod'
+export { parseDecisionDila, hasSourceNameDila } from './decisions_dila.zod'
 export { isLabelStatus, isLabelTreatment, isPublishStatus } from './common.zod'
 
-import { decisionTjSchema, isDecisionTj } from './decisions_tj.zod'
-import { decisionCaSchema, isDecisionCa } from './decisions_ca.zod'
-import { decisionCcSchema, isDecisionCc } from './decisions_cc.zod'
-import { decisionDilaSchema, isDecisionDila } from './decisions_dila.zod'
+import { decisionTcomSchema, parseDecisionTcom } from './decisions_tcom.zod'
+import { decisionTjSchema, parseDecisionTj } from './decisions_tj.zod'
+import { decisionCaSchema, parseDecisionCa } from './decisions_ca.zod'
+import { decisionCcSchema, parseDecisionCc } from './decisions_cc.zod'
+import { decisionDilaSchema, parseDecisionDila } from './decisions_dila.zod'
 import { Decision, UnIdentifiedDecision } from '../types'
 import { zObjectId } from './common.zod'
 import { ObjectId } from 'mongodb'
-import { isDecisionTcom } from './decisions_tcom.zod'
 
 export function isId(x: unknown): x is ObjectId {
   try {
@@ -23,44 +23,50 @@ export function isId(x: unknown): x is ObjectId {
 
 export function isSourceName(x: unknown): x is Decision['sourceName'] {
   try {
-    return !!decisionCaSchema
-      .pick({ sourceName: true })
+    const sourceName = decisionCaSchema.pick({ sourceName: true })
       .or(decisionCcSchema.pick({ sourceName: true }))
       .or(decisionTjSchema.pick({ sourceName: true }))
+      .or(decisionTcomSchema.pick({ sourceName: true }))
       .or(decisionDilaSchema.pick({ sourceName: true }))
       .parse({ sourceName: x })
+      .sourceName
+
+    // /!\ used to check exhaustivity: error type means you forget a schema /!\
+    type ExhaustiveSourceName = Decision["sourceName"] extends typeof sourceName ? typeof sourceName : never
+    const exhaustiveSourceName: ExhaustiveSourceName = sourceName
+
+    return !!exhaustiveSourceName
   } catch (_) {
     return false
   }
 }
 
-export function isUnIdentifiedDecision(x: unknown): UnIdentifiedDecision {
+export function parseUnIdentifiedDecision(x: unknown): UnIdentifiedDecision {
   const isValidX = typeof x === "object" && !!x && "sourceName" in x
   if (!isValidX || !isSourceName(x.sourceName)) throw new Error('sourceName is invalid in decision')
 
   switch (x.sourceName) {
     case 'jurinet':
-      return isDecisionCc(x)
+      return parseDecisionCc(x)
     case 'jurica':
-      return isDecisionCa(x)
+      return parseDecisionCa(x)
     case 'juritj':
-      return isDecisionTj(x)
+      return parseDecisionTj(x)
     case 'dila':
-      return isDecisionDila(x)
+      return parseDecisionDila(x)
     case 'juritcom':
-      return isDecisionTcom(x)
+      return parseDecisionTcom(x)
     default:
-      // hack to create type error on a non handled sourceName
-      const exhaustiveness: never = x.sourceName
+      x.sourceName satisfies never
       throw new Error('unexpected error')
   }
 }
 
-export function isDecision(x: unknown): Decision {
+export function parseDecision(x: unknown): Decision {
   const isValidX = typeof x === "object" && !!x && "_id" in x
   if (!isValidX || !isId(x._id)) throw new Error('_id is invalid in decision')
 
-  const decision = isUnIdentifiedDecision(x)
+  const decision = parseUnIdentifiedDecision(x)
 
   return { _id: x._id, ...decision }
 }

@@ -138,6 +138,6 @@ export function hasSourceNameCc(
   return x.sourceName === 'jurinet'
 }
 
-export function isDecisionCc(x: unknown): UnIdentifiedDecisionCc {
+export function parseDecisionCc(x: unknown): UnIdentifiedDecisionCc {
   return decisionCcSchema.omit({ _id: true }).parse(x)
 }

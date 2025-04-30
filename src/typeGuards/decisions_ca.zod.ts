@@ -99,6 +99,6 @@ export function hasSourceNameCa(x: Decision | UnIdentifiedDecision): x is Decisi
   return x.sourceName === 'jurica'
 }
 
-export function isDecisionCa(x: unknown): UnIdentifiedDecisionCa {
+export function parseDecisionCa(x: unknown): UnIdentifiedDecisionCa {
   return decisionCaSchema.omit({ _id: true }).parse(x)
 }

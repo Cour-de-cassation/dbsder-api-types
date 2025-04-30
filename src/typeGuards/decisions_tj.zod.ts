@@ -104,6 +104,6 @@ export function hasSourceNameTj(
   return x.sourceName === 'juritj'
 }
 
-export function isDecisionTj(x: unknown): UnIdentifiedDecisionTj {
+export function parseDecisionTj(x: unknown): UnIdentifiedDecisionTj {
   return decisionTjSchema.omit({ _id: true }).parse(x)
 }
