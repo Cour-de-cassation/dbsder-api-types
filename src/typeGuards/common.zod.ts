@@ -89,9 +89,12 @@ export const zBlocOccultation = z.nativeEnum(BlocOccultation)
 
 export const zLabelRoute = z.nativeEnum(LabelRoute)
 
-export const zObjectId = z.string().refine((id: string) => {
-  return ObjectId.isValid(id) && new ObjectId(id).toString() === id
-}).transform(_ => new ObjectId(_))
+export const zObjectId = z
+  .string()
+  .refine((id: string) => {
+    return ObjectId.isValid(id) && new ObjectId(id).toString() === id
+  })
+  .transform((_) => new ObjectId(_))
 
 export function isLabelStatus(x: unknown): x is LabelStatus {
   try {

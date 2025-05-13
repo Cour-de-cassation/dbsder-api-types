@@ -6,7 +6,7 @@
   "license": "MIT",
   "scripts": {
     "build": "tsc && npm version patch --no-git-tag-version",
-    "format": "prettier --write \"*.ts\"",
+    "format": "prettier --write \"**/*.ts\"",
     "watch": "tsc --watch"
   },
   "repository": {

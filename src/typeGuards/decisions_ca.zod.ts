@@ -94,8 +94,10 @@ export const decisionCaSchema = z.object({
 })
 
 export function hasSourceNameCa(x: UnIdentifiedDecision): x is UnIdentifiedDecisionCa
-export function hasSourceNameCa(x: Decision): x is DecisionCa 
-export function hasSourceNameCa(x: Decision | UnIdentifiedDecision): x is DecisionCa | UnIdentifiedDecisionCa {
+export function hasSourceNameCa(x: Decision): x is DecisionCa
+export function hasSourceNameCa(
+  x: Decision | UnIdentifiedDecision
+): x is DecisionCa | UnIdentifiedDecisionCa {
   return x.sourceName === 'jurica'
 }
 

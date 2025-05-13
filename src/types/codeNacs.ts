@@ -22,13 +22,13 @@ export type CodeNac = {
   categoriesToOmitCA: {
     aucune: Category[]
     conforme: Category[]
-    "complément": Category[]
+    complément: Category[]
     substitutant: Category[]
   }
   categoriesToOmitTJ: {
     aucune: Category[]
     conforme: Category[]
-    "complément": Category[]
+    complément: Category[]
     substituant: Category[]
   }
 

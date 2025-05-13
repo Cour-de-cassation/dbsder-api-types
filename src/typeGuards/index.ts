@@ -23,16 +23,18 @@ export function isId(x: unknown): x is ObjectId {
 
 export function isSourceName(x: unknown): x is Decision['sourceName'] {
   try {
-    const sourceName = decisionCaSchema.pick({ sourceName: true })
+    const sourceName = decisionCaSchema
+      .pick({ sourceName: true })
       .or(decisionCcSchema.pick({ sourceName: true }))
       .or(decisionTjSchema.pick({ sourceName: true }))
       .or(decisionTcomSchema.pick({ sourceName: true }))
       .or(decisionDilaSchema.pick({ sourceName: true }))
-      .parse({ sourceName: x })
-      .sourceName
+      .parse({ sourceName: x }).sourceName
 
     // /!\ used to check exhaustivity: error type means you forget a schema /!\
-    type ExhaustiveSourceName = Decision["sourceName"] extends typeof sourceName ? typeof sourceName : never
+    type ExhaustiveSourceName = Decision['sourceName'] extends typeof sourceName
+      ? typeof sourceName
+      : never
     const exhaustiveSourceName: ExhaustiveSourceName = sourceName
 
     return !!exhaustiveSourceName
@@ -42,7 +44,7 @@ export function isSourceName(x: unknown): x is Decision['sourceName'] {
 }
 
 export function parseUnIdentifiedDecision(x: unknown): UnIdentifiedDecision {
-  const isValidX = typeof x === "object" && !!x && "sourceName" in x
+  const isValidX = typeof x === 'object' && !!x && 'sourceName' in x
   if (!isValidX || !isSourceName(x.sourceName)) throw new Error('sourceName is invalid in decision')
 
   switch (x.sourceName) {
@@ -63,7 +65,7 @@ export function parseUnIdentifiedDecision(x: unknown): UnIdentifiedDecision {
 }
 
 export function parseDecision(x: unknown): Decision {
-  const isValidX = typeof x === "object" && !!x && "_id" in x
+  const isValidX = typeof x === 'object' && !!x && '_id' in x
   if (!isValidX || !isId(x._id)) throw new Error('_id is invalid in decision')
 
   const decision = parseUnIdentifiedDecision(x)

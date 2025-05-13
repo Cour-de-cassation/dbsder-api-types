@@ -1,4 +1,4 @@
-import { ObjectId } from "mongodb";
+import { ObjectId } from 'mongodb'
 import {
   BlocOccultation,
   LabelStatus,
@@ -8,100 +8,100 @@ import {
   PublishStatus,
   QualitePartie,
   SuiviOccultation,
-  TypePartie,
-} from "./common";
+  TypePartie
+} from './common'
 
-type PublicationCategoryCA = "W" | "A";
+type PublicationCategoryCA = 'W' | 'A'
 
 type PartieAttributesCA = {
-  qualitePartie: QualitePartie;
-  typePersonne: TypePartie;
-};
+  qualitePartie: QualitePartie
+  typePersonne: TypePartie
+}
 
 type PartieCA = {
-  attributes: PartieAttributesCA;
-  identite: string;
-};
+  attributes: PartieAttributesCA
+  identite: string
+}
 
 type DecisionAnalysisCA = {
-  analyse?: null[];
-  doctrine: null;
-  link: null;
-  reference: null[];
-  source: null;
-  summary: null;
-  target: null;
-  title: null;
-  nature?: null;
-};
+  analyse?: null[]
+  doctrine: null
+  link: null
+  reference: null[]
+  source: null
+  summary: null
+  target: null
+  title: null
+  nature?: null
+}
 
 export type DecisionCa = {
-  _id: ObjectId;
-  sourceId: number;
-  sourceName: "jurica";
+  _id: ObjectId
+  sourceId: number
+  sourceName: 'jurica'
 
-  _rev?: number;
-  _version: number;
+  _rev?: number
+  _version: number
 
-  originalText: string | null;
-  pseudoText?: string | null;
+  originalText: string | null
+  pseudoText?: string | null
 
-  registerNumber: string;
-  dateDecision: string | null;
+  registerNumber: string
+  dateDecision: string | null
 
-  public?: boolean | null;
+  public?: boolean | null
 
-  labelStatus: LabelStatus;
-  publishStatus?: PublishStatus;
-  labelTreatments?: LabelTreatment[];
+  labelStatus: LabelStatus
+  publishStatus?: PublishStatus
+  labelTreatments?: LabelTreatment[]
 
-  dateCreation: string;
-  publishDate?: string | null;
-  firstImportDate?: string | null;
-  lastImportDate?: string;
-  unpublishDate?: string | null;
+  dateCreation: string
+  publishDate?: string | null
+  firstImportDate?: string | null
+  lastImportDate?: string
+  unpublishDate?: string | null
 
-  zoning?: { [k: string]: unknown } | null; // Deprecated : replaced by originalTextZoning and pseudoTextZoning
+  zoning?: { [k: string]: unknown } | null // Deprecated : replaced by originalTextZoning and pseudoTextZoning
 
-  originalTextZoning?: { [k: string]: unknown };
-  pseudoTextZoning?: { [k: string]: unknown };
+  originalTextZoning?: { [k: string]: unknown }
+  pseudoTextZoning?: { [k: string]: unknown }
 
-  NACCode?: string | null;
-  libelleNAC?: string;
-  NPCode?: string | null;
-  libelleNatureParticuliere?: string;
-  endCaseCode?: string | null;
-  libelleEndCaseCode?: string;
+  NACCode?: string | null
+  libelleNAC?: string
+  NPCode?: string | null
+  libelleNatureParticuliere?: string
+  endCaseCode?: string | null
+  libelleEndCaseCode?: string
 
-  chamberId: string | null;
-  chamberName: string | null;
-  jurisdictionCode: string | null;
-  jurisdictionId: string | null;
-  jurisdictionName: string | null;
+  chamberId: string | null
+  chamberName: string | null
+  jurisdictionCode: string | null
+  jurisdictionId: string | null
+  jurisdictionName: string | null
 
-  selection?: boolean;
-  sommaire?: string;
-  solution?: string | null;
+  selection?: boolean
+  sommaire?: string
+  solution?: string | null
 
-  blocOccultation?: BlocOccultation | null;
-  occultation?: Occultation;
-  recommandationOccultation?: SuiviOccultation;
+  blocOccultation?: BlocOccultation | null
+  occultation?: Occultation
+  recommandationOccultation?: SuiviOccultation
 
-  pubCategory: PublicationCategoryCA;
-  pseudoStatus: PseudoStatus;
+  pubCategory: PublicationCategoryCA
+  pseudoStatus: PseudoStatus
 
-  parties: PartieCA[] | {};
+  parties: PartieCA[] | {}
 
-  natureAffaireCivil?: null;
-  natureAffairePenal?: null;
-  codeMatiereCivil?: null;
-  NAOCode?: null;
-  decatt?: null;
-  appeals: never[];
-  publication?: never[] | null;
-  locked: false;
-  analysis: DecisionAnalysisCA;
-  formation?: null;
-};
+  natureAffaireCivil?: null
+  natureAffairePenal?: null
+  codeMatiereCivil?: null
+  NAOCode?: null
+  decatt?: null
+  appeals: never[]
+  publication?: never[] | null
+  locked: false
+  analysis: DecisionAnalysisCA
+  formation?: null
+}
 
-export type UnIdentifiedDecisionCa = Omit<DecisionCa, "_id">
+export type UnIdentifiedDecisionCa = Omit<DecisionCa, '_id'>
