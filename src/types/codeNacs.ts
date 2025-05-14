@@ -23,7 +23,7 @@ export type CodeNac = {
     aucune: Category[]
     conforme: Category[]
     complément: Category[]
-    substitutant: Category[]
+    substituant: Category[]
   }
   categoriesToOmitTJ: {
     aucune: Category[]
