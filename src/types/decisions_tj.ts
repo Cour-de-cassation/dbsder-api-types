@@ -47,7 +47,7 @@ export type DecisionTj = {
   registerNumber: string
   dateDecision: string
 
-  jurisdictionCode: string
+  jurisdictionCode?: string
   jurisdictionId: string
   jurisdictionName: string
 
@@ -72,8 +72,8 @@ export type DecisionTj = {
 
   NACCode: string
   libelleNAC: string
-  NPCode: string
-  libelleNatureParticuliere: string
+  NPCode?: string
+  libelleNatureParticuliere?: string
   endCaseCode: string
   libelleEndCaseCode: string
 
@@ -83,7 +83,7 @@ export type DecisionTj = {
   libelleService: string
 
   debatPublic: boolean
-  indicateurQPC: boolean
+  indicateurQPC?: boolean
   matiereDeterminee: boolean
   pourvoiCourDeCassation: boolean
   pourvoiLocal: boolean
@@ -95,7 +95,7 @@ export type DecisionTj = {
   occultation: Occultation
 
   president?: PresidentTj
-  parties: PartieTj[]
+  parties?: PartieTj[]
 
   filenameSource: string
   idDecisionTJ: string
