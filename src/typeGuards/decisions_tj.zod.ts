@@ -26,15 +26,15 @@ const decisionAssocieeTJSchema = z.object({
   numeroRegistre: z.string(),
   numeroRoleGeneral: z.string(),
   date: z.string(),
-  idDecisionWinci: z.string().optional()
+  idDecisionWinci: z.string().nullable().optional()
 })
 
 const partieTJSchema = z.object({
   type: zTypePartie,
   nom: z.string(),
-  prenom: z.string().optional(),
-  civilite: z.string().optional(),
-  qualite: zQualitePartie.optional()
+  prenom: z.string().nullable().optional(),
+  civilite: z.string().nullable().optional(),
+  qualite: zQualitePartie.nullable().optional()
 })
 
 export const decisionTjSchema = z.object({
@@ -47,27 +47,27 @@ export const decisionTjSchema = z.object({
   pseudoText: z.string().optional(),
   registerNumber: z.string(),
   dateDecision: z.string(),
-  jurisdictionCode: z.string().optional(),
+  jurisdictionCode: z.string().nullable().optional(),
   jurisdictionId: z.string(),
   jurisdictionName: z.string(),
-  public: z.boolean().optional(),
-  solution: z.string().optional(),
-  formation: z.string().optional(),
+  public: z.boolean().nullable().optional(),
+  solution: z.string().nullable().optional(),
+  formation: z.string().nullable().optional(),
   labelStatus: zLabelStatus,
   publishStatus: zPublishStatus.optional(),
   labelTreatments: z.array(zLabelTreatment).optional(),
   dateCreation: z.string(),
-  publishDate: z.string().optional().nullable(),
+  publishDate: z.string().optional(),
   firstImportDate: z.string().optional(),
   lastImportDate: z.string().optional(),
-  unpublishDate: z.string().optional().nullable(),
-  zoning: z.record(z.unknown()).optional().nullable(),
+  unpublishDate: z.string().optional(),
+  zoning: z.record(z.unknown()).nullable().optional(),
   originalTextZoning: z.record(z.unknown()).optional(),
   pseudoTextZoning: z.record(z.unknown()).optional(),
   NACCode: z.string(),
   libelleNAC: z.string(),
-  NPCode: z.string().optional(),
-  libelleNatureParticuliere: z.string().optional(),
+  NPCode: z.string().nullable().optional(),
+  libelleNatureParticuliere: z.string().nullable().optional(),
   endCaseCode: z.string(),
   libelleEndCaseCode: z.string(),
   chamberId: z.literal(''),
@@ -75,25 +75,25 @@ export const decisionTjSchema = z.object({
   codeService: z.string(),
   libelleService: z.string(),
   debatPublic: z.boolean(),
-  indicateurQPC: z.boolean().optional(),
+  indicateurQPC: z.boolean().nullable().optional(),
   matiereDeterminee: z.boolean(),
   pourvoiCourDeCassation: z.boolean(),
   pourvoiLocal: z.boolean(),
   selection: z.boolean(),
-  sommaire: z.string().optional(),
+  sommaire: z.string().nullable().optional(),
   blocOccultation: zBlocOccultation,
   recommandationOccultation: zSuiviOccultation,
   occultation: zOccultation,
-  president: presidentTJSchema.optional(),
-  parties: z.array(partieTJSchema).optional(),
+  president: presidentTJSchema.nullable().optional(),
+  parties: z.array(partieTJSchema).nullable().optional(),
   filenameSource: z.string(),
   idDecisionTJ: z.string(),
-  idDecisionWinci: z.string().optional(),
+  idDecisionWinci: z.string().nullable().optional(),
   numeroRoleGeneral: z.string(),
   appeals: z.array(z.string()),
   decatt: z.array(z.never()),
   publication: z.array(z.never()),
-  decisionAssociee: decisionAssocieeTJSchema.optional()
+  decisionAssociee: decisionAssocieeTJSchema.nullable().optional()
 })
 
 export function hasSourceNameTj(x: UnIdentifiedDecision): x is UnIdentifiedDecisionTj

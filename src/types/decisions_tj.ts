@@ -22,15 +22,15 @@ type DecisionAssocieeTj = {
   numeroRegistre: string
   numeroRoleGeneral: string
   date: string
-  idDecisionWinci?: string
+  idDecisionWinci?: string | null
 }
 
 type PartieTj = {
   type: TypePartie
   nom: string
-  prenom?: string
-  civilite?: string
-  qualite?: QualitePartie
+  prenom?: string | null
+  civilite?: string | null
+  qualite?: QualitePartie | null
 }
 
 export type DecisionTj = {
@@ -47,20 +47,20 @@ export type DecisionTj = {
   registerNumber: string
   dateDecision: string
 
-  jurisdictionCode?: string
+  jurisdictionCode?: string | null
   jurisdictionId: string
   jurisdictionName: string
 
-  public?: boolean
-  solution?: string
-  formation?: string
+  public?: boolean | null
+  solution?: string | null
+  formation?: string | null
 
   labelStatus: LabelStatus
   publishStatus?: PublishStatus
   labelTreatments?: LabelTreatment[]
 
   dateCreation: string
-  publishDate?: string | null
+  publishDate?: string
   firstImportDate?: string
   lastImportDate?: string
   unpublishDate?: string | null
@@ -72,8 +72,8 @@ export type DecisionTj = {
 
   NACCode: string
   libelleNAC: string
-  NPCode?: string
-  libelleNatureParticuliere?: string
+  NPCode?: string | null
+  libelleNatureParticuliere?: string | null
   endCaseCode: string
   libelleEndCaseCode: string
 
@@ -83,29 +83,29 @@ export type DecisionTj = {
   libelleService: string
 
   debatPublic: boolean
-  indicateurQPC?: boolean
+  indicateurQPC?: boolean | null
   matiereDeterminee: boolean
   pourvoiCourDeCassation: boolean
   pourvoiLocal: boolean
   selection: boolean
-  sommaire?: string
+  sommaire?: string | null
 
   blocOccultation: BlocOccultation
   recommandationOccultation: SuiviOccultation
   occultation: Occultation
 
-  president?: PresidentTj
-  parties?: PartieTj[]
+  president?: PresidentTj | null
+  parties?: PartieTj[] | null
 
   filenameSource: string
   idDecisionTJ: string
-  idDecisionWinci?: string
+  idDecisionWinci?: string | null
   numeroRoleGeneral: string
 
   appeals: string[]
   decatt: never[]
   publication: never[]
-  decisionAssociee?: DecisionAssocieeTj
+  decisionAssociee?: DecisionAssocieeTj | null
 }
 
 export type UnIdentifiedDecisionTj = Omit<DecisionTj, '_id'>
