@@ -11,6 +11,6 @@
     "forceConsistentCasingInFileNames": true,
     "strict": true,
   },
-  "exclude": ["deprecated"],
+  "exclude": [],
   "include": ["src/**/*"]
 }
