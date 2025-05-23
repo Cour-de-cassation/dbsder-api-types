@@ -60,7 +60,7 @@ export type DecisionTj = {
   labelTreatments?: LabelTreatment[]
 
   dateCreation: string
-  publishDate?: string
+  publishDate?: string | null
   firstImportDate?: string
   lastImportDate?: string
   unpublishDate?: string | null
