@@ -57,7 +57,7 @@ export const decisionTjSchema = z.object({
   publishStatus: zPublishStatus.optional(),
   labelTreatments: z.array(zLabelTreatment).optional(),
   dateCreation: z.string(),
-  publishDate: z.string().optional(),
+  publishDate: z.string().optional().nullable(),
   firstImportDate: z.string().optional(),
   lastImportDate: z.string().optional(),
   unpublishDate: z.string().optional(),
