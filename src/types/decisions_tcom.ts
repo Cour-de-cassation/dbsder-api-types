@@ -17,10 +17,10 @@ export enum JusticeFunctionTcom {
 }
 
 type CompositionTcom = {
-  fonction?: JusticeFunctionTcom
+  fonction?: JusticeFunctionTcom | null
   nom: string
-  prenom?: string
-  civilite?: string
+  prenom?: string | null
+  civilite?: string | null
 }
 
 export enum JusticeRoleTcom {
@@ -36,8 +36,8 @@ type PartieTcom = {
   type: TypePartie
   role: JusticeRoleTcom
   nom: string
-  prenom?: string
-  civilite?: string
+  prenom?: string | null
+  civilite?: string | null
 }
 
 export type DecisionTcom = {
@@ -57,8 +57,8 @@ export type DecisionTcom = {
   jurisdictionId: string
   jurisdictionName: string
 
-  public?: boolean
-  solution?: string
+  public?: boolean | null
+  solution?: string | null
 
   labelStatus: LabelStatus
   publishStatus?: PublishStatus
@@ -74,27 +74,27 @@ export type DecisionTcom = {
   originalTextZoning?: { [k: string]: unknown }
   pseudoTextZoning?: { [k: string]: unknown }
 
-  chamberId?: string
-  chamberName?: string
+  chamberId?: string | null
+  chamberName?: string | null
 
   debatPublic: boolean
   selection: boolean
 
   blocOccultation: BlocOccultation
   occultation: Occultation
-  parties?: PartieTcom[]
+  parties?: PartieTcom[] | null
 
   filenameSource: string
 
   appeals: never[]
 
-  codeMatiereCivil?: string
+  codeMatiereCivil?: string | null
 
   idGroupement: string
   idDecisionTCOM: string
-  codeProcedure?: string
-  libelleMatiere?: string
-  composition?: CompositionTcom[]
+  codeProcedure?: string | null
+  libelleMatiere?: string | null
+  composition?: CompositionTcom[] | null
 }
 
 export type UnIdentifiedDecisionTcom = Omit<DecisionTcom, '_id'>

@@ -16,10 +16,10 @@ import {
 export const justiceFunctionTcomSchema = z.nativeEnum(JusticeFunctionTcom)
 
 const compositionTcomSchema = z.object({
-  fonction: justiceFunctionTcomSchema.optional(),
+  fonction: justiceFunctionTcomSchema.nullable().optional(),
   nom: z.string(),
-  prenom: z.string().optional(),
-  civilite: z.string().optional()
+  prenom: z.string().nullable().optional(),
+  civilite: z.string().nullable().optional()
 })
 
 export const justiceRoleTcomSchema = z.nativeEnum(JusticeRoleTcom)
@@ -28,8 +28,8 @@ const partieTcomSchema = z.object({
   type: zTypePartie,
   role: justiceRoleTcomSchema,
   nom: z.string(),
-  prenom: z.string().optional(),
-  civilite: z.string().optional()
+  prenom: z.string().nullable().optional(),
+  civilite: z.string().nullable().optional()
 })
 
 const objectIdSchema = z.any()
@@ -46,8 +46,8 @@ export const decisionTcomSchema = z.object({
   jurisdictionCode: z.string(),
   jurisdictionId: z.string(),
   jurisdictionName: z.string(),
-  public: z.boolean().optional(),
-  solution: z.string().optional(),
+  public: z.boolean().nullable().optional(),
+  solution: z.string().nullable().optional(),
   labelStatus: zLabelStatus,
   publishStatus: zPublishStatus.optional(),
   labelTreatments: z.array(zLabelTreatment).optional(),
@@ -59,21 +59,21 @@ export const decisionTcomSchema = z.object({
   zoning: z.record(z.unknown()).optional().nullable(),
   originalTextZoning: z.record(z.unknown()).optional(),
   pseudoTextZoning: z.record(z.unknown()).optional(),
-  chamberId: z.string().optional(),
-  chamberName: z.string().optional(),
+  chamberId: z.string().nullable().optional(),
+  chamberName: z.string().nullable().optional(),
   debatPublic: z.boolean(),
   selection: z.boolean(),
   blocOccultation: zBlocOccultation,
   occultation: zOccultation,
-  parties: z.array(partieTcomSchema).optional(),
+  parties: z.array(partieTcomSchema).nullable().optional(),
   filenameSource: z.string(),
   appeals: z.array(z.never()),
-  codeMatiereCivil: z.string().optional(),
+  codeMatiereCivil: z.string().nullable().optional(),
   idGroupement: z.string(),
   idDecisionTCOM: z.string(),
-  codeProcedure: z.string().optional(),
-  libelleMatiere: z.string().optional(),
-  composition: z.array(compositionTcomSchema).optional()
+  codeProcedure: z.string().nullable().optional(),
+  libelleMatiere: z.string().nullable().optional(),
+  composition: z.array(compositionTcomSchema).nullable().optional()
 })
 
 export function hasSourceNameTcom(x: UnIdentifiedDecision): x is UnIdentifiedDecisionTcom
