@@ -85,7 +85,7 @@ type Check = {
   entities: Entity[]
   sentences: SentenceIndex[]
   metadata_text: string[]
-  _rank: number
+  _rank?: number | null
 }
 
 type NLPVersionDetails = {
@@ -100,7 +100,8 @@ type ModelName = {
 type NLPVersion = {
   juriSpacyTokenizer: NLPVersionDetails
   juritools: NLPVersionDetails
-  pseudonymisationApi: NLPVersionDetails
+  pseudonymisationApi?: NLPVersionDetails
+  nlpApi?: NLPVersionDetails
   model: ModelName
 }
 

@@ -43,7 +43,7 @@ const zCheck = z.object({
   entities: z.array(zEntity),
   sentences: z.array(zSentenceIndex),
   metadata_text: z.array(z.string()),
-  _rank: z.number().or(z.nan())
+  _rank: z.number().or(z.nan()).nullable().optional()
 })
 
 const zNLPVersionDetails = z.object({
@@ -58,7 +58,8 @@ const zModelName = z.object({
 const zNLPVersion = z.object({
   juriSpacyTokenizer: zNLPVersionDetails,
   juritools: zNLPVersionDetails,
-  pseudonymisationApi: zNLPVersionDetails,
+  pseudonymisationApi: zNLPVersionDetails.optional(),
+  nlpApi: zNLPVersionDetails.optional(),
   model: zModelName
 })
 
