@@ -10,6 +10,7 @@ import {
   zLabelTreatment,
   zOccultation,
   zPublishStatus,
+  zQualitePartie,
   zTypePartie
 } from './common.zod'
 
@@ -24,12 +25,28 @@ const compositionTcomSchema = z.object({
 
 export const justiceRoleTcomSchema = z.nativeEnum(JusticeRoleTcom)
 
+const adresseTcomSchema = z.object({
+  numero: z.string().nullable().optional(),
+  type: z.string().nullable().optional(),
+  voie: z.string().nullable().optional(),
+  codePostal: z.string().nullable().optional(),
+  pays: z.string().nullable().optional(),
+  localite: z.string().nullable().optional(),
+  complement: z.string().nullable().optional(),
+  bureau: z.string().nullable().optional()
+})
+
 const partieTcomSchema = z.object({
   type: zTypePartie,
   role: justiceRoleTcomSchema,
   nom: z.string(),
+  nomUsage: z.string().nullable().optional(),
   prenom: z.string().nullable().optional(),
-  civilite: z.string().nullable().optional()
+  prenomAutre: z.string().nullable().optional(),
+  alias: z.string().nullable().optional(),
+  civilite: z.string().nullable().optional(),
+  qualite: zQualitePartie,
+  adresse: adresseTcomSchema.nullable().optional()
 })
 
 const objectIdSchema = z.any()
