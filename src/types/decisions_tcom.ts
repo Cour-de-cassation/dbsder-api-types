@@ -5,6 +5,7 @@ import {
   LabelTreatment,
   Occultation,
   PublishStatus,
+  QualitePartieExhaustive,
   TypePartie
 } from './common'
 
@@ -32,12 +33,28 @@ export enum JusticeRoleTcom {
   AUTRE = 'AUTRE'
 }
 
+export class AdresseTcom {
+  numero?: string | null
+  type?: string | null
+  voie?: string | null
+  codePostal?: string | null
+  pays?: string | null
+  localite?: string | null
+  complement?: string | null
+  bureau?: string | null
+}
+
 type PartieTcom = {
   type: TypePartie
   role: JusticeRoleTcom
   nom: string
+  nomUsage?: string | null
   prenom?: string | null
+  prenomAutre?: string | null
+  alias?: string | null
   civilite?: string | null
+  qualite: QualitePartieExhaustive
+  adresse?: AdresseTcom | null
 }
 
 export type DecisionTcom = {
