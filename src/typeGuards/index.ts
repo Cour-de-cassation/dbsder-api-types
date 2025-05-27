@@ -2,7 +2,7 @@ export { parseDecisionTj, hasSourceNameTj } from './decisions_tj.zod'
 export { parseDecisionCa, hasSourceNameCa } from './decisions_ca.zod'
 export { parseDecisionCc, hasSourceNameCc } from './decisions_cc.zod'
 export { parseDecisionDila, hasSourceNameDila } from './decisions_dila.zod'
-export { isLabelStatus, isLabelTreatment, isPublishStatus } from './common.zod'
+export { parseLabelStatus, parseLabelTreatments, parsePublishStatus } from './common.zod'
 
 import { decisionTcomSchema, parseDecisionTcom } from './decisions_tcom.zod'
 import { decisionTjSchema, parseDecisionTj } from './decisions_tj.zod'
@@ -13,16 +13,11 @@ import { Decision, UnIdentifiedDecision } from '../types'
 import { zObjectId } from './common.zod'
 import { ObjectId } from 'mongodb'
 
-export function isId(x: unknown): x is ObjectId {
-  try {
-    return !!zObjectId.parse(x)
-  } catch (_) {
-    return false
-  }
+export function parseId(x: unknown): ObjectId {
+  return zObjectId.parse(x)
 }
 
-export function isSourceName(x: unknown): x is Decision['sourceName'] {
-  try {
+export function parseSourceName(x: unknown): Decision['sourceName'] {
     const sourceName = decisionCaSchema
       .pick({ sourceName: true })
       .or(decisionCcSchema.pick({ sourceName: true }))
@@ -37,17 +32,16 @@ export function isSourceName(x: unknown): x is Decision['sourceName'] {
       : never
     const exhaustiveSourceName: ExhaustiveSourceName = sourceName
 
-    return !!exhaustiveSourceName
-  } catch (_) {
-    return false
-  }
+    return exhaustiveSourceName
 }
 
 export function parseUnIdentifiedDecision(x: unknown): UnIdentifiedDecision {
-  const isValidX = typeof x === 'object' && !!x && 'sourceName' in x
-  if (!isValidX || !isSourceName(x.sourceName)) throw new Error('sourceName is invalid in decision')
+  const isValidX = typeof x === 'object' && x != null && 'sourceName' in x
+  if (!isValidX) throw new Error('There is no sourceName in decision')
+  
+  const sourceName = parseSourceName(x.sourceName)
 
-  switch (x.sourceName) {
+  switch (sourceName) {
     case 'jurinet':
       return parseDecisionCc(x)
     case 'jurica':
@@ -59,16 +53,17 @@ export function parseUnIdentifiedDecision(x: unknown): UnIdentifiedDecision {
     case 'juritcom':
       return parseDecisionTcom(x)
     default:
-      x.sourceName satisfies never
+      sourceName satisfies never
       throw new Error('unexpected error')
   }
 }
 
 export function parseDecision(x: unknown): Decision {
   const isValidX = typeof x === 'object' && !!x && '_id' in x
-  if (!isValidX || !isId(x._id)) throw new Error('_id is invalid in decision')
+  if (!isValidX) throw new Error('There is no _id in decision')
 
+  const _id = parseId(x._id)
   const decision = parseUnIdentifiedDecision(x)
 
-  return { _id: x._id, ...decision }
+  return { _id, ...decision }
 }

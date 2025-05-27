@@ -10,7 +10,7 @@ import {
   SuiviOccultation,
   QualitePartieExhaustive,
   TypePartieExhaustive,
-  LabelTreatment
+  LabelTreatments
 } from '../types/common'
 import { ObjectId } from 'mongodb'
 
@@ -63,14 +63,16 @@ const zNLPVersion = z.object({
   model: zModelName
 })
 
-export const zLabelTreatment = z.object({
-  order: z.number().or(z.nan()),
-  annotations: z.array(zEntity),
-  source: z.string(),
-  version: zNLPVersion.optional().nullable(),
-  treatmentDate: z.string().optional(),
-  checklist: z.array(zCheck).optional()
-})
+export const zLabelTreatments = z.array(
+  z.object({
+    order: z.number().or(z.nan()),
+    annotations: z.array(zEntity),
+    source: z.string(),
+    version: zNLPVersion.optional().nullable(),
+    treatmentDate: z.string().optional(),
+    checklist: z.array(zCheck).optional()
+  })
+)
 
 export const zPseudoStatus = z.nativeEnum(PseudoStatus)
 
@@ -97,26 +99,14 @@ export const zObjectId = z
   })
   .transform((_) => new ObjectId(_))
 
-export function isLabelStatus(x: unknown): x is LabelStatus {
-  try {
-    return !!zLabelStatus.parse(x)
-  } catch (_) {
-    return false
-  }
+export function parseLabelStatus(x: unknown): LabelStatus {
+  return zLabelStatus.parse(x)
 }
 
-export function isLabelTreatment(x: unknown): x is LabelTreatment {
-  try {
-    return !!zLabelTreatment.parse(x)
-  } catch (_) {
-    return false
-  }
+export function parseLabelTreatments(x: unknown): LabelTreatments {
+  return zLabelTreatments.parse(x)
 }
 
-export function isPublishStatus(x: unknown): x is PublishStatus {
-  try {
-    return !!zPublishStatus.parse(x)
-  } catch (_) {
-    return false
-  }
+export function parsePublishStatus(x: unknown): PublishStatus {
+  return zPublishStatus.parse(x)
 }

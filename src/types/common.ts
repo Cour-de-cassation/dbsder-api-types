@@ -105,14 +105,14 @@ type NLPVersion = {
   model: ModelName
 }
 
-export type LabelTreatment = {
+export type LabelTreatments = {
   order: number
   annotations: Entity[]
   source: string
   version?: NLPVersion | null
   treatmentDate?: string
   checklist?: Check[]
-}
+}[]
 
 export enum PseudoStatus {
   A_PSEUDONYMISER = 0,

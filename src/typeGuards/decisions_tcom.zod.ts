@@ -7,7 +7,7 @@ import { UnIdentifiedDecision, UnIdentifiedDecisionTcom, Decision, DecisionTcom 
 import {
   zBlocOccultation,
   zLabelStatus,
-  zLabelTreatment,
+  zLabelTreatments,
   zOccultation,
   zPublishStatus,
   zQualitePartie,
@@ -67,7 +67,7 @@ export const decisionTcomSchema = z.object({
   solution: z.string().nullable().optional(),
   labelStatus: zLabelStatus,
   publishStatus: zPublishStatus.optional(),
-  labelTreatments: z.array(zLabelTreatment).optional(),
+  labelTreatments: zLabelTreatments.optional(),
   dateCreation: z.string(),
   publishDate: z.string().optional().nullable(),
   firstImportDate: z.string().optional(),

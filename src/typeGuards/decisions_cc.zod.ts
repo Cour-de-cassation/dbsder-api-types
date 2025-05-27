@@ -4,7 +4,7 @@ import { z } from 'zod'
 import {
   zOccultation,
   zLabelStatus,
-  zLabelTreatment,
+  zLabelTreatments,
   zPseudoStatus,
   zPublishStatus,
   zBlocOccultation,
@@ -93,7 +93,7 @@ export const decisionCcSchema = z.object({
   formation: z.string().optional(),
   labelStatus: zLabelStatus,
   publishStatus: zPublishStatus.optional(),
-  labelTreatments: z.array(zLabelTreatment).optional(),
+  labelTreatments: zLabelTreatments.optional(),
   dateCreation: z.string(),
   publishDate: z.string().optional().nullable(),
   firstImportDate: z.string().optional(),
