@@ -19,7 +19,7 @@ export { CodeNac } from './codeNacs'
 export { CodeDecision } from './codeDecisions'
 
 export {
-  LabelTreatment,
+  LabelTreatments,
   LabelStatus,
   PublishStatus,
   TypePartieExhaustive,

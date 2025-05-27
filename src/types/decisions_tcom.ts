@@ -2,7 +2,7 @@ import { ObjectId } from 'mongodb'
 import {
   BlocOccultation,
   LabelStatus,
-  LabelTreatment,
+  LabelTreatments,
   Occultation,
   PublishStatus,
   QualitePartieExhaustive,
@@ -79,7 +79,7 @@ export type DecisionTcom = {
 
   labelStatus: LabelStatus
   publishStatus?: PublishStatus
-  labelTreatments?: LabelTreatment[]
+  labelTreatments?: LabelTreatments
 
   dateCreation: string
   publishDate?: string | null
