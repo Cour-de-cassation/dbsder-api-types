@@ -2,6 +2,8 @@ export { parseDecisionTj, hasSourceNameTj } from './decisions_tj.zod'
 export { parseDecisionCa, hasSourceNameCa } from './decisions_ca.zod'
 export { parseDecisionCc, hasSourceNameCc } from './decisions_cc.zod'
 export { parseDecisionDila, hasSourceNameDila } from './decisions_dila.zod'
+export { parseDecisionCph, hasSourceNameCph } from './decisions_cph.zod'
+
 export { parseLabelStatus, parseLabelTreatments, parsePublishStatus } from './common.zod'
 export { ZodError as ParseError } from 'zod'
 
@@ -13,11 +15,13 @@ import {
 import { decisionTjSchema, parseDecisionTj, parsePartialDecisionTj } from './decisions_tj.zod'
 import { decisionCaSchema, parseDecisionCa, parsePartialDecisionCa } from './decisions_ca.zod'
 import { decisionCcSchema, parseDecisionCc, parsePartialDecisionCc } from './decisions_cc.zod'
+import { decisionCphSchema, parseDecisionCph } from './decisions_cph.zod'
 import {
   decisionDilaSchema,
   parseDecisionDila,
   parsePartialDecisionDila
 } from './decisions_dila.zod'
+
 import {
   Decision,
   DecisionCa,
@@ -41,6 +45,7 @@ export function parseSourceName(x: unknown): Decision['sourceName'] {
     .or(decisionTjSchema.pick({ sourceName: true }))
     .or(decisionTcomSchema.pick({ sourceName: true }))
     .or(decisionDilaSchema.pick({ sourceName: true }))
+    .or(decisionCphSchema.pick({ sourceName: true }))
     .parse({ sourceName: x }).sourceName
 
   // /!\ used to check exhaustivity: error type means you forget a schema /!\
@@ -69,6 +74,8 @@ export function parseUnIdentifiedDecision(x: unknown): UnIdentifiedDecision {
       return parseDecisionDila(x)
     case 'juritcom':
       return parseDecisionTcom(x)
+    case 'portalis-cph':
+      return parseDecisionCph(x)
     default:
       sourceName satisfies never
       throw new Error('unexpected error')
