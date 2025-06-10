@@ -6,7 +6,9 @@ import {
   zLabelStatus,
   zBlocOccultation,
   zObjectId,
-  zSuiviOccultation
+  zSuiviOccultation,
+  zPublishStatus,
+  zLabelTreatments
 } from './common.zod'
 import { Decision, DecisionCph, UnIdentifiedDecision, UnIdentifiedDecisionCph } from '../types'
 
@@ -19,6 +21,9 @@ export const decisionCphSchema = z.object({
   zoning: z.record(z.unknown()).optional().nullable(),
   originalTextZoning: z.record(z.unknown()).optional(),
   pseudoTextZoning: z.record(z.unknown()).optional(),
+  labelStatus: zLabelStatus,
+  publishStatus: zPublishStatus.optional(),
+  labelTreatments: zLabelTreatments.optional(),
   dateDecision: z.string(),
   dateCreation: z.string(),
   publishDate: z.string().optional().nullable(),
@@ -26,32 +31,30 @@ export const decisionCphSchema = z.object({
   lastImportDate: z.string().optional(),
   unpublishDate: z.string().optional().nullable(),
   NACCode: z.string(),
-  NACLibelle: z.string(),
+  NACLibelle: z.string().optional(),
   endCaseCode: z.string(),
-  libelleEndCaseCode: z.string(),
-  chamberId: z.string(),
-  chamberName: z.string(),
+  libelleEndCaseCode: z.string().optional(),
+  chamberId: z.string().optional(),
+  chamberName: z.string().optional(),
   jurisdictionCode: z.string(),
   jurisdictionId: z.string(),
   jurisdictionName: z.string(),
   selection: z.boolean(),
   sommaire: z.string(),
-  blocOccultation: zBlocOccultation,
+  blocOccultation: zBlocOccultation.optional(),
   occultation: zOccultation,
   recommandationOccultation: zSuiviOccultation,
-  // parties: z.undefined(),
   formation: z.union([z.string(), z.undefined()]).optional(),
-  // composition: z.undefined(),
-  // president: z.undefined(),
-  // experts: z.undefined(),
+  parties: z.array(z.unknown()),
+  composition: z.array(z.unknown()),
+  tiers: z.array(z.unknown()),
   public: z.boolean(),
   debatPublic: z.boolean(),
-  indicateurQPC: z.boolean(),
+  indicateurQPC: z.boolean().optional(),
   // matiereDeterminee: z.undefined().optional(),
   pourvoiCourDeCassation: z.boolean(),
   pourvoiLocal: z.boolean(),
   filenameSource: z.string(),
-  labelStatus: zLabelStatus
 })
 
 export function hasSourceNameCph(x: UnIdentifiedDecision): x is UnIdentifiedDecisionCph
