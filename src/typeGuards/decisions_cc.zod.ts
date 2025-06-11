@@ -141,3 +141,7 @@ export function hasSourceNameCc(
 export function parseDecisionCc(x: unknown): UnIdentifiedDecisionCc {
   return decisionCcSchema.omit({ _id: true }).parse(x)
 }
+
+export function parsePartialDecisionCc(x: unknown): Partial<DecisionCc> {
+  return decisionCcSchema.partial().parse(x)
+}
