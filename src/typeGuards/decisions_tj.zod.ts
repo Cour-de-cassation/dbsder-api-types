@@ -107,3 +107,7 @@ export function hasSourceNameTj(
 export function parseDecisionTj(x: unknown): UnIdentifiedDecisionTj {
   return decisionTjSchema.omit({ _id: true }).parse(x)
 }
+
+export function parsePartialDecisionTj(x: unknown): Partial<DecisionTj> {
+  return decisionTjSchema.partial().parse(x)
+}

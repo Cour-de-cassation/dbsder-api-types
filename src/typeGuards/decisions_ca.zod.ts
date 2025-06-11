@@ -104,3 +104,7 @@ export function hasSourceNameCa(
 export function parseDecisionCa(x: unknown): UnIdentifiedDecisionCa {
   return decisionCaSchema.omit({ _id: true }).parse(x)
 }
+
+export function parsePartialDecisionCa(x: unknown): Partial<DecisionCa> {
+  return decisionCaSchema.partial().parse(x)
+}

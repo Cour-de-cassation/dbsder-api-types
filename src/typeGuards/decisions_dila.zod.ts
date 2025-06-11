@@ -91,3 +91,7 @@ export function hasSourceNameDila(
 export function parseDecisionDila(x: unknown): UnIdentifiedDecisionDila {
   return decisionDilaSchema.omit({ _id: true }).parse(x)
 }
+
+export function parsePartialDecisionDila(x: unknown): Partial<DecisionDila> {
+  return decisionDilaSchema.partial().parse(x)
+}

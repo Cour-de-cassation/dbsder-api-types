@@ -104,3 +104,7 @@ export function hasSourceNameTcom(
 export function parseDecisionTcom(x: unknown): UnIdentifiedDecisionTcom {
   return decisionTcomSchema.omit({ _id: true }).parse(x)
 }
+
+export function parsePartialDecisionTcom(x: unknown): Partial<DecisionTcom> {
+  return decisionTcomSchema.partial().parse(x)
+}
