@@ -15,7 +15,7 @@ import {
 import { decisionTjSchema, parseDecisionTj, parsePartialDecisionTj } from './decisions_tj.zod'
 import { decisionCaSchema, parseDecisionCa, parsePartialDecisionCa } from './decisions_ca.zod'
 import { decisionCcSchema, parseDecisionCc, parsePartialDecisionCc } from './decisions_cc.zod'
-import { decisionCphSchema, parseDecisionCph } from './decisions_cph.zod'
+import { decisionCphSchema, parseDecisionCph, parsePartialDecisionCph } from './decisions_cph.zod'
 import {
   decisionDilaSchema,
   parseDecisionDila,
@@ -26,6 +26,7 @@ import {
   Decision,
   DecisionCa,
   DecisionCc,
+  DecisionCph,
   DecisionDila,
   DecisionTcom,
   DecisionTj,
@@ -90,7 +91,8 @@ export function parsePartialDecision(
   | Partial<DecisionCa>
   | Partial<DecisionDila>
   | Partial<DecisionTcom>
-  | Partial<DecisionTj> {
+  | Partial<DecisionTj>
+  | Partial<DecisionCph> {
 
   switch (sourceName) {
     case 'jurinet':
@@ -103,6 +105,8 @@ export function parsePartialDecision(
       return parsePartialDecisionDila(x)
     case 'juritcom':
       return parsePartialDecisionTcom(x)
+    case 'portalis-cph':
+      return parsePartialDecisionCph(x)
     default:
       sourceName satisfies never
       throw new Error('unexpected error')
