@@ -1,36 +1,32 @@
 name: Publish NPM packages
 
 on:
-    push:
-      branches:
-        - master
+  push:
+    branches:
+      - master
 
 jobs:
   compile-and-publish-to-npm:
     runs-on: ubuntu-latest
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v2
+      - name: Checkout repository
+        uses: actions/checkout@v2
 
-    - name: Setup Node.js
-      uses: actions/setup-node@v4
-      with:
-        node-version: 20
-    
-    - name: Install dependancies
-      run: npm install
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
 
-    - name: Compile typescript code
-      run: npm run build && npm run format
+      - name: Install dependancies
+        run: npm install
 
-    
-    - name: Publish npm package in npm registry
-      uses: github-actions-community/merge-release@main
-      env:
+      - name: Compile typescript code
+        run: npm run build && npm run format
+
+      - name: Publish npm package in npm registry
+        uses: github-actions-community/merge-release@main
+        env:
           DEPLOY_DIR: ./
           SRC_PACKAGE_DIR: ./
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
-
-
-          

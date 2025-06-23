@@ -18,8 +18,6 @@
   },
   "homepage": "https://github.com/Cour-de-cassation/dbsder-api-types#readme",
   "devDependencies": {
-    "husky": "8.0.3",
-    "parse-json": "8.1.0",
     "prettier": "3.2.4",
     "ts-to-zod": "^3.15.0",
     "typescript": "5.3.3"
