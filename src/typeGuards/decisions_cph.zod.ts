@@ -53,7 +53,7 @@ export const decisionCphSchema = z.object({
   // matiereDeterminee: z.undefined().optional(),
   pourvoiCourDeCassation: z.boolean(),
   pourvoiLocal: z.boolean(),
-  filenameSource: z.string(),
+  filenameSource: z.string()
 })
 
 export function hasSourceNameCph(x: UnIdentifiedDecision): x is UnIdentifiedDecisionCph

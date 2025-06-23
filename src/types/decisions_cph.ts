@@ -5,15 +5,15 @@ import {
   LabelTreatments,
   Occultation,
   PublishStatus,
-  SuiviOccultation,
+  SuiviOccultation
 } from './common'
 
 export type DecisionCph = {
-  _id: ObjectId,
-  sourceId: number,
-  sourceName: "portalis-cph",
-  originalText: string,
-  pseudoText?: string,
+  _id: ObjectId
+  sourceId: number
+  sourceName: 'portalis-cph'
+  originalText: string
+  pseudoText?: string
 
   originalTextZoning?: { [k: string]: unknown }
   pseudoTextZoning?: { [k: string]: unknown }
@@ -22,39 +22,39 @@ export type DecisionCph = {
   publishStatus?: PublishStatus
   labelTreatments?: LabelTreatments
 
-  dateDecision: string,
-  dateCreation: string,
+  dateDecision: string
+  dateCreation: string
   publishDate?: string | null
   firstImportDate?: string | null
   lastImportDate?: string
-  unpublishDate?: string | null,
+  unpublishDate?: string | null
 
-  NACCode: string,
-  NACLibelle?: string,
-  endCaseCode: string,
-  libelleEndCaseCode?: string,
+  NACCode: string
+  NACLibelle?: string
+  endCaseCode: string
+  libelleEndCaseCode?: string
 
-  chamberId?: string,
+  chamberId?: string
   chamberName?: string
-  jurisdictionCode: string,
-  jurisdictionId: string,
-  jurisdictionName: string,
+  jurisdictionCode: string
+  jurisdictionId: string
+  jurisdictionName: string
 
-  selection: boolean,
-  sommaire: string,
+  selection: boolean
+  sommaire: string
 
-  blocOccultation?: BlocOccultation,
-  occultation: Occultation,
-  recommandationOccultation: SuiviOccultation,
+  blocOccultation?: BlocOccultation
+  occultation: Occultation
+  recommandationOccultation: SuiviOccultation
 
-  formation?: string,
-  parties: unknown[],
-  composition: unknown[],
-  tiers: unknown[],
+  formation?: string
+  parties: unknown[]
+  composition: unknown[]
+  tiers: unknown[]
 
-  public: boolean,
-  debatPublic: boolean,
-  indicateurQPC?: boolean,
+  public: boolean
+  debatPublic: boolean
+  indicateurQPC?: boolean
   // matiereDeterminee?: undefined,
   pourvoiCourDeCassation: boolean
   pourvoiLocal: boolean
