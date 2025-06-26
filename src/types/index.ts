@@ -31,7 +31,13 @@ export {
   Category
 } from './common'
 
-export type Decision = DecisionTj | DecisionTcom | DecisionCa | DecisionCc | DecisionDila | DecisionCph
+export type Decision =
+  | DecisionTj
+  | DecisionTcom
+  | DecisionCa
+  | DecisionCc
+  | DecisionDila
+  | DecisionCph
 export type UnIdentifiedDecision =
   | UnIdentifiedDecisionTj
   | UnIdentifiedDecisionTcom

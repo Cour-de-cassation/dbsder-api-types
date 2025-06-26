@@ -1,6 +1,8 @@
 # DBSDER API Types
 
-Afin d'harmoniser nos types de données dans nos différents répertoires, nous proposons cette librairie définissant une décision comme modèle à maintenir.
+Cette librairie contient défini les types correspondant aux données contenue dans la base de donnée mongo DBSDER. Elle contient également des fonctions de parsing permettant de valider les objets en s'appuyant sur leur schéma zod.
+
+Les schéma zod ont été générés en utilisant la librairie `ts-to-zod`. Lorsque l'on fait évoluer un type il faut modifier également le schéma zod associé ou utiliser a nouveau la librairie.
 
 ## Utilisation de la librairie sur votre projet
 
@@ -12,38 +14,31 @@ Sur le répertoire de votre choix avec la commande :
 npm install dbsder-api-types
 ```
 
-Puis importer le type souhaité :
-
-```typescript
-import { DecisionDTO } from 'dbsder-api-types'
-```
-
-## Installation du package
-
-Pour installer les packages nécessaires au bon fonctionnement de la librairie, ouvrir un terminal et entrer la commande suivante :
+## Utilisation de la librairie en local
 
 ```bash
 npm install
-```  
-
-N'oubliez pas d'installer **husky** pour obtenir les hooks de commit/push
+```
 
 ```bash
-npx husky install
+npm run watch
+```
+
+Pour utiliser localement cette librairie dans un autre projet Node.js, vous pouvez créer un lien symbolique avec npm link :
+
+```bash
+npm link ~/PATH/TO/THE/REPO/dbsder-api-types
+
 ```
 
 ## Modifier et publier le package
 
-* Créer une branch pour faire vos modifications
-* Une fois les modifications terminées ouvrir une PR sur github
-* Le nom de votre PR conditionne la montée de version du package :
-    - Si `BREAKING CHANGE` ou `!` est présent dans le titre ==> version majeure
-    - Si `feat` est présent dans le titre ==> version mineure
-    - Sinon ==> version patch 
-* Une fois votre PR merge vérifier le bon fonctionnement du github action.
+Le package est automatiquement publié sur [npmjs](https://www.npmjs.com/package/dbsder-api-types) et la version incrémentée lorsque le code est fusioné dans la branche master. Voici la marche a suivre :
 
-
-# Pour utiliser le package en local sur un projet
-
-* `npm run build`
-* Dans le projet ou vous souhaitez utiliser le package : `npm install --save ~/PATH/TO/THE/REPO/dbsder-api-types`
+- Créer une branch issue de `master` pour faire vos modifications
+- Une fois les modifications terminées ouvrir une PR sur github
+- Le nom de votre PR conditionne la montée de version du package :
+  - Si `BREAKING CHANGE` ou `!` est présent dans le titre ==> version majeure
+  - Si `feat` est présent dans le titre ==> version mineure
+  - Sinon ==> version patch
+- Une fois votre PR merge vérifier le bon fonctionnement du github action.

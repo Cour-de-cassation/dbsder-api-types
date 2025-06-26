@@ -84,7 +84,7 @@ export function parseUnIdentifiedDecision(x: unknown): UnIdentifiedDecision {
 }
 
 export function parsePartialDecision(
-  sourceName: Decision["sourceName"],
+  sourceName: Decision['sourceName'],
   x: unknown
 ):
   | Partial<DecisionCc>
@@ -93,7 +93,6 @@ export function parsePartialDecision(
   | Partial<DecisionTcom>
   | Partial<DecisionTj>
   | Partial<DecisionCph> {
-
   switch (sourceName) {
     case 'jurinet':
       return parsePartialDecisionCc(x)
