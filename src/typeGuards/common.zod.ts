@@ -26,9 +26,9 @@ const zEntity = z.object({
   start: z.number().or(z.nan()),
   end: z.number().or(z.nan()).optional(),
   category: zCategory,
-  score: z.number().or(z.nan()).optional(),
+  score: z.number().or(z.nan()).optional().nullable(),
   certaintyScore: z.number().or(z.nan()).optional().nullable(),
-  source: z.string().optional()
+  source: z.string().optional().nullable()
 })
 
 const zSentenceIndex = z.object({
