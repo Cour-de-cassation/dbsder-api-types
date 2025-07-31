@@ -68,9 +68,9 @@ export type Entity = {
   start: number
   end?: number
   category: Category
-  score?: number
+  score?: number | null
   certaintyScore?: number | null
-  source?: string
+  source?: string | null
 }
 
 type SentenceIndex = {
