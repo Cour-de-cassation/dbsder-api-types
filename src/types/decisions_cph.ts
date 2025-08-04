@@ -41,7 +41,7 @@ export type DecisionCph = {
   jurisdictionName: string
 
   selection: boolean
-  sommaire: string
+  sommaire?: string
 
   blocOccultation?: BlocOccultation
   occultation: Occultation

@@ -39,7 +39,7 @@ export const decisionCphSchema = z.object({
   jurisdictionId: z.string(),
   jurisdictionName: z.string(),
   selection: z.boolean(),
-  sommaire: z.string(),
+  sommaire: z.string().optional(),
   blocOccultation: zBlocOccultation.optional(),
   occultation: zOccultation,
   recommandationOccultation: zSuiviOccultation,
