@@ -18,12 +18,12 @@
   },
   "homepage": "https://github.com/Cour-de-cassation/dbsder-api-types#readme",
   "devDependencies": {
-    "prettier": "3.2.4",
-    "ts-to-zod": "^3.15.0",
-    "typescript": "5.3.3"
+    "prettier": "3.6.2",
+    "ts-to-zod": "3.15.0",
+    "typescript": "5.9.2"
   },
   "dependencies": {
-    "mongodb": "^6.15.0",
-    "zod": "^3.24.2"
+    "mongodb": "6.19.0",
+    "zod": "3.25.76"
   }
 }
