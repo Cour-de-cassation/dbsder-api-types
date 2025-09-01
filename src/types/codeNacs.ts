@@ -19,13 +19,13 @@ export type CodeNac = {
 
   blocOccultationCA?: BlocOccultation
   blocOccultationTJ?: BlocOccultation
-  categoriesToOmitCA: {
+  categoriesToOmitCA?: {
     aucune: Category[]
     conforme: Category[]
     complément: Category[]
     substituant: Category[]
   }
-  categoriesToOmitTJ: {
+  categoriesToOmitTJ?: {
     aucune: Category[]
     conforme: Category[]
     complément: Category[]
