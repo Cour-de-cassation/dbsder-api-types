@@ -5,6 +5,7 @@ export { parseDecisionDila, hasSourceNameDila } from './decisions_dila.zod'
 export { parseDecisionCph, hasSourceNameCph } from './decisions_cph.zod'
 
 export { parseLabelStatus, parseLabelTreatments, parsePublishStatus } from './common.zod'
+export { ZodError as ParseError } from 'zod'
 
 import {
   decisionTcomSchema,
@@ -121,8 +122,6 @@ export function parseDecision(x: unknown): Decision {
 
   return { _id, ...decision }
 }
-
-export type ParseError = ZodError
 
 export function stringifyError(error: ZodError): string[] {
   return z.treeifyError(error).errors
