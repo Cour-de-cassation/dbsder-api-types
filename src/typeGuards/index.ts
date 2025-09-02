@@ -5,7 +5,6 @@ export { parseDecisionDila, hasSourceNameDila } from './decisions_dila.zod'
 export { parseDecisionCph, hasSourceNameCph } from './decisions_cph.zod'
 
 export { parseLabelStatus, parseLabelTreatments, parsePublishStatus } from './common.zod'
-export { ZodError as ParseError } from 'zod'
 
 import {
   decisionTcomSchema,
@@ -34,6 +33,7 @@ import {
 } from '../types'
 import { zObjectId } from './common.zod'
 import { ObjectId } from 'mongodb'
+import z, { ZodError } from 'zod'
 
 export function parseId(x: unknown): ObjectId {
   return zObjectId.parse(x)
@@ -120,4 +120,10 @@ export function parseDecision(x: unknown): Decision {
   const decision = parseUnIdentifiedDecision(x)
 
   return { _id, ...decision }
+}
+
+export type ParseError = ZodError
+
+export function stringifyError(error: ZodError): string[] {
+  return z.treeifyError(error).errors
 }
