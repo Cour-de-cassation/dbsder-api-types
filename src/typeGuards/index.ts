@@ -123,6 +123,6 @@ export function parseDecision(x: unknown): Decision {
   return { _id, ...decision }
 }
 
-export function stringifyError(error: ZodError): string[] {
-  return z.treeifyError(error).errors
+export function stringifyError(error: ZodError): string {
+  return error._zod.def.map(_ => `${_.path.join('.')}: ${_.message}`).join('\n')
 }
