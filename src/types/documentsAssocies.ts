@@ -13,4 +13,5 @@ export type DocumentAssocie = {
     orignalText: string
     pseudoText?: string
     labelTreatments: LabelTreatments[]
+    metadata: Object
 }
