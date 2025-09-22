@@ -71,13 +71,13 @@ type ViewPartieCC = {
 
 type DecisionAnalysisCC = {
   analyse?: null | AnalyzeCC[]
-  doctrine: null | string
-  link: null | string
-  reference: null | TitreReferenceCC[]
-  source: null | string
-  summary: null | string
-  target: null | string
-  title: null | string[]
+  doctrine?: null | string
+  link?: null | string
+  reference?: null | TitreReferenceCC[]
+  source?: null | string
+  summary?: null | string
+  target?: null | string
+  title?: null | string[]
   nature?: null | string
 }
 

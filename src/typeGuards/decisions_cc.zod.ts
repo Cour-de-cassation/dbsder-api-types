@@ -55,13 +55,13 @@ const titreReferenceCcSchema = z.tuple([
 
 const decisionAnalysisCcSchema = z.object({
   analyse: z.array(analyzeCcSchema).optional().nullable(),
-  doctrine: z.string().nullable(),
-  link: z.string().nullable(),
-  reference: z.array(titreReferenceCcSchema).nullable(),
-  source: z.string().nullable(),
-  summary: z.string().nullable(),
-  target: z.string().nullable(),
-  title: z.array(z.string()).nullable(),
+  doctrine: z.string().optional().nullable(),
+  link: z.string().optional().nullable(),
+  reference: z.array(titreReferenceCcSchema).optional().nullable(),
+  source: z.string().optional().nullable(),
+  summary: z.string().optional().nullable(),
+  target: z.string().optional().nullable(),
+  title: z.array(z.string()).optional().nullable(),
   nature: z.string().optional().nullable()
 })
 
