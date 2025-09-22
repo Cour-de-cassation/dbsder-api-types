@@ -25,13 +25,13 @@ type PartieCA = {
 
 type DecisionAnalysisCA = {
   analyse?: null[]
-  doctrine: null
-  link: null
-  reference: null[]
-  source: null
-  summary: null
-  target: null
-  title: null
+  doctrine?: null
+  link?: null
+  reference?: null[]
+  source?: null
+  summary?: null
+  target?: null
+  title?: null
   nature?: null
 }
 

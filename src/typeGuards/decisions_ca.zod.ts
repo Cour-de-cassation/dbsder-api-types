@@ -29,13 +29,13 @@ const partieCaSchema = z.object({
 
 const decisionAnalysisCaSchema = z.object({
   analyse: z.array(z.null()).optional(),
-  doctrine: z.null(),
-  link: z.null(),
-  reference: z.array(z.null()),
-  source: z.null(),
-  summary: z.null(),
-  target: z.null(),
-  title: z.null(),
+  doctrine: z.null().optional(),
+  link: z.null().optional(),
+  reference: z.array(z.null()).optional(),
+  source: z.null().optional(),
+  summary: z.null().optional(),
+  target: z.null().optional(),
+  title: z.null().optional(),
   nature: z.null().optional()
 })
 

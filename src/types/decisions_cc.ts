@@ -98,10 +98,10 @@ export type DecisionCc = {
   dateDecision: null | string
 
   jurisdictionCode: null | JurisdictionCodeCC
-  jurisdictionId: null
+  jurisdictionId?: null
   jurisdictionName: null | string
 
-  public?: boolean
+  public?: boolean | null
   solution?: string
   formation?: string
 
@@ -122,7 +122,7 @@ export type DecisionCc = {
 
   registerNumber: string | null
   chamberId: string | null
-  chamberName: null
+  chamberName?: null
   pubCategory: PublicationCategoryCC | null
   pseudoStatus: PseudoStatus
   appeals: string[]
