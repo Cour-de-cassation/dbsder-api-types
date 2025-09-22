@@ -55,13 +55,13 @@ const titreReferenceCcSchema = z.tuple([
 
 const decisionAnalysisCcSchema = z.object({
   analyse: z.array(analyzeCcSchema).optional().nullable(),
-  doctrine: z.string().optional().nullable(),
-  link: z.string().optional().nullable(),
-  reference: z.array(titreReferenceCcSchema).optional().nullable(),
-  source: z.string().optional().nullable(),
-  summary: z.string().optional().nullable(),
-  target: z.string().optional().nullable(),
-  title: z.array(z.string()).optional().nullable(),
+  doctrine: z.string().nullable(),
+  link: z.string().nullable(),
+  reference: z.array(titreReferenceCcSchema).nullable(),
+  source: z.string().nullable(),
+  summary: z.string().nullable(),
+  target: z.string().nullable(),
+  title: z.array(z.string()).nullable(),
   nature: z.string().optional().nullable()
 })
 
@@ -86,9 +86,9 @@ export const decisionCcSchema = z.object({
   pseudoText: z.string().optional(),
   dateDecision: z.string().nullable(),
   jurisdictionCode: jurisdictionCodeCcSchema.nullable(),
-  jurisdictionId: z.null(),
+  jurisdictionId: z.null().optional(),
   jurisdictionName: z.string().nullable(),
-  public: z.boolean().optional(),
+  public: z.boolean().optional().nullable(),
   solution: z.string().optional(),
   formation: z.string().optional(),
   labelStatus: zLabelStatus,
@@ -104,7 +104,7 @@ export const decisionCcSchema = z.object({
   pseudoTextZoning: z.record(z.string(), z.unknown()).optional(),
   registerNumber: z.string().nullable(),
   chamberId: z.string().nullable(),
-  chamberName: z.null(),
+  chamberName: z.null().optional(),
   pubCategory: publicationCategoryCcSchema.nullable(),
   pseudoStatus: zPseudoStatus,
   appeals: z.array(z.string()),
