@@ -90,7 +90,7 @@ export type DecisionCc = {
 
   _rev?: number
   __v?: number
-  _version?: number
+  _version?: number | null
 
   originalText?: string
   pseudoText?: string

@@ -81,7 +81,7 @@ export const decisionCcSchema = z.object({
   sourceName: z.literal('jurinet'),
   _rev: z.number().or(z.nan()).optional(),
   __v: z.number().or(z.nan()).optional(),
-  _version: z.number().or(z.nan()).optional(),
+  _version: z.number().or(z.nan()).optional().nullable(),
   originalText: z.string().optional(),
   pseudoText: z.string().optional(),
   dateDecision: z.string().nullable(),
