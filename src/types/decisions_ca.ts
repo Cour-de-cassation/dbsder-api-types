@@ -41,7 +41,7 @@ export type DecisionCa = {
   sourceName: 'jurica'
 
   _rev?: number
-  _version: number
+  _version?: number | null
 
   originalText: string | null
   pseudoText?: string | null

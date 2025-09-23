@@ -44,7 +44,7 @@ export const decisionCaSchema = z.object({
   sourceId: z.number().or(z.nan()),
   sourceName: z.literal('jurica'),
   _rev: z.number().or(z.nan()).optional(),
-  _version: z.number().or(z.nan()),
+  _version: z.number().or(z.nan()).optional().nullable(),
   originalText: z.string().nullable(),
   pseudoText: z.string().optional().nullable(),
   registerNumber: z.string(),
