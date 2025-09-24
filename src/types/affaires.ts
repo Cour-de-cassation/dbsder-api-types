@@ -8,9 +8,8 @@ export type Affaire = {
 }
 
 type replacementTerms = {
-  [entityId: string]: {
-    replacementTerm: string
-    instances: string[]
-    category: Category
-  }
+  entityId: string
+  replacementTerm: string
+  origialTextInstances: string[]
+  category: Category
 }
