@@ -78,7 +78,7 @@ type SentenceIndex = {
   end: number
 }
 
-type Check = {
+export type Check = {
   check_type: string
   message: string
   short_message: string
@@ -97,7 +97,7 @@ type ModelName = {
   name: string
 }
 
-type NLPVersion = {
+export type NLPVersion = {
   juriSpacyTokenizer: NLPVersionDetails
   juritools: NLPVersionDetails
   pseudonymisationApi?: NLPVersionDetails

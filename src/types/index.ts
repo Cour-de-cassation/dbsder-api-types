@@ -28,7 +28,10 @@ export {
   TypePartieExhaustive,
   QualitePartieExhaustive,
   SuiviOccultation,
-  Category
+  Category,
+  Check,
+  NLPVersion,
+  Entity
 } from './common'
 
 export type Decision =
