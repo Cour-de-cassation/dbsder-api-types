@@ -135,6 +135,7 @@ export function isValidAffaire(x: unknown): UnIdentifiedAffaire {
   const isValidReplacementTerms = typeof x === 'object' && !!x && 'replacementTerms' in x
   const isValidDecisionIds = typeof x === 'object' && !!x && 'decisionIds' in x
   const isValidNumeroPourvois = typeof x === 'object' && !!x && 'numeroPourvois' in x
+
   if (!isValidReplacementTerms) throw new Error('There is no decisionIds in affaire')
   if (!isValidDecisionIds) throw new Error('There is no numeroPourvois in affaire')
   if (!isValidNumeroPourvois) throw new Error('There is no replacementTerms in affaire')
