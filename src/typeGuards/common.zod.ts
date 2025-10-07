@@ -12,7 +12,7 @@ import {
   TypePartieExhaustive,
   LabelTreatments
 } from '../types/common'
-import { ObjectId } from 'mongodb'
+import { ObjectId } from 'bson'
 
 export const zLabelStatus = z.enum(LabelStatus)
 

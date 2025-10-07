@@ -35,7 +35,7 @@ import {
   UnIdentifiedDecision
 } from '../types'
 import { zObjectId } from './common.zod'
-import { ObjectId } from 'mongodb'
+import { ObjectId } from 'bson'
 import { ZodError } from 'zod'
 import { parseAffaire, parsePartialAffaire } from './affaires.zod'
 

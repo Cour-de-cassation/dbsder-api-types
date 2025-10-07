@@ -1,6 +1,6 @@
 import { z } from 'zod'
 import { Category } from '../types/common'
-import { Affaire, UnIdentifiedAffaire } from '../types/affaire'
+import { Affaire, UnIdentifiedAffaire } from '../types/affaires'
 import { zObjectId } from './common.zod'
 
 
