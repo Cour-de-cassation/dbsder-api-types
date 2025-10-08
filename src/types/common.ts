@@ -124,6 +124,8 @@ export enum PseudoStatus {
 
 export type Occultation = {
   additionalTerms: string
+  additionalTermsToAnnotate?: string[]
+  additionalTermsToUnAnnotate?: string[]
   categoriesToOmit: Category[]
   motivationOccultation?: boolean
 }

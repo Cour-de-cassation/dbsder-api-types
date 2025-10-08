@@ -78,6 +78,8 @@ export const zPseudoStatus = z.nativeEnum(PseudoStatus)
 
 export const zOccultation = z.object({
   additionalTerms: z.string(),
+  additionalTermsToAnnotate: z.array(z.string()).optional(),
+  additionalTermsToUnAnnotate: z.array(z.string()).optional(),
   categoriesToOmit: z.array(zCategory),
   motivationOccultation: z.boolean().optional()
 })
