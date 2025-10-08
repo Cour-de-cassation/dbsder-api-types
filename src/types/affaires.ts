@@ -1,10 +1,10 @@
-import { ObjectId } from 'mongodb'
+import { ObjectId } from 'bson'
 import { Category } from './common'
 
 export type Affaire = {
   _id: ObjectId
   replacementTerms: replacementTerms[]
-  decisions: ObjectId[]
+  decisionIds: ObjectId[]
   numeroPourvois: string[]
 }
 
@@ -14,3 +14,5 @@ type replacementTerms = {
   origialTextInstances: string[]
   category: Category
 }
+
+export type UnIdentifiedAffaire = Omit<Affaire, '_id'>

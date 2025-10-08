@@ -14,7 +14,7 @@ import {
   zTypePartie
 } from './common.zod'
 
-export const justiceFunctionTcomSchema = z.nativeEnum(JusticeFunctionTcom)
+export const justiceFunctionTcomSchema = z.enum(JusticeFunctionTcom)
 
 const compositionTcomSchema = z.object({
   fonction: justiceFunctionTcomSchema.nullable().optional(),
@@ -23,7 +23,7 @@ const compositionTcomSchema = z.object({
   civilite: z.string().nullable().optional()
 })
 
-export const justiceRoleTcomSchema = z.nativeEnum(JusticeRoleTcom)
+export const justiceRoleTcomSchema = z.enum(JusticeRoleTcom)
 
 const adresseTcomSchema = z.object({
   numero: z.string().nullable().optional(),
