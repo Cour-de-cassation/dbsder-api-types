@@ -1,4 +1,4 @@
-import { ObjectId } from 'mongodb'
+import { ObjectId } from 'bson'
 import { LabelStatus, PseudoStatus, PublishStatus } from './common'
 
 type JurisdictionCodeDILA = 'CA' | 'CC' | 'OTHER' | 'TGI'
