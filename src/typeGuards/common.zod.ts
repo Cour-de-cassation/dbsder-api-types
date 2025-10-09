@@ -12,13 +12,13 @@ import {
   TypePartieExhaustive,
   LabelTreatments
 } from '../types/common'
-import { ObjectId } from 'mongodb'
+import { ObjectId } from 'bson'
 
-export const zLabelStatus = z.nativeEnum(LabelStatus)
+export const zLabelStatus = z.enum(LabelStatus)
 
-export const zPublishStatus = z.nativeEnum(PublishStatus)
+export const zPublishStatus = z.enum(PublishStatus)
 
-const zCategory = z.nativeEnum(Category)
+const zCategory = z.enum(Category)
 
 const zEntity = z.object({
   entityId: z.string(),
@@ -74,7 +74,7 @@ export const zLabelTreatments = z.array(
   })
 )
 
-export const zPseudoStatus = z.nativeEnum(PseudoStatus)
+export const zPseudoStatus = z.enum(PseudoStatus)
 
 export const zOccultation = z.object({
   additionalTerms: z.string(),
@@ -84,15 +84,15 @@ export const zOccultation = z.object({
   motivationOccultation: z.boolean().optional()
 })
 
-export const zSuiviOccultation = z.nativeEnum(SuiviOccultation)
+export const zSuiviOccultation = z.enum(SuiviOccultation)
 
-export const zQualitePartie = z.nativeEnum(QualitePartieExhaustive)
+export const zQualitePartie = z.enum(QualitePartieExhaustive)
 
-export const zTypePartie = z.nativeEnum(TypePartieExhaustive)
+export const zTypePartie = z.enum(TypePartieExhaustive)
 
-export const zBlocOccultation = z.nativeEnum(BlocOccultation)
+export const zBlocOccultation = z.enum(BlocOccultation)
 
-export const zLabelRoute = z.nativeEnum(LabelRoute)
+export const zLabelRoute = z.enum(LabelRoute)
 
 export const zObjectId = z
   .string()

@@ -1,4 +1,4 @@
-import { ObjectId } from 'mongodb'
+import { ObjectId } from 'bson'
 import { BlocOccultation, Category, LabelRoute } from './common'
 
 type NiveauCodeNAC = {

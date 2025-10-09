@@ -10,7 +10,7 @@ export { DecisionCa, UnIdentifiedDecisionCa } from './decisions_ca'
 export { DecisionCc, UnIdentifiedDecisionCc } from './decisions_cc'
 export { DecisionDila, UnIdentifiedDecisionDila } from './decisions_dila'
 export { DecisionCph, UnIdentifiedDecisionCph } from './decisions_cph'
-
+export { Affaire, UnIdentifiedAffaire } from './affaires'
 export {
   DecisionTcom,
   UnIdentifiedDecisionTcom,
