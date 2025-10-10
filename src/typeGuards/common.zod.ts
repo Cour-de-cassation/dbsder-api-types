@@ -10,7 +10,11 @@ import {
   SuiviOccultation,
   QualitePartieExhaustive,
   TypePartieExhaustive,
-  LabelTreatments
+  LabelTreatments,
+  ZoneRange,
+  ZoningZones,
+  IntroductionSubzonage,
+  Zoning
 } from '../types/common'
 import { ObjectId } from 'bson'
 
@@ -100,6 +104,39 @@ export const zObjectId = z
     return ObjectId.isValid(id) && new ObjectId(id).toString() === id
   })
   .transform((_) => new ObjectId(_))
+
+export const zZoneRange = z.object({
+  start: z.number(),
+  end: z.number()
+})
+
+export const zZoningZones = z.object({
+  introduction: zZoneRange.optional(),
+  moyens: z.array(zZoneRange).optional(),
+  'expose du litige': z.array(zZoneRange).optional(),
+  motivations: z.array(zZoneRange).optional(),
+  dispositif: zZoneRange.optional(),
+  'moyens annexes': zZoneRange.optional()
+})
+
+export const zIntroductionSubzonage = z.object({
+  n_arret: z.string().optional(),
+  formation: z.string().optional(),
+  publication: z.array(z.string()).optional(),
+  juridiction: z.string().optional(),
+  chambre: z.string().optional(),
+  pourvoi: z.array(z.string()).optional(),
+  composition: zZoneRange.optional()
+})
+
+export const zZoning = z.object({
+  zones: zZoningZones.optional(),
+  introduction_subzonage: zIntroductionSubzonage.optional(),
+  visa: z.array(z.string()).optional(),
+  is_public: z.number().optional(),
+  is_public_text: z.array(z.string()).optional(),
+  arret_id: z.number()
+})
 
 export function parseLabelStatus(x: unknown): LabelStatus {
   return zLabelStatus.parse(x)

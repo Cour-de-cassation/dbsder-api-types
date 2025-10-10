@@ -8,7 +8,8 @@ import {
   PublishStatus,
   QualitePartie,
   SuiviOccultation,
-  TypePartie
+  TypePartie,
+  Zoning
 } from './common'
 
 type PublicationCategoryCA = 'W' | 'A'
@@ -63,8 +64,8 @@ export type DecisionCa = {
 
   zoning?: { [k: string]: unknown } | null // Deprecated : replaced by originalTextZoning and pseudoTextZoning
 
-  originalTextZoning?: { [k: string]: unknown }
-  pseudoTextZoning?: { [k: string]: unknown }
+  originalTextZoning?: Zoning
+  pseudoTextZoning?: Zoning
 
   NACCode?: string | null
   libelleNAC?: string
