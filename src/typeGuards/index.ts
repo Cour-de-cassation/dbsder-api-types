@@ -3,6 +3,7 @@ export { parseDecisionCa, hasSourceNameCa } from './decisions_ca.zod'
 export { parseDecisionCc, hasSourceNameCc } from './decisions_cc.zod'
 export { parseDecisionDila, hasSourceNameDila } from './decisions_dila.zod'
 export { parseDecisionCph, hasSourceNameCph } from './decisions_cph.zod'
+export { parseDecisionTcom, hasSourceNameTcom } from './decisions_tcom.zod'
 
 export { parseLabelStatus, parseLabelTreatments, parsePublishStatus } from './common.zod'
 export { ZodError as ParseError } from 'zod'
@@ -124,5 +125,5 @@ export function parseDecision(x: unknown): Decision {
 }
 
 export function stringifyError(error: ZodError): string {
-  return error._zod.def.map(_ => `${_.path.join('.')}: ${_.message}`).join('\n')
+  return error._zod.def.map((_) => `${_.path.join('.')}: ${_.message}`).join('\n')
 }
