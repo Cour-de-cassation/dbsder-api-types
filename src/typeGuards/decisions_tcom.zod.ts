@@ -11,7 +11,8 @@ import {
   zOccultation,
   zPublishStatus,
   zQualitePartie,
-  zTypePartie
+  zTypePartie,
+  zZoning
 } from './common.zod'
 
 export const justiceFunctionTcomSchema = z.enum(JusticeFunctionTcom)
@@ -74,8 +75,8 @@ export const decisionTcomSchema = z.object({
   lastImportDate: z.string().optional(),
   unpublishDate: z.string().optional().nullable(),
   zoning: z.record(z.string(), z.unknown()).optional().nullable(),
-  originalTextZoning: z.record(z.string(), z.unknown()).optional(),
-  pseudoTextZoning: z.record(z.string(), z.unknown()).optional(),
+  originalTextZoning: zZoning.optional(),
+  pseudoTextZoning: zZoning.optional(),
   chamberId: z.string().nullable().optional(),
   chamberName: z.string().nullable().optional(),
   debatPublic: z.boolean(),
