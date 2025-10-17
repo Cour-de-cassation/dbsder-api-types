@@ -43,7 +43,7 @@ export type DecisionCa = {
   _rev?: number
   _version?: number | null
 
-  originalText: string | null
+  originalText?: string | null
   pseudoText?: string | null
 
   registerNumber: string

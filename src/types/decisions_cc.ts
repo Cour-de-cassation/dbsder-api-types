@@ -92,8 +92,8 @@ export type DecisionCc = {
   __v?: number
   _version?: number | null
 
-  originalText?: string
-  pseudoText?: string
+  originalText?: null | string
+  pseudoText?: null | string
 
   dateDecision: null | string
 
@@ -115,7 +115,7 @@ export type DecisionCc = {
   lastImportDate?: string
   unpublishDate?: string | null
 
-  zoning?: 'Internal Server Error' | { [k: string]: unknown }
+  zoning?: 'Internal Server Error' | { [k: string]: unknown } | null
 
   originalTextZoning?: { [k: string]: unknown }
   pseudoTextZoning?: { [k: string]: unknown }
