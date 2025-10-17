@@ -199,7 +199,7 @@ export type IntroductionSubzonage = {
   composition?: ZoneRange
 }
 
-export type Zoning = {
+export type CurrentZoning = {
   zones?: ZoningZones
   introduction_subzonage?: IntroductionSubzonage
   visa?: string[]
@@ -207,3 +207,5 @@ export type Zoning = {
   is_public_text?: string[]
   arret_id: number
 }
+
+export type Zoning = CurrentZoning | { [k: string]: unknown }
