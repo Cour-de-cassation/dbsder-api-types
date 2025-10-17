@@ -114,10 +114,10 @@ export const zZoneRange = z.object({
 export const zZoningZones = z.object({
   introduction: zZoneRange.optional(),
   moyens: z.array(zZoneRange).optional(),
-  'expose du litige': z.array(zZoneRange).optional(),
+  'expose du litige': zZoneRange.optional(),
   motivations: z.array(zZoneRange).optional(),
   dispositif: zZoneRange.optional(),
-  'moyens annexes': zZoneRange.optional()
+  'moyens annexes': z.array(zZoneRange).optional()
 })
 
 export const zIntroductionSubzonage = z.object({
@@ -133,7 +133,7 @@ export const zIntroductionSubzonage = z.object({
 export const zCurrentZoning = z.object({
   zones: zZoningZones.optional(),
   introduction_subzonage: zIntroductionSubzonage.optional(),
-  visa: z.array(z.string()).optional(),
+  visa: z.array(z.string()).optional().nullable(),
   is_public: z.number().optional(),
   is_public_text: z.array(z.string()).optional(),
   arret_id: z.number()

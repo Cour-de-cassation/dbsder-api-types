@@ -183,10 +183,10 @@ export type ZoneRange = {
 export type ZoningZones = {
   introduction?: ZoneRange
   moyens?: ZoneRange[]
-  'expose du litige'?: ZoneRange[]
+  'expose du litige'?: ZoneRange
   motivations?: ZoneRange[]
   dispositif?: ZoneRange
-  'moyens annexes'?: ZoneRange
+  'moyens annexes'?: ZoneRange[]
 }
 
 export type IntroductionSubzonage = {
@@ -202,7 +202,7 @@ export type IntroductionSubzonage = {
 export type CurrentZoning = {
   zones?: ZoningZones
   introduction_subzonage?: IntroductionSubzonage
-  visa?: string[]
+  visa?: string[] | null
   is_public?: number
   is_public_text?: string[]
   arret_id: number
