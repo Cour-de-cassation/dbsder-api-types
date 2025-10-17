@@ -10,7 +10,8 @@ import {
   zPublishStatus,
   zQualitePartie,
   zSuiviOccultation,
-  zTypePartie
+  zTypePartie,
+  zZoning
 } from './common.zod'
 import { UnIdentifiedDecision, UnIdentifiedDecisionTj, Decision, DecisionTj } from '../types'
 
@@ -62,8 +63,8 @@ export const decisionTjSchema = z.object({
   lastImportDate: z.string().optional(),
   unpublishDate: z.string().optional(),
   zoning: z.record(z.string(), z.unknown()).nullable().optional(),
-  originalTextZoning: z.record(z.string(), z.unknown()).optional(),
-  pseudoTextZoning: z.record(z.string(), z.unknown()).optional(),
+  originalTextZoning: zZoning.optional(),
+  pseudoTextZoning: zZoning.optional(),
   NACCode: z.string(),
   libelleNAC: z.string(),
   NPCode: z.string().nullable().optional(),

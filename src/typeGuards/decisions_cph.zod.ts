@@ -7,7 +7,8 @@ import {
   zObjectId,
   zSuiviOccultation,
   zPublishStatus,
-  zLabelTreatments
+  zLabelTreatments,
+  zZoning
 } from './common.zod'
 import { Decision, DecisionCph, UnIdentifiedDecision, UnIdentifiedDecisionCph } from '../types'
 
@@ -17,8 +18,8 @@ export const decisionCphSchema = z.object({
   sourceName: z.literal('portalis-cph'),
   originalText: z.string(),
   pseudoText: z.string().optional(),
-  originalTextZoning: z.record(z.string(), z.unknown()).optional(),
-  pseudoTextZoning: z.record(z.string(), z.unknown()).optional(),
+  originalTextZoning: zZoning.optional(),
+  pseudoTextZoning: zZoning.optional(),
   labelStatus: zLabelStatus,
   publishStatus: zPublishStatus.optional(),
   labelTreatments: zLabelTreatments.optional(),
