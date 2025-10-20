@@ -96,7 +96,7 @@ export const decisionCcSchema = z.object({
   labelTreatments: zLabelTreatments.optional(),
   dateCreation: z.string(),
   publishDate: z.string().optional().nullable(),
-  firstImportDate: z.string().optional(),
+  firstImportDate: z.string().optional().nullable(),
   lastImportDate: z.string().optional(),
   unpublishDate: z.string().optional().nullable(),
   zoning: z.union([z.literal('Internal Server Error'), z.record(z.string(), z.unknown())]).optional().nullable(),
