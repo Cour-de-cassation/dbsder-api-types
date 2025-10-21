@@ -24,6 +24,7 @@ import {
 } from './decisions_dila.zod'
 
 import {
+  Affaire,
   Decision,
   DecisionCa,
   DecisionCc,
@@ -31,11 +32,13 @@ import {
   DecisionDila,
   DecisionTcom,
   DecisionTj,
+  UnIdentifiedAffaire,
   UnIdentifiedDecision
 } from '../types'
 import { zObjectId } from './common.zod'
-import { ObjectId } from 'mongodb'
-import z, { ZodError } from 'zod'
+import { ObjectId } from 'bson'
+import { ZodError } from 'zod'
+import { parseAffaire, parsePartialAffaire } from './affaires.zod'
 
 export function parseId(x: unknown): ObjectId {
   return zObjectId.parse(x)
@@ -125,5 +128,24 @@ export function parseDecision(x: unknown): Decision {
 }
 
 export function stringifyError(error: ZodError): string {
-  return error._zod.def.map((_) => `${_.path.join('.')}: ${_.message}`).join('\n')
+  return error._zod.def.map(_ => `${_.path.join('.')}: ${_.message}`).join('\n')
+}
+
+// check if isValidAffaire
+export function isValidAffaire(x: unknown): UnIdentifiedAffaire {
+  const isValidReplacementTerms = typeof x === 'object' && !!x && 'replacementTerms' in x
+  const isValidDecisionIds = typeof x === 'object' && !!x && 'decisionIds' in x
+  const isValidNumeroPourvois = typeof x === 'object' && !!x && 'numeroPourvois' in x
+
+  if (!isValidReplacementTerms) throw new Error('There is no decisionIds in affaire')
+  if (!isValidDecisionIds) throw new Error('There is no numeroPourvois in affaire')
+  if (!isValidNumeroPourvois) throw new Error('There is no replacementTerms in affaire')
+
+  const affaire = parseAffaire(x);
+  return affaire;
+}
+
+export function isPartialValidAffaire(x: unknown): Partial<Affaire> {
+  const partialAffaire = parsePartialAffaire(x);
+  return partialAffaire;
 }
