@@ -128,10 +128,9 @@ export function parseDecision(x: unknown): Decision {
 }
 
 export function stringifyError(error: ZodError): string {
-  return error._zod.def.map(_ => `${_.path.join('.')}: ${_.message}`).join('\n')
+  return error._zod.def.map((_) => `${_.path.join('.')}: ${_.message}`).join('\n')
 }
 
-// check if isValidAffaire
 export function isValidAffaire(x: unknown): UnIdentifiedAffaire {
   const isValidReplacementTerms = typeof x === 'object' && !!x && 'replacementTerms' in x
   const isValidDecisionIds = typeof x === 'object' && !!x && 'decisionIds' in x
@@ -141,11 +140,13 @@ export function isValidAffaire(x: unknown): UnIdentifiedAffaire {
   if (!isValidDecisionIds) throw new Error('There is no numeroPourvois in affaire')
   if (!isValidNumeroPourvois) throw new Error('There is no replacementTerms in affaire')
 
-  const affaire = parseAffaire(x);
-  return affaire;
+  return parseAffaire(x)
 }
 
 export function isPartialValidAffaire(x: unknown): Partial<Affaire> {
-  const partialAffaire = parsePartialAffaire(x);
-  return partialAffaire;
+  const isValidX = typeof x === 'object'
+  if (!isValidX) throw new Error(`Partial affaire is not valid ${x}`)
+
+  const partialAffaire = parsePartialAffaire(x)
+  return partialAffaire
 }
