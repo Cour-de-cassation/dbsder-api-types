@@ -99,7 +99,10 @@ export const decisionCcSchema = z.object({
   firstImportDate: z.string().optional().nullable(),
   lastImportDate: z.string().optional(),
   unpublishDate: z.string().optional().nullable(),
-  zoning: z.union([z.literal('Internal Server Error'), z.record(z.string(), z.unknown())]).optional().nullable(),
+  zoning: z
+    .union([z.literal('Internal Server Error'), z.record(z.string(), z.unknown())])
+    .optional()
+    .nullable(),
   originalTextZoning: z.record(z.string(), z.unknown()).optional(),
   pseudoTextZoning: z.record(z.string(), z.unknown()).optional(),
   registerNumber: z.string().nullable(),

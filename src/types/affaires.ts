@@ -11,7 +11,7 @@ export type Affaire = {
 type replacementTerms = {
   entityId: string
   replacementTerm: string
-  origialTextInstances: string[]
+  originalTextInstances: string[]
   category: Category
 }
 

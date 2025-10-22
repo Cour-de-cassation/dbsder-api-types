@@ -126,5 +126,5 @@ export function parseDecision(x: unknown): Decision {
 }
 
 export function stringifyError(error: ZodError): string {
-  return error._zod.def.map(_ => `${_.path.join('.')}: ${_.message}`).join('\n')
+  return error._zod.def.map((_) => `${_.path.join('.')}: ${_.message}`).join('\n')
 }
