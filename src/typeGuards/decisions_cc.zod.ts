@@ -14,44 +14,9 @@ import { UnIdentifiedDecision, UnIdentifiedDecisionCc, Decision, DecisionCc } fr
 
 const jurisdictionCodeCcSchema = z.union([z.literal('AUTRE'), z.literal('CC')])
 
-const analyzeCcSchema = z.tuple([
-  z.number(),
-  z.number(),
-  z.string().nullable(),
-  z.string().nullable(),
-  z.string().nullable(),
-  z.string().nullable(),
-  z.string().nullable(),
-  z.string().nullable(),
-  z.string().nullable(),
-  z.string().nullable(),
-  z.string().nullable(),
-  z.string().nullable(),
-  z.string().nullable(),
-  z.string().nullable(),
-  z.string().nullable(),
-  z.string().nullable(),
-  z.string().nullable()
-])
+const analyzeCcSchema = z.array(z.unknown())
 
-const titreReferenceCcSchema = z.tuple([
-  z.number(),
-  z.number().nullable(),
-  z.number().nullable(),
-  z.string().nullable(),
-  z.string().nullable(),
-  z.string().nullable(),
-  z.string().nullable(),
-  z.string().nullable(),
-  z.string().nullable(),
-  z.string().nullable(),
-  z.string().nullable(),
-  z.string().nullable(),
-  z.string().nullable(),
-  z.string().nullable(),
-  z.string().nullable(),
-  z.string().nullable()
-])
+const titreReferenceCcSchema = z.array(z.unknown())
 
 const decisionAnalysisCcSchema = z.object({
   analyse: z.array(analyzeCcSchema).optional().nullable(),

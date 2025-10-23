@@ -10,44 +10,9 @@ import {
 
 type JurisdictionCodeCC = 'AUTRE' | 'CC'
 
-type AnalyzeCC = [
-  documentId: number,
-  numAnalyze: number,
-  string | null,
-  string | null,
-  string | null,
-  string | null,
-  string | null,
-  string | null,
-  string | null,
-  string | null,
-  string | null,
-  string | null,
-  string | null,
-  string | null,
-  string | null,
-  sommaire: string | null,
-  titreReference: string | null
-]
+type AnalyzeCC = unknown[]
 
-type TitreReferenceCC = [
-  documentId: number,
-  numAnalyze: number | null,
-  numTitreReference: number | null,
-  string | null,
-  string | null,
-  string | null,
-  string | null,
-  string | null,
-  string | null,
-  string | null,
-  string | null,
-  string | null,
-  string | null,
-  string | null,
-  string | null,
-  string | null
-]
+type TitreReferenceCC = unknown[]
 
 type ViewPartieCC = {
   typePersonne: string
