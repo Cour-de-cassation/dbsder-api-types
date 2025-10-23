@@ -103,7 +103,7 @@ export type DecisionCc = {
 
   public?: boolean | null
   solution?: string
-  formation?: string
+  formation?: string | null
 
   labelStatus: LabelStatus
   publishStatus?: PublishStatus
