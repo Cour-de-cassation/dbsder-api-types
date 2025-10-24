@@ -5,7 +5,8 @@ import {
   LabelTreatments,
   Occultation,
   PublishStatus,
-  SuiviOccultation
+  SuiviOccultation,
+  Zoning
 } from './common'
 
 export type DecisionCph = {
@@ -15,8 +16,8 @@ export type DecisionCph = {
   originalText: string
   pseudoText?: string
 
-  originalTextZoning?: { [k: string]: unknown }
-  pseudoTextZoning?: { [k: string]: unknown }
+  originalTextZoning?: Zoning
+  pseudoTextZoning?: Zoning
 
   labelStatus: LabelStatus
   publishStatus?: PublishStatus

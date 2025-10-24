@@ -6,7 +6,8 @@ import {
   Occultation,
   PublishStatus,
   QualitePartieExhaustive,
-  TypePartie
+  TypePartie,
+  Zoning
 } from './common'
 
 export enum JusticeFunctionTcom {
@@ -88,8 +89,8 @@ export type DecisionTcom = {
   unpublishDate?: string | null
 
   zoning?: { [k: string]: unknown } | null
-  originalTextZoning?: { [k: string]: unknown }
-  pseudoTextZoning?: { [k: string]: unknown }
+  originalTextZoning?: Zoning
+  pseudoTextZoning?: Zoning
 
   chamberId?: string | null
   chamberName?: string | null

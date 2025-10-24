@@ -174,3 +174,38 @@ export enum LabelRoute {
   RELECTURE_ALEATOIRE_DE_DECISIONS_NON_SENSIBLES = 'aleatoireNonSensible',
   PAS_DE_RELECTURE = 'automatique'
 }
+
+export type ZoneRange = {
+  start: number
+  end: number
+}
+
+export type ZoningZones = {
+  introduction?: ZoneRange
+  moyens?: ZoneRange[]
+  'expose du litige'?: ZoneRange
+  motivations?: ZoneRange[]
+  dispositif?: ZoneRange
+  'moyens annexes'?: ZoneRange[]
+}
+
+export type IntroductionSubzonage = {
+  n_arret?: string
+  formation?: string
+  publication?: string[]
+  juridiction?: string
+  chambre?: string
+  pourvoi?: string[]
+  composition?: ZoneRange
+}
+
+export type CurrentZoning = {
+  zones?: ZoningZones
+  introduction_subzonage?: IntroductionSubzonage
+  visa?: string[] | null
+  is_public?: number
+  is_public_text?: string[]
+  arret_id: number
+}
+
+export type Zoning = CurrentZoning | { [k: string]: unknown }

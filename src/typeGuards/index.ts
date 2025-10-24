@@ -5,7 +5,12 @@ export { parseDecisionDila, hasSourceNameDila } from './decisions_dila.zod'
 export { parseDecisionCph, hasSourceNameCph } from './decisions_cph.zod'
 export { parseDecisionTcom, hasSourceNameTcom } from './decisions_tcom.zod'
 
-export { parseLabelStatus, parseLabelTreatments, parsePublishStatus } from './common.zod'
+export {
+  parseLabelStatus,
+  parseLabelTreatments,
+  parsePublishStatus,
+  isCurrentZoning
+} from './common.zod'
 export { parseAffaire, parsePartialAffaire } from './affaires.zod'
 export { ZodError as ParseError } from 'zod'
 

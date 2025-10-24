@@ -7,7 +7,8 @@ import {
   PublishStatus,
   QualitePartie,
   SuiviOccultation,
-  TypePartie
+  TypePartie,
+  Zoning
 } from './common'
 
 type PresidentTj = {
@@ -67,8 +68,8 @@ export type DecisionTj = {
 
   zoning?: { [k: string]: unknown } | null
 
-  originalTextZoning?: { [k: string]: unknown }
-  pseudoTextZoning?: { [k: string]: unknown }
+  originalTextZoning?: Zoning
+  pseudoTextZoning?: Zoning
 
   NACCode: string
   libelleNAC: string

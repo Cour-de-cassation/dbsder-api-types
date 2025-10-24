@@ -5,7 +5,8 @@ import {
   LabelTreatments,
   PseudoStatus,
   PublishStatus,
-  BlocOccultation
+  BlocOccultation,
+  Zoning
 } from './common'
 
 type JurisdictionCodeCC = 'AUTRE' | 'CC'
@@ -82,8 +83,8 @@ export type DecisionCc = {
 
   zoning?: 'Internal Server Error' | { [k: string]: unknown } | null
 
-  originalTextZoning?: { [k: string]: unknown }
-  pseudoTextZoning?: { [k: string]: unknown }
+  originalTextZoning?: Zoning
+  pseudoTextZoning?: Zoning
 
   registerNumber: string | null
   chamberId: string | null
