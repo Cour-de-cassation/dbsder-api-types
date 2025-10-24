@@ -9,8 +9,7 @@ export {
   parseLabelStatus,
   parseLabelTreatments,
   parsePublishStatus,
-  isCurrentZoning,
-  parseCurrentZoning
+  isCurrentZoning
 } from './common.zod'
 export { parseAffaire, parsePartialAffaire } from './affaires.zod'
 export { ZodError as ParseError } from 'zod'

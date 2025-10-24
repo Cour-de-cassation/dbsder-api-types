@@ -11,9 +11,6 @@ import {
   QualitePartieExhaustive,
   TypePartieExhaustive,
   LabelTreatments,
-  ZoneRange,
-  ZoningZones,
-  IntroductionSubzonage,
   Zoning,
   CurrentZoning
 } from '../types/common'
@@ -143,10 +140,6 @@ export const zZoning = zCurrentZoning.or(record(z.string(), z.unknown()))
 
 export function isCurrentZoning(x: Zoning): x is CurrentZoning {
   return zCurrentZoning.safeParse(x).success
-}
-
-export function parseCurrentZoning(x: unknown): CurrentZoning {
-  return zCurrentZoning.parse(x)
 }
 
 export function parseLabelStatus(x: unknown): LabelStatus {
