@@ -181,30 +181,42 @@ export type ZoneRange = {
 }
 
 export type ZoningZones = {
-  introduction?: ZoneRange
+  introduction?: ZoneRange | null
   moyens?: ZoneRange[]
-  'expose du litige'?: ZoneRange
+  'expose du litige'?: ZoneRange | null
   motivations?: ZoneRange[]
-  dispositif?: ZoneRange
+  dispositif?: ZoneRange | null
   'moyens annexes'?: ZoneRange[]
 }
 
-export type IntroductionSubzonage = {
-  n_arret?: string
-  formation?: string
-  publication?: string[]
-  juridiction?: string
-  chambre?: string
-  pourvoi?: string[]
-  composition?: ZoneRange
+export type IntroductionSubzonageJurinet = {
+  n_arret?: string | null
+  formation?: string | null
+  publication?: string[] | null
+  juridiction?: string | null
+  chambre?: string | null
+  pourvoi?: string[] | null
+  composition?: ZoneRange | null
+}
+
+export type IntroductionSubzonageJurica = {
+  type_arret: string | null
+  code_nac: string | null
+  nportalis: string | null
+  j_preced: ZoneRange | null
+  j_preced_date: string | null
+  j_preced_nrg: string | null
+  j_preced_npourvoi: string | null
+  j_preced_instance: string | null
+  composition: ZoneRange | null
 }
 
 export type CurrentZoning = {
   zones?: ZoningZones
-  introduction_subzonage?: IntroductionSubzonage
+  introduction_subzonage?: IntroductionSubzonageJurinet | IntroductionSubzonageJurica
   visa?: string[] | null
-  is_public?: number
-  is_public_text?: string[]
+  is_public?: number | null
+  is_public_text?: string[] | null
   arret_id: number
 }
 
