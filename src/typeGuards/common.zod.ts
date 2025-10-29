@@ -142,6 +142,10 @@ export function isCurrentZoning(x: Zoning): x is CurrentZoning {
   return zCurrentZoning.safeParse(x).success
 }
 
+export function parseCurrentZoning(x: unknown): CurrentZoning {
+  return zCurrentZoning.parse(x)
+}
+
 export function parseLabelStatus(x: unknown): LabelStatus {
   return zLabelStatus.parse(x)
 }
