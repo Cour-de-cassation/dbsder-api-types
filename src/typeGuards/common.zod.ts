@@ -109,30 +109,42 @@ export const zZoneRange = z.object({
 })
 
 export const zZoningZones = z.object({
-  introduction: zZoneRange.optional(),
+  introduction: zZoneRange.optional().nullable(),
   moyens: z.array(zZoneRange).optional(),
-  'expose du litige': zZoneRange.optional(),
+  'expose du litige': zZoneRange.optional().nullable(),
   motivations: z.array(zZoneRange).optional(),
-  dispositif: zZoneRange.optional(),
+  dispositif: zZoneRange.optional().nullable(),
   'moyens annexes': z.array(zZoneRange).optional()
 })
 
-export const zIntroductionSubzonage = z.object({
-  n_arret: z.string().optional(),
-  formation: z.string().optional(),
-  publication: z.array(z.string()).optional(),
-  juridiction: z.string().optional(),
-  chambre: z.string().optional(),
-  pourvoi: z.array(z.string()).optional(),
-  composition: zZoneRange.optional()
+export const zIntroductionSubzonageJurinet = z.object({
+  n_arret: z.string().optional().nullable(),
+  formation: z.string().optional().nullable(),
+  publication: z.array(z.string()).optional().nullable(),
+  juridiction: z.string().optional().nullable(),
+  chambre: z.string().optional().nullable(),
+  pourvoi: z.array(z.string()).optional().nullable(),
+  composition: zZoneRange.optional().nullable()
+})
+
+export const zIntroductionSubzonageJurica = z.object({
+  type_arret: z.string().optional().nullable(),
+  code_nac: z.string().optional().nullable(),
+  nportalis: z.string().optional().nullable(),
+  j_preced: zZoneRange.optional().nullable(),
+  j_preced_date: z.string().optional().nullable(),
+  j_preced_nrg: z.string().optional().nullable(),
+  j_preced_npourvoi: z.string().optional().nullable(),
+  j_preced_instance: z.string().optional().nullable(),
+  composition: zZoneRange.optional().nullable()
 })
 
 export const zCurrentZoning = z.object({
   zones: zZoningZones.optional(),
-  introduction_subzonage: zIntroductionSubzonage.optional(),
+  introduction_subzonage: zIntroductionSubzonageJurinet.or(zIntroductionSubzonageJurica).optional(),
   visa: z.array(z.string()).optional().nullable(),
-  is_public: z.number().optional(),
-  is_public_text: z.array(z.string()).optional(),
+  is_public: z.number().optional().nullable(),
+  is_public_text: z.array(z.string()).optional().nullable(),
   arret_id: z.number()
 })
 
