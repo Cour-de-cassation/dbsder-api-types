@@ -59,7 +59,7 @@ type PartieTcom = {
 }
 
 export type DecisionTcom = {
-  _id?: ObjectId
+  _id: ObjectId
   sourceId: number
   sourceName: 'juritcom'
 
