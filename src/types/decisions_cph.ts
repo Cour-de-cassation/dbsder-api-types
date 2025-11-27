@@ -11,7 +11,7 @@ import {
 
 export type DecisionCph = {
   _id: ObjectId
-  sourceId: number
+  sourceId: string
   sourceName: 'portalis-cph'
   originalText: string
   pseudoText?: string

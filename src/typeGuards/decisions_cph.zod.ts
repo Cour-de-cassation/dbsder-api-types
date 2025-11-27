@@ -14,7 +14,7 @@ import { Decision, DecisionCph, UnIdentifiedDecision, UnIdentifiedDecisionCph } 
 
 export const decisionCphSchema = z.object({
   _id: zObjectId,
-  sourceId: z.number(),
+  sourceId: z.string(),
   sourceName: z.literal('portalis-cph'),
   originalText: z.string(),
   pseudoText: z.string().optional(),
