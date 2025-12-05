@@ -23,9 +23,11 @@ type ViewPartieCC = {
   idTitre: string
   nom: string
   prenom: string
+  // nom marital ?
   nomMartial: string
   autrePrenom: string
   alias: string
+  // peut être que vous pourriez utiliser l'api BAN (base des adresses nationales)
   domiciliation: string
   adresse1: string
   adresse2: string
