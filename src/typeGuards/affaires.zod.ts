@@ -16,7 +16,7 @@ export const zAffaireSchema = z.object({
   _id: zObjectId,
   replacementTerms: z.array(zReplacementTerms),
   decisionIds: z.array(zObjectId),
-  numeroPourvois: z.array(z.string())
+  documentIds: z.array(zObjectId)
 })
 
 export function parseAffaire(x: unknown): UnIdentifiedAffaire {
