@@ -5,7 +5,7 @@ export type Affaire = {
   _id: ObjectId
   replacementTerms: replacementTerms[]
   decisionIds: ObjectId[]
-  numeroPourvois: string[]
+  documentIds: ObjectId[]
 }
 
 type replacementTerms = {
