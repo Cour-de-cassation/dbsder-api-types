@@ -15,7 +15,7 @@ export const zReplacementTerms = z.object({
 export const zAffaireSchema = z.object({
   _id: zObjectId,
   replacementTerms: z.array(zReplacementTerms),
-  decisionIds: z.array(zObjectId),
+  decisionIds: z.array(zObjectId).nonempty(),
   documentIds: z.array(zObjectId)
 })
 
