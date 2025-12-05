@@ -4,7 +4,7 @@ import { Category } from './common'
 export type Affaire = {
   _id: ObjectId
   replacementTerms: replacementTerms[]
-  decisionIds: ObjectId[]
+  decisionIds:ObjectId[]
   documentIds: ObjectId[]
 }
 
