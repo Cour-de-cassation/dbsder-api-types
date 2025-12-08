@@ -91,7 +91,22 @@ export {
   parsePublishStatus,
   isCurrentZoning,
   CurrentZoning,
-  parseCurrentZoning
+  parseCurrentZoning,
+  SuiviOccultation,
+  Category,
+  Entity,
+  ZoneRange,
+  Check,
+  NLPVersion,
+  NLPVersionDetails,
+  ModelName,
+  Occultation,
+  QualitePartie,
+  TypePartie,
+  ZoningZone,
+  IntroductionSubzonageJurica,
+  IntroductionSubzonageJurinet,
+  SentenceIndex
 } from './common.zod'
 export { parseAffaire, parsePartialAffaire, Affaire, UnIdentifiedAffaire } from './affaires.zod'
 export { ZodError as ParseError } from 'zod'
