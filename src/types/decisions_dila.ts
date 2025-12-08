@@ -1,5 +1,6 @@
+/*
 import { ObjectId } from 'bson'
-import { LabelStatus, PseudoStatus, PublishStatus } from './common'
+import { LabelStatus, PseudoStatus, PublishStatus } from '../typeGuards/common.zod'
 
 type JurisdictionCodeDILA = 'CA' | 'CC' | 'OTHER' | 'TGI'
 
@@ -75,3 +76,4 @@ export type DecisionDila = {
 }
 
 export type UnIdentifiedDecisionDila = Omit<DecisionDila, '_id'>
+*/

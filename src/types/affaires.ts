@@ -1,5 +1,6 @@
+/*
 import { ObjectId } from 'bson'
-import { Category } from './common'
+import { Category } from '../typeGuards/common.zod'
 
 export type Affaire = {
   _id: ObjectId
@@ -16,3 +17,4 @@ type replacementTerms = {
 }
 
 export type UnIdentifiedAffaire = Omit<Affaire, '_id'>
+*/

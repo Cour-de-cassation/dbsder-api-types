@@ -2,22 +2,25 @@
 import { z } from 'zod'
 
 import {
-  zOccultation,
+  zBlocOccultation,
   zLabelStatus,
   zLabelTreatments,
+  zObjectId,
+  zOccultation,
   zPseudoStatus,
   zPublishStatus,
-  zBlocOccultation,
-  zObjectId,
   zZoning
 } from './common.zod'
-import { UnIdentifiedDecision, UnIdentifiedDecisionCc, Decision, DecisionCc } from '../types'
+import { Decision, UnIdentifiedDecision } from './index'
 
 const jurisdictionCodeCcSchema = z.union([z.literal('AUTRE'), z.literal('CC')])
+export type JurisdictionCodeCC = z.infer<typeof jurisdictionCodeCcSchema>
 
 const analyzeCcSchema = z.array(z.unknown())
+export type AnalyzeCC = z.infer<typeof analyzeCcSchema>
 
 const titreReferenceCcSchema = z.array(z.unknown())
+export type TitreReferenceCC = z.infer<typeof titreReferenceCcSchema>
 
 const decisionAnalysisCcSchema = z.object({
   analyse: z.array(analyzeCcSchema).optional().nullable(),
@@ -30,6 +33,7 @@ const decisionAnalysisCcSchema = z.object({
   title: z.array(z.string()).nullable().optional(),
   nature: z.string().optional().nullable()
 })
+export type DecisionAnalysisCC = z.infer<typeof decisionAnalysisCcSchema>
 
 const publicationCategoryCcSchema = z.union([
   z.literal('D'),
@@ -40,6 +44,7 @@ const publicationCategoryCcSchema = z.union([
   z.literal('L'),
   z.literal('C')
 ])
+export type PublicationCategoryCC = z.infer<typeof publicationCategoryCcSchema>
 
 export const decisionCcSchema = z.object({
   _id: zObjectId,
@@ -98,6 +103,9 @@ export const decisionCcSchema = z.object({
   recommandationOccultation: z.null().optional(),
   selection: z.literal(false).optional()
 })
+export type DecisionCc = z.infer<typeof decisionCcSchema>
+
+export type UnIdentifiedDecisionCc = Omit<DecisionCc, '_id'>
 
 export function hasSourceNameCc(x: UnIdentifiedDecision): x is UnIdentifiedDecisionCc
 export function hasSourceNameCc(x: Decision): x is DecisionCc

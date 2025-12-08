@@ -1,5 +1,5 @@
 import { ObjectId } from 'bson'
-import { BlocOccultation, Category, LabelRoute } from './common'
+import { BlocOccultation, Category, LabelRoute } from '../typeGuards/common.zod'
 
 type NiveauCodeNAC = {
   code: string

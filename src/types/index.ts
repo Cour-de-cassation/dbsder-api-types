@@ -1,50 +1,41 @@
-import { DecisionTj, UnIdentifiedDecisionTj } from './decisions_tj'
-import { DecisionCa, UnIdentifiedDecisionCa } from './decisions_ca'
-import { DecisionCc, UnIdentifiedDecisionCc } from './decisions_cc'
-import { DecisionDila, UnIdentifiedDecisionDila } from './decisions_dila'
-import { DecisionTcom, UnIdentifiedDecisionTcom } from './decisions_tcom'
-import { DecisionCph, UnIdentifiedDecisionCph } from './decisions_cph'
+/*import { DecisionTj, UnIdentifiedDecisionTj } from '../typeGuards/decisions_tj.zod'
 
-export { DecisionTj, UnIdentifiedDecisionTj } from './decisions_tj'
-export { DecisionCa, UnIdentifiedDecisionCa } from './decisions_ca'
-export { DecisionCc, UnIdentifiedDecisionCc } from './decisions_cc'
-export { DecisionDila, UnIdentifiedDecisionDila } from './decisions_dila'
-export { DecisionCph, UnIdentifiedDecisionCph } from './decisions_cph'
-export { Affaire, UnIdentifiedAffaire } from './affaires'
-export {
+export { DecisionTj, UnIdentifiedDecisionTj } from '../typeGuards/decisions_tj.zod'*/
+// export { DecisionCc, UnIdentifiedDecisionCc } from '../typeGuards/decisions_cc.zod'
+/*export { DecisionDila, UnIdentifiedDecisionDila } from './decisions_dila'
+export { DecisionCph, UnIdentifiedDecisionCph } from '../typeGuards/decisions_cph.zod'*/
+// export { Affaire, UnIdentifiedAffaire } from '../typeGuards/affaires.zod'
+/*export {
   DecisionTcom,
   UnIdentifiedDecisionTcom,
   JusticeFunctionTcom,
   JusticeRoleTcom
-} from './decisions_tcom'
+} from '../typeGuards/decisions_tcom.zod'*/
 
 export { CodeNac } from './codeNacs'
 export { CodeDecision } from './codeDecisions'
 
+/*export { LabelTreatments, Check, NLPVersion, Entity } from '../typeGuards/common.zod'
 export {
-  LabelTreatments,
   LabelStatus,
   PublishStatus,
   TypePartieExhaustive,
   QualitePartieExhaustive,
   SuiviOccultation,
-  Category,
-  Check,
-  NLPVersion,
-  Entity
-} from './common'
+  Category
+} from '../typeGuards/enums'*/
 
-export type Decision =
-  | DecisionTj
-  | DecisionTcom
-  | DecisionCa
-  | DecisionCc
-  | DecisionDila
-  | DecisionCph
-export type UnIdentifiedDecision =
-  | UnIdentifiedDecisionTj
-  | UnIdentifiedDecisionTcom
-  | UnIdentifiedDecisionCa
-  | UnIdentifiedDecisionCc
-  | UnIdentifiedDecisionDila
-  | UnIdentifiedDecisionCph
+// export type Decision =
+//   | DecisionTj
+//   | DecisionTcom
+//   | DecisionCa
+//   | DecisionCc
+//   | DecisionDila
+//   | DecisionCph
+// export type UnIdentifiedDecision =
+//   | UnIdentifiedDecisionTj
+//   | UnIdentifiedDecisionTcom
+//   | UnIdentifiedDecisionCa
+//   | UnIdentifiedDecisionCc
+//   | UnIdentifiedDecisionDila
+//   | UnIdentifiedDecisionCph

@@ -2,7 +2,7 @@
 import { z } from 'zod'
 
 import { zLabelStatus, zObjectId, zPseudoStatus, zPublishStatus } from './common.zod'
-import { UnIdentifiedDecision, UnIdentifiedDecisionDila, Decision, DecisionDila } from '../types'
+import { Decision, UnIdentifiedDecision } from './index'
 
 const jurisdictionCodeDILASchema = z.union([
   z.literal('CA'),
@@ -10,6 +10,7 @@ const jurisdictionCodeDILASchema = z.union([
   z.literal('OTHER'),
   z.literal('TGI')
 ])
+export type JurisdictionCodeDILA = z.infer<typeof jurisdictionCodeDILASchema>
 
 const publicationCategoryDILASchema = z.union([
   z.literal('D'),
@@ -20,6 +21,7 @@ const publicationCategoryDILASchema = z.union([
   z.literal('L'),
   z.literal('C')
 ])
+export type PublicationCategoryDILA = z.infer<typeof publicationCategoryDILASchema>
 
 const decisionAnalysisDILASchema = z.object({
   analyse: z.array(z.never()).optional().nullable(),
@@ -32,11 +34,13 @@ const decisionAnalysisDILASchema = z.object({
   target: z.string().optional().nullable(),
   doctrine: z.null().optional()
 })
+export type DecisionAnalysisDILA = z.infer<typeof decisionAnalysisDILASchema>
 
 const occultationDILASchema = z.object({
   additionalTerms: z.literal(''),
   categoriesToOmit: z.array(z.never())
 })
+export type OccultationDILA = z.infer<typeof occultationDILASchema>
 
 export const decisionDilaSchema = z.object({
   _id: zObjectId,
@@ -79,6 +83,8 @@ export const decisionDilaSchema = z.object({
   blocOccultation: z.null().optional(),
   jurisdictionId: z.null().optional()
 })
+export type DecisionDila = z.infer<typeof decisionDilaSchema>
+export type UnIdentifiedDecisionDila = Omit<DecisionDila, '_id'>
 
 export function hasSourceNameDila(x: UnIdentifiedDecision): x is UnIdentifiedDecisionDila
 export function hasSourceNameDila(x: Decision): x is DecisionDila

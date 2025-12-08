@@ -1,4 +1,4 @@
-export enum LabelStatus {
+/*export enum LabelStatus {
   TOBETREATED = 'toBeTreated',
   LOADED = 'loaded',
   DONE = 'done',
@@ -60,7 +60,9 @@ export enum Category {
   PERSONNEPHYSICOMORALE = 'personnePhysicoMorale',
   PERSONNEGEOMORALE = 'personneGeoMorale',
   CUSTOM = 'custom'
-}
+}*/
+
+/*import { Category, QualitePartieExhaustive, TypePartieExhaustive } from '../typeGuards/enums'
 
 export type Entity = {
   entityId: string
@@ -112,25 +114,25 @@ export type LabelTreatments = {
   version?: NLPVersion | null
   treatmentDate?: string
   checklist?: Check[]
-}[]
+}[]*/
 
-export enum PseudoStatus {
+/*export enum PseudoStatus {
   A_PSEUDONYMISER = 0,
   EN_COURS_DE_PSEUDONYMISATION = 1,
   PSEUDONYMISE = 2,
   MIS_EN_DOUTE = 3,
   ERREUR = 4
-}
+}*/
 
-export type Occultation = {
+/*export type Occultation = {
   additionalTerms: string
   additionalTermsToAnnotate?: string[]
   additionalTermsToUnAnnotate?: string[]
   categoriesToOmit: Category[]
   motivationOccultation?: boolean
-}
+}*/
 
-export enum SuiviOccultation {
+/*export enum SuiviOccultation {
   AUCUNE = 'aucune',
   CONFORME = 'conforme',
   SUBSTITUANT = 'substituant',
@@ -146,20 +148,20 @@ export enum QualitePartieExhaustive {
   L = 'L',
   M = 'M',
   N = 'N'
-}
+}*/
 
-export type QualitePartie = QualitePartieExhaustive | ''
+// export type QualitePartie = QualitePartieExhaustive | ''
 
-export enum TypePartieExhaustive {
+/*export enum TypePartieExhaustive {
   PP = 'PP',
   PM = 'PM',
   AA = 'AA',
   NA = 'NA'
-}
+}*/
 
-export type TypePartie = TypePartieExhaustive | ''
+// export type TypePartie = TypePartieExhaustive | ''
 
-export enum BlocOccultation {
+/*export enum BlocOccultation {
   CODE_NAC_NON_VALIDE = 0,
   TOUTES_CATAGORIES = 1,
   TOUTES_CATEGORIES_SAUF_DATES = 2,
@@ -173,8 +175,9 @@ export enum LabelRoute {
   RELECTURE_ALEATOIRE_DE_DECISIONS_SENSIBLES = 'aleatoireSensible',
   RELECTURE_ALEATOIRE_DE_DECISIONS_NON_SENSIBLES = 'aleatoireNonSensible',
   PAS_DE_RELECTURE = 'automatique'
-}
+}*/
 
+/*
 export type ZoneRange = {
   start: number
   end: number
@@ -221,3 +224,4 @@ export type CurrentZoning = {
 }
 
 export type Zoning = CurrentZoning | { [k: string]: unknown }
+*/

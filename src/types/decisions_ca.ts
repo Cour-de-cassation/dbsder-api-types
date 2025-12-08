@@ -1,18 +1,4 @@
-import { ObjectId } from 'bson'
-import {
-  BlocOccultation,
-  LabelStatus,
-  LabelTreatments,
-  Occultation,
-  PseudoStatus,
-  PublishStatus,
-  QualitePartie,
-  SuiviOccultation,
-  TypePartie,
-  Zoning
-} from './common'
-
-type PublicationCategoryCA = 'W' | 'A'
+/*type PublicationCategoryCA = 'W' | 'A'
 
 type PartieAttributesCA = {
   qualitePartie: QualitePartie
@@ -103,6 +89,6 @@ export type DecisionCa = {
   locked: false
   analysis: DecisionAnalysisCA
   formation?: null
-}
+}*/
 
-export type UnIdentifiedDecisionCa = Omit<DecisionCa, '_id'>
+// export type UnIdentifiedDecisionCa = Omit<DecisionCa, '_id'>

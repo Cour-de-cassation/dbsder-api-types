@@ -1,3 +1,4 @@
+/*
 import { ObjectId } from 'bson'
 import {
   BlocOccultation,
@@ -64,3 +65,4 @@ export type DecisionCph = {
 }
 
 export type UnIdentifiedDecisionCph = Omit<DecisionCph, '_id'>
+*/

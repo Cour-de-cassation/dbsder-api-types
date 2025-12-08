@@ -1,13 +1,8 @@
+/*
 import type { ObjectId } from 'bson'
-import {
-  Occultation,
-  LabelStatus,
-  LabelTreatments,
-  PseudoStatus,
-  PublishStatus,
-  BlocOccultation,
-  Zoning
-} from './common'
+import { LabelTreatments, Occultation, Zoning } from '../typeGuards/common.zod'
+
+import { BlocOccultation, LabelStatus, PseudoStatus, PublishStatus } from '../typeGuards/enums'
 
 type JurisdictionCodeCC = 'AUTRE' | 'CC'
 
@@ -115,3 +110,4 @@ export type DecisionCc = {
 }
 
 export type UnIdentifiedDecisionCc = Omit<DecisionCc, '_id'>
+*/

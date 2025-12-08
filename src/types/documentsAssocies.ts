@@ -1,5 +1,5 @@
 import { ObjectId } from 'bson'
-import { LabelTreatments } from './common'
+import { LabelTreatments } from '../typeGuards/common.zod'
 
 export enum DocumentAssocieType {
   AVIS = 'avis',

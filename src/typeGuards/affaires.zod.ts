@@ -1,7 +1,5 @@
 import { z } from 'zod'
-import { Category } from '../types/common'
-import { Affaire, UnIdentifiedAffaire } from '../types/affaires'
-import { zObjectId } from './common.zod'
+import { Category, zObjectId } from './common.zod'
 
 export const zCategory = z.enum(Category)
 
@@ -18,6 +16,8 @@ export const zAffaireSchema = z.object({
   decisionIds: z.array(zObjectId).nonempty(),
   documentIds: z.array(zObjectId)
 })
+export type Affaire = z.infer<typeof zAffaireSchema>
+export type UnIdentifiedAffaire = Omit<Affaire, '_id'>
 
 export function parseAffaire(x: unknown): UnIdentifiedAffaire {
   return zAffaireSchema.omit({ _id: true }).parse(x)

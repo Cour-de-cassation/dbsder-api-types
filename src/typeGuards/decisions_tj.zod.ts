@@ -13,7 +13,7 @@ import {
   zTypePartie,
   zZoning
 } from './common.zod'
-import { UnIdentifiedDecision, UnIdentifiedDecisionTj, Decision, DecisionTj } from '../types'
+import { Decision, UnIdentifiedDecision } from './index'
 
 const presidentTJSchema = z.object({
   nom: z.string(),
@@ -21,6 +21,7 @@ const presidentTJSchema = z.object({
   fonction: z.string(),
   civilite: z.string()
 })
+export type PresidentTJ = z.infer<typeof presidentTJSchema>
 
 const decisionAssocieeTJSchema = z.object({
   idJuridiction: z.string(),
@@ -29,6 +30,7 @@ const decisionAssocieeTJSchema = z.object({
   date: z.string(),
   idDecisionWinci: z.string().nullable().optional()
 })
+export type DecisionAssociateTJ = z.infer<typeof decisionAssocieeTJSchema>
 
 const partieTJSchema = z.object({
   type: zTypePartie,
@@ -37,6 +39,7 @@ const partieTJSchema = z.object({
   civilite: z.string().nullable().optional(),
   qualite: zQualitePartie.nullable().optional()
 })
+export type PartieTJ = z.infer<typeof partieTJSchema>
 
 export const decisionTjSchema = z.object({
   _id: zObjectId,
@@ -96,6 +99,8 @@ export const decisionTjSchema = z.object({
   publication: z.array(z.never()),
   decisionAssociee: decisionAssocieeTJSchema.nullable().optional()
 })
+export type DecisionTj = z.infer<typeof decisionTjSchema>
+export type UnIdentifiedDecisionTj = Omit<DecisionTj, '_id'>
 
 export function hasSourceNameTj(x: UnIdentifiedDecision): x is UnIdentifiedDecisionTj
 export function hasSourceNameTj(x: Decision): x is DecisionTj
