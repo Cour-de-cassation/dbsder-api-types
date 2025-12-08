@@ -64,7 +64,7 @@ export const decisionTjSchema = z.object({
   publishDate: z.string().optional().nullable(),
   firstImportDate: z.string().optional(),
   lastImportDate: z.string().optional(),
-  unpublishDate: z.string().optional(),
+  unpublishDate: z.string().optional().nullable(),
   zoning: z.record(z.string(), z.unknown()).nullable().optional(),
   originalTextZoning: zZoning.optional(),
   pseudoTextZoning: zZoning.optional(),

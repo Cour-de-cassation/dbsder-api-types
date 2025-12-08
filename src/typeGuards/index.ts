@@ -45,21 +45,55 @@ import { zObjectId } from './common.zod'
 import { ObjectId } from 'bson'
 import { ZodError } from 'zod'
 
-export { parseDecisionTj, hasSourceNameTj } from './decisions_tj.zod'
-export { parseDecisionCa, hasSourceNameCa } from './decisions_ca.zod'
-export { parseDecisionCc, hasSourceNameCc } from './decisions_cc.zod'
-export { parseDecisionDila, hasSourceNameDila } from './decisions_dila.zod'
-export { parseDecisionCph, hasSourceNameCph } from './decisions_cph.zod'
-export { parseDecisionTcom, hasSourceNameTcom } from './decisions_tcom.zod'
+export {
+  parseDecisionTj,
+  hasSourceNameTj,
+  DecisionTj,
+  UnIdentifiedDecisionTj
+} from './decisions_tj.zod'
+export {
+  parseDecisionCa,
+  hasSourceNameCa,
+  DecisionCa,
+  UnIdentifiedDecisionCa
+} from './decisions_ca.zod'
+export {
+  parseDecisionCc,
+  hasSourceNameCc,
+  UnIdentifiedDecisionCc,
+  DecisionCc
+} from './decisions_cc.zod'
+export {
+  parseDecisionDila,
+  hasSourceNameDila,
+  DecisionDila,
+  UnIdentifiedDecisionDila
+} from './decisions_dila.zod'
+export {
+  parseDecisionCph,
+  hasSourceNameCph,
+  DecisionCph,
+  UnIdentifiedDecisionCph
+} from './decisions_cph.zod'
+export {
+  parseDecisionTcom,
+  hasSourceNameTcom,
+  DecisionTcom,
+  UnIdentifiedDecisionTcom
+} from './decisions_tcom.zod'
 
 export {
+  LabelStatus,
   parseLabelStatus,
+  LabelTreatments,
   parseLabelTreatments,
+  PublishStatus,
   parsePublishStatus,
   isCurrentZoning,
+  CurrentZoning,
   parseCurrentZoning
 } from './common.zod'
-export { parseAffaire, parsePartialAffaire } from './affaires.zod'
+export { parseAffaire, parsePartialAffaire, Affaire, UnIdentifiedAffaire } from './affaires.zod'
 export { ZodError as ParseError } from 'zod'
 
 export type Decision =
