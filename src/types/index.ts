@@ -12,8 +12,8 @@ export { DecisionCph, UnIdentifiedDecisionCph } from '../typeGuards/decisions_cp
   JusticeRoleTcom
 } from '../typeGuards/decisions_tcom.zod'*/
 
-export { CodeNac } from './codeNacs'
-export { CodeDecision } from './codeDecisions'
+/*export { CodeNac } from './codeNacs'
+export { CodeDecision } from './codeDecisions'*/
 
 /*export { LabelTreatments, Check, NLPVersion, Entity } from '../typeGuards/common.zod'
 export {

@@ -1,3 +1,4 @@
+/*
 import { ObjectId } from 'bson'
 import { LabelTreatments } from '../typeGuards/common.zod'
 
@@ -15,3 +16,4 @@ export type DocumentAssocie = {
   labelTreatments: LabelTreatments[]
   metadata?: Object
 }
+*/
