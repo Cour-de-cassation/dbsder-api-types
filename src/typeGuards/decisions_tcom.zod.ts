@@ -9,7 +9,7 @@ import {
   zQualitePartie,
   zTypePartie,
   zZoning
-} from './common.zod'
+} from './common'
 import { Decision, UnIdentifiedDecision } from './index'
 
 export enum JusticeFunctionTcom {

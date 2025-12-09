@@ -11,7 +11,7 @@ import {
   zSuiviOccultation,
   zTypePartie,
   zZoning
-} from './common.zod'
+} from './common'
 import { Decision, UnIdentifiedDecision } from './index'
 
 const presidentTJSchema = z.object({

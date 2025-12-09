@@ -1,6 +1,6 @@
 import { z } from 'zod'
 import { ObjectId } from 'bson'
-import { Category, zBlocOccultation, zLabelRoute } from './common.zod'
+import { Category, zBlocOccultation, zLabelRoute } from './common'
 
 const zCategory = z.enum(Category)
 

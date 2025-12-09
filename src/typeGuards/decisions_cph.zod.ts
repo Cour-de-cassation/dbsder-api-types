@@ -9,7 +9,7 @@ import {
   zPublishStatus,
   zSuiviOccultation,
   zZoning
-} from './common.zod'
+} from './common'
 import { Decision, UnIdentifiedDecision } from './index'
 
 export const decisionCphSchema = z.object({

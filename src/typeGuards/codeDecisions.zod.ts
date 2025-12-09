@@ -1,5 +1,5 @@
 import { z } from 'zod'
-import { zObjectId } from './common.zod'
+import { zObjectId } from './common'
 
 export const categorieCodeDecisionSchema = z.object({
   code: z.string(),

@@ -41,7 +41,7 @@ import {
   UnIdentifiedDecisionDila
 } from './decisions_dila.zod'
 
-import { zObjectId } from './common.zod'
+import { zObjectId } from './common'
 import { ObjectId } from 'bson'
 import { ZodError } from 'zod'
 
@@ -82,32 +82,6 @@ export {
   UnIdentifiedDecisionTcom
 } from './decisions_tcom.zod'
 
-export {
-  LabelStatus,
-  parseLabelStatus,
-  LabelTreatments,
-  parseLabelTreatments,
-  PublishStatus,
-  parsePublishStatus,
-  isCurrentZoning,
-  CurrentZoning,
-  parseCurrentZoning,
-  SuiviOccultation,
-  Category,
-  Entity,
-  ZoneRange,
-  Check,
-  NLPVersion,
-  NLPVersionDetails,
-  ModelName,
-  Occultation,
-  QualitePartie,
-  TypePartie,
-  ZoningZone,
-  IntroductionSubzonageJurica,
-  IntroductionSubzonageJurinet,
-  SentenceIndex
-} from './common.zod'
 export { parseAffaire, parsePartialAffaire, Affaire, UnIdentifiedAffaire } from './affaires.zod'
 export { CategorieCodeDecision, CodeDecision } from './codeDecisions.zod'
 export { NiveauCodeNAC, CodeNac } from './codeNacs.zod'
@@ -219,3 +193,5 @@ export function parseDecision(x: unknown): Decision {
 export function stringifyError(error: ZodError): string {
   return error._zod.def.map((_) => `${_.path.join('.')}: ${_.message}`).join('\n')
 }
+
+export * from './common'

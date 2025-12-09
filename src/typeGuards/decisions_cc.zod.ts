@@ -9,7 +9,7 @@ import {
   zPseudoStatus,
   zPublishStatus,
   zZoning
-} from './common.zod'
+} from './common'
 import { Decision, UnIdentifiedDecision } from './index'
 
 const jurisdictionCodeCcSchema = z.union([z.literal('AUTRE'), z.literal('CC')])

@@ -1,6 +1,6 @@
 import { z } from 'zod'
 import { ObjectId } from 'bson'
-import { zLabelTreatments } from './common.zod'
+import { zLabelTreatments } from './common'
 
 export enum DocumentAssocieType {
   AVIS = 'avis',

@@ -12,7 +12,7 @@ import {
   zSuiviOccultation,
   zTypePartie,
   zZoning
-} from './common.zod'
+} from './common'
 import { Decision, UnIdentifiedDecision } from './index'
 
 const publicationCategoryCaSchema = z.union([z.literal('W'), z.literal('A')])

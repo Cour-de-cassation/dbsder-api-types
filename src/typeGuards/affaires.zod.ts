@@ -1,5 +1,5 @@
 import { z } from 'zod'
-import { Category, zObjectId } from './common.zod'
+import { Category, zObjectId } from './common'
 
 export const zCategory = z.enum(Category)
 
