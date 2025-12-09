@@ -19,3 +19,4 @@ export const DocumentAssocieSchema = z.object({
   metadata: z.record(z.string(), z.unknown()).optional()
 })
 export type DocumentAssocie = z.infer<typeof DocumentAssocieSchema>
+export type UnIdentifiedDocumentAssocie = Omit<DocumentAssocie, '_id'>
