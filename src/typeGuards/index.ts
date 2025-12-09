@@ -111,7 +111,12 @@ export {
 export { parseAffaire, parsePartialAffaire, Affaire, UnIdentifiedAffaire } from './affaires.zod'
 export { CategorieCodeDecision, CodeDecision } from './codeDecisions.zod'
 export { NiveauCodeNAC, CodeNac } from './codeNacs.zod'
-export { DocumentAssocie, UnIdentifiedDocumentAssocie } from './documentsAssocies.zod'
+export {
+  DocumentAssocie,
+  UnIdentifiedDocumentAssocie,
+  parseDocumentAssocie,
+  parsePartialDocumentAssocie
+} from './documentsAssocies.zod'
 export { ZodError as ParseError } from 'zod'
 
 export type Decision =
