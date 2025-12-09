@@ -1,6 +1,7 @@
 {
   "name": "dbsder-api-types",
   "description": "Librairie facilitant les interactions avec l'API DBSDER",
+  "main": "dist/index.js",
   "author": "Cour de Cassation",
   "license": "MIT",
   "scripts": {
