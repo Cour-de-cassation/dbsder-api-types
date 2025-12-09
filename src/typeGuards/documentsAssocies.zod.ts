@@ -7,10 +7,8 @@ export enum DocumentAssocieType {
   RAPPORT = 'rapport'
 }
 
-// Schéma Zod pour l'enum
 export const documentAssocieTypeSchema = z.enum(DocumentAssocieType)
 
-// Schéma pour DocumentAssocie
 export const DocumentAssocieSchema = z.object({
   _id: z.instanceof(ObjectId),
   decisionId: z.instanceof(ObjectId),
