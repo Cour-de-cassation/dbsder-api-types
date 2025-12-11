@@ -2,6 +2,7 @@ import { record, z } from 'zod'
 import { ObjectId } from 'bson'
 
 export enum LabelStatus {
+  WAITING_FOR_AFFAIRE_RESOLUTION = 'waitingForAffaireResolution',
   TOBETREATED = 'toBeTreated',
   LOADED = 'loaded',
   DONE = 'done',
