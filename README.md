@@ -33,12 +33,4 @@ npm link ~/PATH/TO/THE/REPO/dbsder-api-types
 
 ## Modifier et publier le package
 
-Le package est automatiquement publié sur [npmjs](https://www.npmjs.com/package/dbsder-api-types) et la version incrémentée lorsque le code est fusioné dans la branche master. Voici la marche a suivre :
-
-- Créer une branch issue de `master` pour faire vos modifications
-- Une fois les modifications terminées ouvrir une PR sur github
-- Le nom de votre PR conditionne la montée de version du package :
-  - Si `BREAKING CHANGE` ou `!` est présent dans le titre ==> version majeure
-  - Si `feat` est présent dans le titre ==> version mineure
-  - Sinon ==> version patch
-- Une fois votre PR merge vérifier le bon fonctionnement du github action.
+Le package est publié automatiquement sur [npmjs](https://www.npmjs.com/package/dbsder-api-types) lorsqu'un tag est ajouté. Le tag doit respecter le format `[0-9]+.[0-9]+.[0-9]+`. Pour clarifier le suivi il est préconisé d'ajouter le tag via une release github une fois la branche mergée sur master.
