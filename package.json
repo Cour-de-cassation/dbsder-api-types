@@ -5,7 +5,7 @@
   "author": "Cour de Cassation",
   "license": "MIT",
   "scripts": {
-    "build": "tsc && npm version patch --no-git-tag-version",
+    "build": "tsc",
     "format": "prettier --write \"**/*.ts\"",
     "watch": "tsc --watch"
   },
@@ -19,7 +19,6 @@
   "homepage": "https://github.com/Cour-de-cassation/dbsder-api-types#readme",
   "devDependencies": {
     "prettier": "3.7.1",
-    "ts-to-zod": "5.1.0",
     "typescript": "5.9.3"
   },
   "dependencies": {

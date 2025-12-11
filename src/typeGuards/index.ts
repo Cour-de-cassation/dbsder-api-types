@@ -1,48 +1,138 @@
-export { parseDecisionTj, hasSourceNameTj } from './decisions_tj.zod'
-export { parseDecisionCa, hasSourceNameCa } from './decisions_ca.zod'
-export { parseDecisionCc, hasSourceNameCc } from './decisions_cc.zod'
-export { parseDecisionDila, hasSourceNameDila } from './decisions_dila.zod'
-export { parseDecisionCph, hasSourceNameCph } from './decisions_cph.zod'
-export { parseDecisionTcom, hasSourceNameTcom } from './decisions_tcom.zod'
-
-export {
-  parseLabelStatus,
-  parseLabelTreatments,
-  parsePublishStatus,
-  isCurrentZoning,
-  parseCurrentZoning
-} from './common.zod'
-export { parseAffaire, parsePartialAffaire } from './affaires.zod'
-export { ZodError as ParseError } from 'zod'
-
 import {
+  DecisionTcom,
   decisionTcomSchema,
   parseDecisionTcom,
-  parsePartialDecisionTcom
+  parsePartialDecisionTcom,
+  UnIdentifiedDecisionTcom
 } from './decisions_tcom.zod'
-import { decisionTjSchema, parseDecisionTj, parsePartialDecisionTj } from './decisions_tj.zod'
-import { decisionCaSchema, parseDecisionCa, parsePartialDecisionCa } from './decisions_ca.zod'
-import { decisionCcSchema, parseDecisionCc, parsePartialDecisionCc } from './decisions_cc.zod'
-import { decisionCphSchema, parseDecisionCph, parsePartialDecisionCph } from './decisions_cph.zod'
 import {
+  DecisionTj,
+  decisionTjSchema,
+  parseDecisionTj,
+  parsePartialDecisionTj,
+  UnIdentifiedDecisionTj
+} from './decisions_tj.zod'
+import {
+  DecisionCa,
+  decisionCaSchema,
+  parseDecisionCa,
+  parsePartialDecisionCa,
+  UnIdentifiedDecisionCa
+} from './decisions_ca.zod'
+import {
+  DecisionCc,
+  decisionCcSchema,
+  parseDecisionCc,
+  parsePartialDecisionCc,
+  UnIdentifiedDecisionCc
+} from './decisions_cc.zod'
+import {
+  DecisionCph,
+  decisionCphSchema,
+  parseDecisionCph,
+  parsePartialDecisionCph,
+  UnIdentifiedDecisionCph
+} from './decisions_cph.zod'
+import {
+  DecisionDila,
   decisionDilaSchema,
   parseDecisionDila,
-  parsePartialDecisionDila
+  parsePartialDecisionDila,
+  UnIdentifiedDecisionDila
 } from './decisions_dila.zod'
 
-import {
-  Decision,
-  DecisionCa,
-  DecisionCc,
-  DecisionCph,
-  DecisionDila,
-  DecisionTcom,
-  DecisionTj,
-  UnIdentifiedDecision
-} from '../types'
 import { zObjectId } from './common.zod'
 import { ObjectId } from 'bson'
 import { ZodError } from 'zod'
+
+export {
+  parseDecisionTj,
+  hasSourceNameTj,
+  DecisionTj,
+  UnIdentifiedDecisionTj
+} from './decisions_tj.zod'
+export {
+  parseDecisionCa,
+  hasSourceNameCa,
+  DecisionCa,
+  UnIdentifiedDecisionCa
+} from './decisions_ca.zod'
+export {
+  parseDecisionCc,
+  hasSourceNameCc,
+  UnIdentifiedDecisionCc,
+  DecisionCc
+} from './decisions_cc.zod'
+export {
+  parseDecisionDila,
+  hasSourceNameDila,
+  DecisionDila,
+  UnIdentifiedDecisionDila
+} from './decisions_dila.zod'
+export {
+  parseDecisionCph,
+  hasSourceNameCph,
+  DecisionCph,
+  UnIdentifiedDecisionCph
+} from './decisions_cph.zod'
+export {
+  parseDecisionTcom,
+  hasSourceNameTcom,
+  DecisionTcom,
+  UnIdentifiedDecisionTcom
+} from './decisions_tcom.zod'
+
+export {
+  LabelStatus,
+  parseLabelStatus,
+  LabelTreatments,
+  parseLabelTreatments,
+  PublishStatus,
+  parsePublishStatus,
+  isCurrentZoning,
+  CurrentZoning,
+  parseCurrentZoning,
+  SuiviOccultation,
+  Category,
+  Entity,
+  ZoneRange,
+  Check,
+  NLPVersion,
+  NLPVersionDetails,
+  ModelName,
+  Occultation,
+  QualitePartie,
+  TypePartie,
+  ZoningZone,
+  IntroductionSubzonageJurica,
+  IntroductionSubzonageJurinet,
+  SentenceIndex
+} from './common.zod'
+export { parseAffaire, parsePartialAffaire, Affaire, UnIdentifiedAffaire } from './affaires.zod'
+export { CategorieCodeDecision, CodeDecision } from './codeDecisions.zod'
+export { NiveauCodeNAC, CodeNac } from './codeNacs.zod'
+export {
+  DocumentAssocie,
+  UnIdentifiedDocumentAssocie,
+  parseDocumentAssocie,
+  parsePartialDocumentAssocie
+} from './documentsAssocies.zod'
+export { ZodError as ParseError } from 'zod'
+
+export type Decision =
+  | DecisionTj
+  | DecisionTcom
+  | DecisionCa
+  | DecisionCc
+  | DecisionDila
+  | DecisionCph
+export type UnIdentifiedDecision =
+  | UnIdentifiedDecisionTj
+  | UnIdentifiedDecisionTcom
+  | UnIdentifiedDecisionCa
+  | UnIdentifiedDecisionCc
+  | UnIdentifiedDecisionDila
+  | UnIdentifiedDecisionCph
 
 export function parseId(x: unknown): ObjectId {
   return zObjectId.parse(x)

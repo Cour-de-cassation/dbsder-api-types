@@ -1,16 +1,16 @@
 import { z } from 'zod'
 
 import {
-  zOccultation,
-  zLabelStatus,
   zBlocOccultation,
-  zObjectId,
-  zSuiviOccultation,
-  zPublishStatus,
+  zLabelStatus,
   zLabelTreatments,
+  zObjectId,
+  zOccultation,
+  zPublishStatus,
+  zSuiviOccultation,
   zZoning
 } from './common.zod'
-import { Decision, DecisionCph, UnIdentifiedDecision, UnIdentifiedDecisionCph } from '../types'
+import { Decision, UnIdentifiedDecision } from './index'
 
 export const decisionCphSchema = z.object({
   _id: zObjectId,
@@ -55,6 +55,8 @@ export const decisionCphSchema = z.object({
   pourvoiLocal: z.boolean(),
   filenameSource: z.string()
 })
+export type DecisionCph = z.infer<typeof decisionCphSchema>
+export type UnIdentifiedDecisionCph = Omit<DecisionCph, '_id'>
 
 export function hasSourceNameCph(x: UnIdentifiedDecision): x is UnIdentifiedDecisionCph
 export function hasSourceNameCph(x: Decision): x is DecisionCph
