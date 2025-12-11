@@ -14,7 +14,7 @@ export const zAffaireSchema = z.object({
   _id: zObjectId,
   replacementTerms: z.array(zReplacementTerms),
   decisionIds: z.array(zObjectId).nonempty(),
-  documentIds: z.array(zObjectId)
+  documentAssocieIds: z.array(zObjectId)
 })
 export type Affaire = z.infer<typeof zAffaireSchema>
 export type UnIdentifiedAffaire = Omit<Affaire, '_id'>
