@@ -79,7 +79,9 @@ export {
   parseDecisionTcom,
   hasSourceNameTcom,
   DecisionTcom,
-  UnIdentifiedDecisionTcom
+  UnIdentifiedDecisionTcom,
+  JusticeFunctionTcom,
+  JusticeRoleTcom
 } from './decisions_tcom.zod'
 
 export {
@@ -106,7 +108,9 @@ export {
   ZoningZone,
   IntroductionSubzonageJurica,
   IntroductionSubzonageJurinet,
-  SentenceIndex
+  SentenceIndex,
+  QualitePartieExhaustive,
+  TypePartieExhaustive
 } from './common.zod'
 export { parseAffaire, parsePartialAffaire, Affaire, UnIdentifiedAffaire } from './affaires.zod'
 export { CategorieCodeDecision, CodeDecision } from './codeDecisions.zod'
