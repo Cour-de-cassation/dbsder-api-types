@@ -59,7 +59,7 @@ export const decisionCcSchema = z.object({
   jurisdictionId: z.null().optional(),
   jurisdictionName: z.string().nullable(),
   public: z.boolean().optional().nullable(),
-  solution: z.string().optional(),
+  solution: z.string().optional().nullable(),
   formation: z.string().optional().nullable(),
   labelStatus: zLabelStatus,
   publishStatus: zPublishStatus.optional(),
