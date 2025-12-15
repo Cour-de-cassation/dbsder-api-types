@@ -110,7 +110,8 @@ export {
   IntroductionSubzonageJurinet,
   SentenceIndex,
   QualitePartieExhaustive,
-  TypePartieExhaustive
+  TypePartieExhaustive,
+  BlocOccultation
 } from './common.zod'
 export { parseAffaire, parsePartialAffaire, Affaire, UnIdentifiedAffaire } from './affaires.zod'
 export { CategorieCodeDecision, CodeDecision } from './codeDecisions.zod'
