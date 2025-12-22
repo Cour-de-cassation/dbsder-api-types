@@ -9,6 +9,7 @@ import {
   zPseudoStatus,
   zPublishStatus,
   zQualitePartie,
+  zRaisonInteretParticulier,
   zSuiviOccultation,
   zTypePartie,
   zZoning
@@ -94,7 +95,9 @@ export const decisionCaSchema = z.object({
   publication: z.array(z.never()).optional().nullable(),
   locked: z.literal(false),
   analysis: decisionAnalysisCaSchema,
-  formation: z.null().optional()
+  formation: z.null().optional(),
+  interetParticulier: z.boolean().optional(),
+  raisonInteretParticulier: zRaisonInteretParticulier.optional()
 })
 export type DecisionCa = z.infer<typeof decisionCaSchema>
 export type UnIdentifiedDecisionCa = Omit<DecisionCa, '_id'>

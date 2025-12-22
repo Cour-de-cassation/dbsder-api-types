@@ -1,6 +1,12 @@
 import { z } from 'zod'
 
-import { zLabelStatus, zObjectId, zPseudoStatus, zPublishStatus } from './common.zod'
+import {
+  zLabelStatus,
+  zObjectId,
+  zPseudoStatus,
+  zPublishStatus,
+  zRaisonInteretParticulier
+} from './common.zod'
 import { Decision, UnIdentifiedDecision } from './index'
 
 const jurisdictionCodeDILASchema = z.union([
@@ -80,7 +86,9 @@ export const decisionDilaSchema = z.object({
   zoning: z.null().optional(),
   formation: z.null().optional(),
   blocOccultation: z.null().optional(),
-  jurisdictionId: z.null().optional()
+  jurisdictionId: z.null().optional(),
+  interetParticulier: z.boolean().optional(),
+  raisonInteretParticulier: zRaisonInteretParticulier.optional()
 })
 export type DecisionDila = z.infer<typeof decisionDilaSchema>
 export type UnIdentifiedDecisionDila = Omit<DecisionDila, '_id'>

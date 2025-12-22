@@ -8,6 +8,7 @@ import {
   zOccultation,
   zPublishStatus,
   zQualitePartie,
+  zRaisonInteretParticulier,
   zSuiviOccultation,
   zTypePartie,
   zZoning
@@ -96,7 +97,9 @@ export const decisionTjSchema = z.object({
   appeals: z.array(z.string()),
   decatt: z.array(z.never()),
   publication: z.array(z.never()),
-  decisionAssociee: decisionAssocieeTJSchema.nullable().optional()
+  decisionAssociee: decisionAssocieeTJSchema.nullable().optional(),
+  interetParticulier: z.boolean().optional(),
+  raisonInteretParticulier: zRaisonInteretParticulier.optional()
 })
 export type DecisionTj = z.infer<typeof decisionTjSchema>
 export type UnIdentifiedDecisionTj = Omit<DecisionTj, '_id'>

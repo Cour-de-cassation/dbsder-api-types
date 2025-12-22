@@ -7,6 +7,7 @@ import {
   zObjectId,
   zOccultation,
   zPublishStatus,
+  zRaisonInteretParticulier,
   zSuiviOccultation,
   zZoning
 } from './common.zod'
@@ -53,7 +54,9 @@ export const decisionCphSchema = z.object({
   // matiereDeterminee: z.undefined().optional(),
   pourvoiCourDeCassation: z.boolean(),
   pourvoiLocal: z.boolean(),
-  filenameSource: z.string()
+  filenameSource: z.string(),
+  interetParticulier: z.boolean().optional(),
+  raisonInteretParticulier: zRaisonInteretParticulier.optional()
 })
 export type DecisionCph = z.infer<typeof decisionCphSchema>
 export type UnIdentifiedDecisionCph = Omit<DecisionCph, '_id'>
