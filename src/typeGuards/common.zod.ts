@@ -22,6 +22,7 @@ export enum LabelStatus {
   IGNORED_DECISION_PARTIELLEMENT_PUBLIQUE_PAR_ZONAGE = 'ignored_decisionPartiellementPubliqueParZonage',
   IGNORED_BLOC_OCCULATION_NON_DEFINI = 'ignored_blocOcculationNonDefini',
   IGNORED_RECOMMANDATION_OCCULTATION_NON_SUIVIE = 'ignored_recommandationOccultationNonSuivie',
+  IGNORED_MOTIFS_SECRET_AFFAIRE = 'ignored_motifsSecretAffaires',
   LOCKED = 'locked'
 }
 
