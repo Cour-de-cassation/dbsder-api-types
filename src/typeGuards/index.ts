@@ -111,7 +111,8 @@ export {
   SentenceIndex,
   QualitePartieExhaustive,
   TypePartieExhaustive,
-  BlocOccultation
+  BlocOccultation,
+  RaisonInteretParticulier
 } from './common.zod'
 export { parseAffaire, parsePartialAffaire, Affaire, UnIdentifiedAffaire } from './affaires.zod'
 export { CategorieCodeDecision, CodeDecision } from './codeDecisions.zod'

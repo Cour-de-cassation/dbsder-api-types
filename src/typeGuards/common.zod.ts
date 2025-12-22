@@ -115,6 +115,18 @@ export enum LabelRoute {
   PAS_DE_RELECTURE = 'automatique'
 }
 
+export enum RaisonInteretParticulier {
+  F1_QUESTION_PREJUDICIELLE = 'F1 - Question préjudicielle',
+  F2_QUESTION_PRIORITAIRE_CONSTITUTIONNALITE = 'F2 - Question prioritaire de constitutionnalité',
+  F3_SAISINE_TRIBUNAL_CONFLITS = 'F3 - Saisine du Tribunal des conflits',
+  S1_CONTROLE_CONVENTIONALITE = 'S1 - Contrôle de conventionalité',
+  S2_CONTENTIEUX_EMERGENT_QUESTION_NOUVELLE = 'S2 - Contentieux émergent ou question de droit nouvelle',
+  S3_DIVERGENCE_JURISPRUDENCE_DEBAT_DOCTRINAL = 'S3 - Divergence de jurisprudence ou débat doctrinal',
+  S4_SUJET_INTERET_PUBLIC_MAJEUR = "S4 - Sujet d'intérêt public majeur",
+  S5_CONTENTIEUX_RARE = 'S5 - Contentieux rare',
+  S6_CONTENTIEUX_SERIEL = 'S6 - Contentieux sériel'
+}
+
 export const zLabelStatus = z.enum(LabelStatus)
 
 export const zPublishStatus = z.enum(PublishStatus)
@@ -204,6 +216,8 @@ export type TypePartie = z.infer<typeof zTypePartie>
 export const zBlocOccultation = z.enum(BlocOccultation)
 
 export const zLabelRoute = z.enum(LabelRoute)
+
+export const zRaisonInteretParticulier = z.enum(RaisonInteretParticulier)
 
 export const zObjectId = z
   .string()
