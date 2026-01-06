@@ -8,7 +8,6 @@ import {
   zOccultation,
   zPseudoStatus,
   zPublishStatus,
-  zRaisonInteretParticulier,
   zZoning
 } from './common.zod'
 import { Decision, UnIdentifiedDecision } from './index'
@@ -101,9 +100,7 @@ export const decisionCcSchema = z.object({
   isLoadedInLabel: z.boolean().optional(),
   parties: z.union([z.array(z.array(z.unknown())), z.object({})]).optional(),
   recommandationOccultation: z.null().optional(),
-  selection: z.literal(false).optional(),
-  interetParticulier: z.boolean().optional(),
-  raisonInteretParticulier: zRaisonInteretParticulier.optional()
+  selection: z.literal(false).optional()
 })
 export type DecisionCc = z.infer<typeof decisionCcSchema>
 
