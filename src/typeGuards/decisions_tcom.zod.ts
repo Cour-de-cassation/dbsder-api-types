@@ -7,7 +7,6 @@ import {
   zOccultation,
   zPublishStatus,
   zQualitePartie,
-  zRaisonInteretParticulier,
   zTypePartie,
   zZoning
 } from './common.zod'
@@ -108,9 +107,7 @@ export const decisionTcomSchema = z.object({
   idDecisionTCOM: z.string(),
   codeProcedure: z.string().nullable().optional(),
   libelleMatiere: z.string().nullable().optional(),
-  composition: z.array(compositionTcomSchema).nullable().optional(),
-  interetParticulier: z.boolean().optional(),
-  raisonInteretParticulier: zRaisonInteretParticulier.optional()
+  composition: z.array(compositionTcomSchema).nullable().optional()
 })
 export type DecisionTcom = z.infer<typeof decisionTcomSchema>
 export type UnIdentifiedDecisionTcom = Omit<DecisionTcom, '_id'>
