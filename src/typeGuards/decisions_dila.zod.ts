@@ -1,11 +1,6 @@
 import { z } from 'zod'
 
-import {
-  zLabelStatus,
-  zObjectId,
-  zPseudoStatus,
-  zPublishStatus
-} from './common.zod'
+import { zLabelStatus, zObjectId, zPseudoStatus, zPublishStatus } from './common.zod'
 import { Decision, UnIdentifiedDecision } from './index'
 
 const jurisdictionCodeDILASchema = z.union([
