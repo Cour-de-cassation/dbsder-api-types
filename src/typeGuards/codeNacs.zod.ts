@@ -1,8 +1,6 @@
 import { z } from 'zod'
 import { ObjectId } from 'bson'
-import { Category, zBlocOccultation, zLabelRoute } from './common.zod'
-
-const zCategory = z.enum(Category)
+import { zBlocOccultation, zLabelRoute } from './common.zod'
 
 const NiveauCodeNACSchema = z.object({
   code: z.string(),
@@ -10,35 +8,35 @@ const NiveauCodeNACSchema = z.object({
 })
 export type NiveauCodeNAC = z.infer<typeof NiveauCodeNACSchema>
 
-const CategoriesToOmitSchema = z.object({
-  aucune: z.array(zCategory),
-  conforme: z.array(zCategory),
-  complément: z.array(zCategory),
-  substituant: z.array(zCategory)
+
+const ChapitreSchema = z.object({
+  code: z.string().length(1),
+  libelle: z.string()
+})
+
+const sousChapitreSchema = z.object({
+  code: z.string(),
+  libelle: z.string()
+})
+
+const categoriesToOccultSchema = z.object({
+  suivi: z.array(z.string()).nullable(),
+  nonSuivi: z.array(z.string()).nullable()
 })
 
 const CodeNacSchema = z.object({
   _id: z.instanceof(ObjectId),
-  codeNAC: z.string(),
-  libelleNAC: z.string(),
-  niveau1NAC: NiveauCodeNACSchema,
-  niveau2NAC: NiveauCodeNACSchema,
-
-  indicateurAffaireSignalee: z.boolean(),
-  indicateurDebatsPublics: z.boolean().optional(),
-  indicateurDecisionRenduePubliquement: z.boolean().optional(),
-
-  blocOccultationCA: zBlocOccultation.optional(),
-  blocOccultationTJ: zBlocOccultation.optional(),
-  categoriesToOmitCA: CategoriesToOmitSchema.optional(),
-  categoriesToOmitTJ: CategoriesToOmitSchema.optional(),
-
-  routeRelecture: zLabelRoute.optional(),
-
-  isInJuricaDatabase: z.boolean(),
-  logs: z.array(z.record(z.string(), z.unknown())) //julien: plus compliqué mais pas hyper important
-
-  // dateDebutValidite: z.date(),
-  // dateFinValidite: z.date().optional(),
+  codeNAC: z.string().min(3).nonoptional(),
+  libelleNAC: z.string().nonoptional(),
+  chapitre: ChapitreSchema.nonoptional(),
+  sousChapitre: sousChapitreSchema.nonoptional(),
+  dateDebutValidite: z.date().nonoptional(),
+  dateFinValidite: z.date().nullable(),
+  routeRElecture: zLabelRoute.nullable(),
+  blocOccultation: zBlocOccultation.nullable(),
+  categoriesToOccult: categoriesToOccultSchema.nullable(),
+  decisionsPubliques: z.enum(['decisions publiques', 'decisions non publiques', ' decisions mixtes']).nullable(),
+  debatsPublics: z.enum(['débats publics', 'débats non publics', 'debats mixte']).nullable(),
+  obselete: z.boolean().default(false),
 })
 export type CodeNac = z.infer<typeof CodeNacSchema>
