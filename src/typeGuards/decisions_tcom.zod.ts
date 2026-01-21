@@ -4,6 +4,7 @@ import {
   zBlocOccultation,
   zLabelStatus,
   zLabelTreatments,
+  zObjectId,
   zOccultation,
   zPublishStatus,
   zQualitePartie,
@@ -66,10 +67,8 @@ const partieTcomSchema = z.object({
 })
 export type PartieTcom = z.infer<typeof partieTcomSchema>
 
-const objectIdSchema = z.any()
-
 export const decisionTcomSchema = z.object({
-  _id: objectIdSchema.optional(),
+  _id: zObjectId,
   sourceId: z.number().or(z.nan()),
   sourceName: z.literal('juritcom'),
   __v: z.number().or(z.nan()),
