@@ -115,7 +115,7 @@ export {
 } from './common.zod'
 export { parseAffaire, parsePartialAffaire, Affaire, UnIdentifiedAffaire } from './affaires.zod'
 export { CategorieCodeDecision, CodeDecision } from './codeDecisions.zod'
-export { NiveauCodeNAC, CodeNac } from './codeNacs.zod'
+export { NiveauCodeNAC, CodeNac, parsePartialCodeNac } from './codeNacs.zod'
 export {
   DocumentAssocie,
   UnIdentifiedDocumentAssocie,

@@ -8,7 +8,6 @@ const NiveauCodeNACSchema = z.object({
 })
 export type NiveauCodeNAC = z.infer<typeof NiveauCodeNACSchema>
 
-
 const ChapitreSchema = z.object({
   code: z.string().length(1),
   libelle: z.string()
@@ -32,11 +31,18 @@ const CodeNacSchema = z.object({
   sousChapitre: sousChapitreSchema.nonoptional(),
   dateDebutValidite: z.date().nonoptional(),
   dateFinValidite: z.date().nullable(),
-  routeRElecture: zLabelRoute.nullable(),
+  routeRelecture: zLabelRoute.nullable(),
   blocOccultation: zBlocOccultation.nullable(),
   categoriesToOccult: categoriesToOccultSchema.nullable(),
-  decisionsPubliques: z.enum(['decisions publiques', 'decisions non publiques', ' decisions mixtes']).nullable(),
+  decisionsPubliques: z
+    .enum(['decisions publiques', 'decisions non publiques', ' decisions mixtes'])
+    .nullable(),
   debatsPublics: z.enum(['débats publics', 'débats non publics', 'debats mixte']).nullable(),
-  obselete: z.boolean().default(false),
+  obsolete: z.boolean().default(false)
 })
+
+export function parsePartialCodeNac(x: unknown): Partial<CodeNac> {
+  return CodeNacSchema.partial().parse(x)
+}
+
 export type CodeNac = z.infer<typeof CodeNacSchema>
