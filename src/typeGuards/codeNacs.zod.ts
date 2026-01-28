@@ -35,9 +35,9 @@ const CodeNacSchema = z.object({
   blocOccultation: zBlocOccultation.nullable(),
   categoriesToOccult: categoriesToOccultSchema.nullable(),
   decisionsPubliques: z
-    .enum(['decisions publiques', 'decisions non publiques', ' decisions mixtes'])
+    .enum(['décisions publiques', 'décisions non publiques', ' décisions mixtes'])
     .nullable(),
-  debatsPublics: z.enum(['débats publics', 'débats non publics', 'debats mixte']).nullable(),
+  debatsPublics: z.enum(['débats publics', 'débats non publics', 'débats mixte']).nullable(),
   obsolete: z.boolean().default(false)
 })
 
