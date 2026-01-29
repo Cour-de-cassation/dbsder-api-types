@@ -14,7 +14,7 @@ const ChapitreSchema = z.object({
 })
 
 const sousChapitreSchema = z.object({
-  code: z.string(),
+  code: z.string().length(2),
   libelle: z.string()
 })
 
@@ -25,7 +25,7 @@ const categoriesToOccultSchema = z.object({
 
 const CodeNacSchema = z.object({
   _id: z.instanceof(ObjectId),
-  codeNAC: z.string().min(3).nonoptional(),
+  codeNAC: z.string().length(3).nonoptional(),
   libelleNAC: z.string().nonoptional(),
   chapitre: ChapitreSchema.nonoptional(),
   sousChapitre: sousChapitreSchema.nonoptional(),
