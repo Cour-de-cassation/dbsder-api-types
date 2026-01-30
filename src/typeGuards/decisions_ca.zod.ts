@@ -97,7 +97,7 @@ export const decisionCaSchema = z.object({
   analysis: decisionAnalysisCaSchema,
   formation: z.null().optional(),
   interetParticulier: z.boolean().optional(),
-  raisonInteretParticulier: zRaisonInteretParticulier.optional()
+  raisonInteretParticulier: zRaisonInteretParticulier.nullable()
 })
 export type DecisionCa = z.infer<typeof decisionCaSchema>
 export type UnIdentifiedDecisionCa = Omit<DecisionCa, '_id'>

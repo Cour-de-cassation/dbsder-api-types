@@ -99,7 +99,7 @@ export const decisionTjSchema = z.object({
   publication: z.array(z.never()),
   decisionAssociee: decisionAssocieeTJSchema.nullable().optional(),
   interetParticulier: z.boolean().optional(),
-  raisonInteretParticulier: zRaisonInteretParticulier.optional()
+  raisonInteretParticulier: zRaisonInteretParticulier.nullable()
 })
 export type DecisionTj = z.infer<typeof decisionTjSchema>
 export type UnIdentifiedDecisionTj = Omit<DecisionTj, '_id'>
