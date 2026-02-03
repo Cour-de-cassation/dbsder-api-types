@@ -42,7 +42,7 @@ const CodeNacSchema = z.object({
 })
 
 export function parsePartialCodeNac(x: unknown): Partial<CodeNac> {
-  return CodeNacSchema.partial().omit({ dateDebutValidite: true }).parse(x)
+  return CodeNacSchema.partial().omit({ dateDebutValidite: true, _id: true }).parse(x)
 }
 
 export type CodeNac = z.infer<typeof CodeNacSchema>
