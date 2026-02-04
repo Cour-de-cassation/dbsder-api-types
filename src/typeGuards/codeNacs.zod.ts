@@ -38,7 +38,7 @@ const CodeNacSchema = z.object({
     .enum(['décisions publiques', 'décisions non publiques', 'décisions mixtes'])
     .nullable(),
   debatsPublics: z.enum(['débats publics', 'débats non publics', 'débats mixtes']).nullable(),
-  obsolete: z.boolean().default(false)
+  codeUsageNonConseille: z.boolean().default(false)
 })
 
 export function parsePartialCodeNac(x: unknown): Partial<CodeNac> {
