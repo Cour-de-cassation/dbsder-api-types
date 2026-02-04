@@ -55,8 +55,7 @@ export const decisionCphSchema = z.object({
   pourvoiCourDeCassation: z.boolean(),
   pourvoiLocal: z.boolean(),
   filenameSource: z.string(),
-  interetParticulier: z.boolean().optional(),
-  raisonInteretParticulier: zRaisonInteretParticulier.optional()
+  raisonInteretParticulier: zRaisonInteretParticulier.nullable().optional()
 })
 export type DecisionCph = z.infer<typeof decisionCphSchema>
 export type UnIdentifiedDecisionCph = Omit<DecisionCph, '_id'>
