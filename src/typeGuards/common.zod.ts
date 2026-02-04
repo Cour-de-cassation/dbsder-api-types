@@ -124,7 +124,8 @@ export enum RaisonInteretParticulier {
   S3_DIVERGENCE_JURISPRUDENCE_DEBAT_DOCTRINAL = 'S3 - Divergence de jurisprudence ou débat doctrinal',
   S4_SUJET_INTERET_PUBLIC_MAJEUR = "S4 - Sujet d'intérêt public majeur",
   S5_CONTENTIEUX_RARE = 'S5 - Contentieux rare',
-  S6_CONTENTIEUX_SERIEL = 'S6 - Contentieux sériel'
+  S6_CONTENTIEUX_SERIEL = 'S6 - Contentieux sériel',
+  C0_ANNOTATION_COUR_CASSATION = "C0 - Décision annotée comme présentant un intérêt juridique particulier par la Cour de cassation"
 }
 
 export const zLabelStatus = z.enum(LabelStatus)
