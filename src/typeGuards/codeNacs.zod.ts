@@ -1,6 +1,8 @@
 import { z } from 'zod'
 import { ObjectId } from 'bson'
-import { zBlocOccultation, zLabelRoute } from './common.zod'
+import { zBlocOccultation, zLabelRoute, Category } from './common.zod'
+
+const zCategory = z.enum(Category)
 
 const NiveauCodeNACSchema = z.object({
   code: z.string(),
@@ -18,9 +20,14 @@ const sousChapitreSchema = z.object({
   libelle: z.string()
 })
 
-const categoriesToOccultSchema = z.object({
-  suivi: z.array(z.string()).nullable(),
-  nonSuivi: z.array(z.string()).nullable()
+export enum CategoriesToOmit {
+  SUIVI = 'suivi',
+  NON_SUIVI = 'nonSuivi',
+}
+
+const categoriesToOmitSchema = z.object({
+  suivi: z.array(zCategory).nullable(),
+  nonSuivi: z.array(zCategory).nullable()
 })
 
 const CodeNacSchema = z.object({
@@ -33,7 +40,7 @@ const CodeNacSchema = z.object({
   dateFinValidite: z.date().nullable(),
   routeRelecture: zLabelRoute.nullable(),
   blocOccultation: zBlocOccultation.nullable(),
-  categoriesToOccult: categoriesToOccultSchema.nullable(),
+  categoriesToOmit: categoriesToOmitSchema.nullable(),
   decisionsPubliques: z
     .enum(['décisions publiques', 'décisions non publiques', 'décisions mixtes'])
     .nullable(),
