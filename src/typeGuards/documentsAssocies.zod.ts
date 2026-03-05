@@ -14,7 +14,7 @@ export const DocumentAssocieSchema = z.object({
   documentType: documentAssocieTypeSchema,
   originalText: z.string(),
   pseudoText: z.string().optional(),
-  labelTreatments: z.array(zLabelTreatments),
+  labelTreatments: zLabelTreatments,
   metadata: z.record(z.string(), z.unknown()).optional()
 })
 export type DocumentAssocie = z.infer<typeof DocumentAssocieSchema>
