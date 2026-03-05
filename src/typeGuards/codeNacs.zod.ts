@@ -1,6 +1,12 @@
 import { z } from 'zod'
 import { ObjectId } from 'bson'
-import { zBlocOccultation, zLabelRoute, Category } from './common.zod'
+import {
+  Category,
+  zBlocOccultation,
+  zDebatsPublics,
+  zDecisionsPubliques,
+  zLabelRoute
+} from './common.zod'
 
 const zCategory = z.enum(Category)
 
@@ -22,7 +28,7 @@ const sousChapitreSchema = z.object({
 
 export enum CategoriesToOmit {
   SUIVI = 'suivi',
-  NON_SUIVI = 'nonSuivi',
+  NON_SUIVI = 'nonSuivi'
 }
 
 const categoriesToOmitSchema = z.object({
@@ -41,10 +47,8 @@ const CodeNacSchema = z.object({
   routeRelecture: zLabelRoute.nullable(),
   blocOccultation: zBlocOccultation.nullable(),
   categoriesToOmit: categoriesToOmitSchema.nullable(),
-  decisionsPubliques: z
-    .enum(['décisions publiques', 'décisions non publiques', 'décisions mixtes'])
-    .nullable(),
-  debatsPublics: z.enum(['débats publics', 'débats non publics', 'débats mixtes']).nullable(),
+  decisionsPubliques: zDecisionsPubliques.nullable(),
+  debatsPublics: zDebatsPublics.nullable(),
   codeUsageNonConseille: z.boolean().default(false)
 })
 

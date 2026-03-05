@@ -113,7 +113,9 @@ export {
   TypePartieExhaustive,
   BlocOccultation,
   LabelRoute,
-  RaisonInteretParticulier
+  RaisonInteretParticulier,
+  DecisionsPubliques,
+  DebatsPublics
 } from './common.zod'
 export { parseAffaire, parsePartialAffaire, Affaire, UnIdentifiedAffaire } from './affaires.zod'
 export { CategorieCodeDecision, CodeDecision } from './codeDecisions.zod'
