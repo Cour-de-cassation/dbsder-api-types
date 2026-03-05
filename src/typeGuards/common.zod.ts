@@ -126,8 +126,23 @@ export enum RaisonInteretParticulier {
   S4_SUJET_INTERET_PUBLIC_MAJEUR = "S4 - Sujet d'intérêt public majeur",
   S5_CONTENTIEUX_RARE = 'S5 - Contentieux rare',
   S6_CONTENTIEUX_SERIEL = 'S6 - Contentieux sériel',
-  C0_ANNOTATION_COUR_CASSATION = "C0 - Décision annotée comme présentant un intérêt juridique particulier par la Cour de cassation"
+  C0_ANNOTATION_COUR_CASSATION = 'C0 - Décision annotée comme présentant un intérêt juridique particulier par la Cour de cassation'
 }
+
+export enum DecisionsPubliques {
+  DECISIONS_PUBLIQUES = 'décisions publiques',
+  DECISIONS_NON_PUBLIQUES = 'décisions non publiques',
+  DECISIONS_MIXTES = 'décisions mixtes'
+}
+
+export enum DebatsPublics {
+  DEBATS_PUBLICS = 'débats publics',
+  DEBATS_NON_PUBLICS = 'débats non publics',
+  DEBATS_MIXTES = 'débats mixtes'
+}
+
+export const zDecisionsPubliques = z.enum(DecisionsPubliques)
+export const zDebatsPublics = z.enum(DebatsPublics)
 
 export const zLabelStatus = z.enum(LabelStatus)
 
