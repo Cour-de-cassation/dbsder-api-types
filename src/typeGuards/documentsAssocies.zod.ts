@@ -6,6 +6,7 @@ export enum DocumentAssocieType {
   AVIS_QPC = 'avis QPC',
   AVIS_COMP = 'avis complémentaire',
   RAPPORT = 'rapport',
+  RAPPORT_QPC = 'rapport QPC',
   RAPPORT_COMP = 'rapport complémentaire',
 
 }
