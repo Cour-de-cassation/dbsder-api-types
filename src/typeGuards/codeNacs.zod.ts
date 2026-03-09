@@ -1,6 +1,12 @@
 import { z } from 'zod'
 import { ObjectId } from 'bson'
-import { Category, zBlocOccultation, zLabelRoute } from './common.zod'
+import {
+  Category,
+  zBlocOccultation,
+  zDebatsPublics,
+  zDecisionsPubliques,
+  zLabelRoute
+} from './common.zod'
 
 const zCategory = z.enum(Category)
 
@@ -10,35 +16,44 @@ const NiveauCodeNACSchema = z.object({
 })
 export type NiveauCodeNAC = z.infer<typeof NiveauCodeNACSchema>
 
-const CategoriesToOmitSchema = z.object({
-  aucune: z.array(zCategory),
-  conforme: z.array(zCategory),
-  complément: z.array(zCategory),
-  substituant: z.array(zCategory)
+const ChapitreSchema = z.object({
+  code: z.string().length(1),
+  libelle: z.string()
+})
+
+const sousChapitreSchema = z.object({
+  code: z.string().length(2),
+  libelle: z.string()
+})
+
+export enum CategoriesToOmit {
+  SUIVI = 'suivi',
+  NON_SUIVI = 'nonSuivi'
+}
+
+const categoriesToOmitSchema = z.object({
+  suivi: z.array(zCategory).nullable(),
+  nonSuivi: z.array(zCategory).nullable()
 })
 
 const CodeNacSchema = z.object({
   _id: z.instanceof(ObjectId),
-  codeNAC: z.string(),
-  libelleNAC: z.string(),
-  niveau1NAC: NiveauCodeNACSchema,
-  niveau2NAC: NiveauCodeNACSchema,
-
-  indicateurAffaireSignalee: z.boolean(),
-  indicateurDebatsPublics: z.boolean().optional(),
-  indicateurDecisionRenduePubliquement: z.boolean().optional(),
-
-  blocOccultationCA: zBlocOccultation.optional(),
-  blocOccultationTJ: zBlocOccultation.optional(),
-  categoriesToOmitCA: CategoriesToOmitSchema.optional(),
-  categoriesToOmitTJ: CategoriesToOmitSchema.optional(),
-
-  routeRelecture: zLabelRoute.optional(),
-
-  isInJuricaDatabase: z.boolean(),
-  logs: z.array(z.record(z.string(), z.unknown())) //julien: plus compliqué mais pas hyper important
-
-  // dateDebutValidite: z.date(),
-  // dateFinValidite: z.date().optional(),
+  codeNAC: z.string().length(3).nonoptional(),
+  libelleNAC: z.string().nonoptional(),
+  chapitre: ChapitreSchema.nonoptional(),
+  sousChapitre: sousChapitreSchema.nonoptional(),
+  dateDebutValidite: z.date().nonoptional(),
+  dateFinValidite: z.date().nullable(),
+  routeRelecture: zLabelRoute.nullable(),
+  blocOccultation: zBlocOccultation.nullable(),
+  categoriesToOmit: categoriesToOmitSchema.nullable(),
+  decisionsPubliques: zDecisionsPubliques.nullable(),
+  debatsPublics: zDebatsPublics.nullable(),
+  codeUsageNonConseille: z.boolean().default(false)
 })
+
+export function parsePartialCodeNac(x: unknown): Partial<CodeNac> {
+  return CodeNacSchema.partial().omit({ dateDebutValidite: true, _id: true }).parse(x)
+}
+
 export type CodeNac = z.infer<typeof CodeNacSchema>
