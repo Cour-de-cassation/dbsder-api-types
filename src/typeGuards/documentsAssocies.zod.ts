@@ -3,7 +3,11 @@ import { zLabelTreatments, zObjectId } from './common.zod'
 
 export enum DocumentAssocieType {
   AVIS = 'avis',
-  RAPPORT = 'rapport'
+  AVIS_QPC = 'avis QPC',
+  AVIS_COMP = 'avis complémentaire',
+  RAPPORT = 'rapport',
+  RAPPORT_COMP = 'rapport complémentaire',
+
 }
 
 export const documentAssocieTypeSchema = z.enum(DocumentAssocieType)
