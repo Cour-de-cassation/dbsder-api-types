@@ -78,7 +78,7 @@ export const decisionCaSchema = z.object({
   jurisdictionId: z.string().nullable(),
   jurisdictionName: z.string().nullable(),
   selection: z.boolean().optional(),
-  sommaire: z.string().optional(),
+  sommaire: z.string().optional().nullable(),
   solution: z.string().optional().nullable(),
   blocOccultation: zBlocOccultation.optional().nullable(),
   occultation: zOccultation.optional(),
