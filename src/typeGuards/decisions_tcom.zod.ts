@@ -69,7 +69,7 @@ export type PartieTcom = z.infer<typeof partieTcomSchema>
 
 export const decisionTcomSchema = z.object({
   _id: zObjectId,
-  sourceId: z.number().or(z.nan()),
+  sourceId: z.number(),
   sourceName: z.literal('juritcom'),
   __v: z.number().or(z.nan()),
   originalText: z.string(),
