@@ -47,7 +47,7 @@ export type PublicationCategoryCC = z.infer<typeof publicationCategoryCcSchema>
 
 export const decisionCcSchema = z.object({
   _id: zObjectId,
-  sourceId: z.number().or(z.nan()),
+  sourceId: z.number(),
   sourceName: z.literal('jurinet'),
   _rev: z.number().or(z.nan()).optional(),
   __v: z.number().or(z.nan()).optional(),

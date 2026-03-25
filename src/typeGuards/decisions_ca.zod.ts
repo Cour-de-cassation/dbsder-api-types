@@ -46,7 +46,7 @@ export type DecisionAnalysisCa = z.infer<typeof decisionAnalysisCaSchema>
 
 export const decisionCaSchema = z.object({
   _id: zObjectId,
-  sourceId: z.number().or(z.nan()),
+  sourceId: z.number(),
   sourceName: z.literal('jurica'),
   _rev: z.number().or(z.nan()).optional(),
   _version: z.number().or(z.nan()).optional().nullable(),
