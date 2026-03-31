@@ -242,6 +242,8 @@ export const zObjectId = z
     return ObjectId.isValid(id) && new ObjectId(id).toString() === id
   })
 
+export type DbsderId = z.infer<typeof zObjectId>
+
 export const zZoneRange = z.object({
   start: z.number(),
   end: z.number()

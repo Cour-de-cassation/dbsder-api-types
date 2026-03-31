@@ -41,8 +41,7 @@ import {
   UnIdentifiedDecisionDila
 } from './decisions_dila.zod'
 
-import { zObjectId } from './common.zod'
-import { ObjectId } from 'bson'
+import { zObjectId, DbsderId } from './common.zod'
 import { ZodError } from 'zod'
 
 export {
@@ -115,7 +114,8 @@ export {
   LabelRoute,
   RaisonInteretParticulier,
   DecisionsPubliques,
-  DebatsPublics
+  DebatsPublics,
+  DbsderId
 } from './common.zod'
 export { parseAffaire, parsePartialAffaire, Affaire, UnIdentifiedAffaire } from './affaires.zod'
 export { CategorieCodeDecision, CodeDecision } from './codeDecisions.zod'
@@ -143,7 +143,7 @@ export type UnIdentifiedDecision =
   | UnIdentifiedDecisionDila
   | UnIdentifiedDecisionCph
 
-export function parseId(x: unknown): ObjectId {
+export function parseId(x: unknown): DbsderId {
   return zObjectId.parse(x)
 }
 

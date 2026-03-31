@@ -1,11 +1,11 @@
 import { z } from 'zod'
-import { ObjectId } from 'bson'
 import {
   Category,
   zBlocOccultation,
   zDebatsPublics,
   zDecisionsPubliques,
-  zLabelRoute
+  zLabelRoute,
+  zObjectId
 } from './common.zod'
 
 const zCategory = z.enum(Category)
@@ -37,7 +37,7 @@ const categoriesToOmitSchema = z.object({
 })
 
 const CodeNacSchema = z.object({
-  _id: z.instanceof(ObjectId),
+  _id: zObjectId,
   codeNAC: z.string().length(3).nonoptional(),
   libelleNAC: z.string().nonoptional(),
   chapitre: ChapitreSchema.nonoptional(),
