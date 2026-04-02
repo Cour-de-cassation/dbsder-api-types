@@ -241,7 +241,8 @@ export const zObjectId = z
   .refine((id: string) => {
     return ObjectId.isValid(id) && new ObjectId(id).toString() === id
   })
-  .transform((_) => new ObjectId(_))
+
+export type DbsderId = z.infer<typeof zObjectId>
 
 export const zZoneRange = z.object({
   start: z.number(),
