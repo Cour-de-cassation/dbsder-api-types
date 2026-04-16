@@ -40,6 +40,13 @@ import {
   parsePartialDecisionDila,
   UnIdentifiedDecisionDila
 } from './decisions_dila.zod'
+import {
+  DecisionCaV2,
+  decisionCaV2Schema,
+  parseDecisionCaV2,
+  parsePartialDecisionCaV2,
+  UnIdentifiedDecisionCaV2
+} from './decisions_cav2.zod'
 
 import { zObjectId, DbsderId } from './common.zod'
 import { ZodError } from 'zod'
@@ -82,6 +89,12 @@ export {
   JusticeFunctionTcom,
   JusticeRoleTcom
 } from './decisions_tcom.zod'
+export {
+  parseDecisionCaV2,
+  hasSourceNameCaV2,
+  DecisionCaV2,
+  UnIdentifiedDecisionCaV2
+} from './decisions_cav2.zod'
 
 export {
   LabelStatus,
@@ -135,6 +148,7 @@ export type Decision =
   | DecisionCc
   | DecisionDila
   | DecisionCph
+  | DecisionCaV2
 export type UnIdentifiedDecision =
   | UnIdentifiedDecisionTj
   | UnIdentifiedDecisionTcom
@@ -142,6 +156,7 @@ export type UnIdentifiedDecision =
   | UnIdentifiedDecisionCc
   | UnIdentifiedDecisionDila
   | UnIdentifiedDecisionCph
+  | UnIdentifiedDecisionCaV2
 
 export function parseId(x: unknown): DbsderId {
   return zObjectId.parse(x)
@@ -155,6 +170,7 @@ export function parseSourceName(x: unknown): Decision['sourceName'] {
     .or(decisionTcomSchema.pick({ sourceName: true }))
     .or(decisionDilaSchema.pick({ sourceName: true }))
     .or(decisionCphSchema.pick({ sourceName: true }))
+    .or(decisionCaV2Schema.pick({ sourceName: true }))
     .parse({ sourceName: x }).sourceName
 
   // /!\ used to check exhaustivity: error type means you forget a schema /!\
@@ -185,6 +201,8 @@ export function parseUnIdentifiedDecision(x: unknown): UnIdentifiedDecision {
       return parseDecisionTcom(x)
     case 'portalis-cph':
       return parseDecisionCph(x)
+    case 'juricav2':
+      return parseDecisionCaV2(x)
     default:
       sourceName satisfies never
       throw new Error('unexpected error')
@@ -200,7 +218,8 @@ export function parsePartialDecision(
   | Partial<DecisionDila>
   | Partial<DecisionTcom>
   | Partial<DecisionTj>
-  | Partial<DecisionCph> {
+  | Partial<DecisionCph>
+  | Partial<DecisionCaV2> {
   switch (sourceName) {
     case 'jurinet':
       return parsePartialDecisionCc(x)
@@ -214,6 +233,8 @@ export function parsePartialDecision(
       return parsePartialDecisionTcom(x)
     case 'portalis-cph':
       return parsePartialDecisionCph(x)
+    case 'juricav2':
+      return parsePartialDecisionCaV2(x)
     default:
       sourceName satisfies never
       throw new Error('unexpected error')
