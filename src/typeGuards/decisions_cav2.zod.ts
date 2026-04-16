@@ -17,12 +17,14 @@ const zDecisionAttaquee = z.object({
   ville: z.string().nullable(),
   date: z.string().nullable()
 })
+export type DecisionAttaqueeCaV2 = z.infer<typeof zDecisionAttaquee>
 
 const zParty = z.object({
   identite: z.string().optional(),
   qualite_partie: z.string().optional(),
   type_personne: z.string().optional()
 })
+export type PartyCaV2 = z.infer<typeof zParty>
 
 export const decisionCaV2Schema = z.object({
   _id: zObjectId,
