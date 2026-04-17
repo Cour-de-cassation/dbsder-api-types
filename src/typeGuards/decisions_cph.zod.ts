@@ -17,6 +17,7 @@ export const decisionCphSchema = z.object({
   _id: zObjectId,
   sourceId: z.string(),
   sourceName: z.literal('portalis-cph'),
+  portalisNumber: z.string(),
   originalText: z.string(),
   pseudoText: z.string().optional(),
   originalTextZoning: zZoning.optional(),
