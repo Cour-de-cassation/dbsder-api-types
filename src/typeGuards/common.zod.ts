@@ -297,6 +297,16 @@ export type CurrentZoning = z.infer<typeof zCurrentZoning>
 export const zZoning = zCurrentZoning.or(record(z.string(), z.unknown()))
 export type Zoning = z.infer<typeof zZoning>
 
+export const zEvent = z.object({
+  date: z.date(),
+  type: z.literal('created').or(z.literal('updated')),
+  withStatus: z.object({ labelStatus: zLabelStatus, publishStatus: zPublishStatus })
+})
+export const zEvents = z.array(zEvent)
+export type Events = z.infer<typeof zEvents>
+
+// TYPE CHECKING:
+
 export function isCurrentZoning(x: Zoning): x is CurrentZoning {
   return zCurrentZoning.safeParse(x).success
 }

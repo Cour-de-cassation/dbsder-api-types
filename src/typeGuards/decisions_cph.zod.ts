@@ -2,6 +2,7 @@ import { z } from 'zod'
 
 import {
   zBlocOccultation,
+  zEvents,
   zLabelStatus,
   zLabelTreatments,
   zObjectId,
@@ -17,6 +18,7 @@ export const decisionCphSchema = z.object({
   _id: zObjectId,
   sourceId: z.string(),
   sourceName: z.literal('portalis-cph'),
+  events: zEvents.optional(),
   portalisNumber: z.string(),
   originalText: z.string(),
   pseudoText: z.string().optional(),
