@@ -2,6 +2,7 @@ import { z } from 'zod'
 
 import {
   zBlocOccultation,
+  zEvents,
   zLabelStatus,
   zLabelTreatments,
   zObjectId,
@@ -48,6 +49,7 @@ export const decisionCaSchema = z.object({
   _id: zObjectId,
   sourceId: z.number(),
   sourceName: z.literal('jurica'),
+  events: zEvents.optional(),
   _rev: z.number().or(z.nan()).optional(),
   _version: z.number().or(z.nan()).optional().nullable(),
   originalText: z.string().optional().nullable(),
