@@ -63,6 +63,8 @@ export const decisionCaV2Schema = z.object({
   debatPublic: z.boolean(),
   indicateurQPC: z.boolean().optional(),
   matiereDeterminee: z.boolean().optional(),
+  pourvoiLocal: z.boolean().optional(),
+  pourvoiCourDeCassation: z.boolean().optional(),
   raisonInteretParticulier: zRaisonInteretParticulier.nullable().optional(),
   solution: z.string().optional(),
   decatt: zDecisionAttaquee.nullable().optional()
