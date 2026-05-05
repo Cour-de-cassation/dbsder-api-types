@@ -67,7 +67,8 @@ export const decisionCaV2Schema = z.object({
   pourvoiCourDeCassation: z.boolean().optional(),
   raisonInteretParticulier: zRaisonInteretParticulier.nullable().optional(),
   solution: z.string().optional(),
-  decatt: zDecisionAttaquee.nullable().optional()
+  decatt: zDecisionAttaquee.nullable().optional(),
+  filenameSource: z.string().optional()
 })
 export type DecisionCaV2 = z.infer<typeof decisionCaV2Schema>
 export type UnIdentifiedDecisionCaV2 = Omit<DecisionCaV2, '_id'>
