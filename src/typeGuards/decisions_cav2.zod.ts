@@ -32,6 +32,7 @@ export const decisionCaV2Schema = z.object({
   sourceName: z.literal('juricav2'),
   originalText: z.string(),
   pseudoText: z.string().optional(),
+  zoning: zZoning.optional(),
   originalTextZoning: zZoning.optional(),
   pseudoTextZoning: zZoning.optional(),
   labelStatus: zLabelStatus,
