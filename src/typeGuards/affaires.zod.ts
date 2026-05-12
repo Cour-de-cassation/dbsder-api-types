@@ -3,7 +3,7 @@ import { Category, zObjectId } from './common.zod'
 
 export const zCategory = z.enum(Category)
 
-export const zReplacementTerm  = z.object({
+export const zReplacementTerm = z.object({
   entityId: z.string(),
   replacementTerm: z.string(),
   originalTextInstances: z.array(z.string()),
