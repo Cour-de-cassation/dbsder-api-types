@@ -130,7 +130,13 @@ export {
   DebatsPublics,
   DbsderId
 } from './common.zod'
-export { parseAffaire, parsePartialAffaire, Affaire, UnIdentifiedAffaire } from './affaires.zod'
+export {
+  parseAffaire,
+  parsePartialAffaire,
+  Affaire,
+  UnIdentifiedAffaire,
+  ReplacementTerm
+} from './affaires.zod'
 export { CategorieCodeDecision, CodeDecision } from './codeDecisions.zod'
 export { NiveauCodeNAC, CodeNac, CategoriesToOmit, parsePartialCodeNac } from './codeNacs.zod'
 export {
