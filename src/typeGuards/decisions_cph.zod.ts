@@ -33,7 +33,7 @@ export const decisionCphSchema = z.object({
   unpublishDate: z.string().optional().nullable(),
   NACCode: z.string(),
   NACLibelle: z.string().optional(),
-  endCaseCode: z.string(),
+  endCaseCode: z.string().optional(),
   libelleEndCaseCode: z.string().optional(),
   chamberId: z.string().optional(),
   chamberName: z.string().optional(),
