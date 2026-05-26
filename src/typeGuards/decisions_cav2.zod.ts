@@ -27,49 +27,89 @@ const zParty = z.object({
 export type PartyCaV2 = z.infer<typeof zParty>
 
 export const decisionCaV2Schema = z.object({
+  // Identifiant Mongo
   _id: zObjectId,
+
+  // Identifiants JURICA V2
   sourceId: zObjectId,
   sourceName: z.literal('juricav2'),
+
+  // Identifiants métier
+  /// Date
+  dateDecision: z.string(),
+  /// Juridiction
+  jurisdictionCode: z.string(),
+  jurisdictionId: z.string(),
+  jurisdictionName: z.string(),
+  /// Dossier
+  registerNumber: z.string().trim().min(1).max(40),
+
+  // Textes
   originalText: z.string(),
   pseudoText: z.string().optional(),
+
+  // Règles d'occultation
+  occultation: zOccultation,
+  recommandationOccultation: zSuiviOccultation,
+
+  // Traitements NLP
+  labelTreatments: zLabelTreatments.optional(),
+
+  // Zonage
   zoning: zZoning.optional(),
   originalTextZoning: zZoning.optional(),
   pseudoTextZoning: zZoning.optional(),
+
+  // Statut
   labelStatus: zLabelStatus,
   publishStatus: zPublishStatus.optional(),
-  labelTreatments: zLabelTreatments.optional(),
-  dateDecision: z.string(),
+
+  // Dates d'événements
   dateCreation: z.string(),
   publishDate: z.string().optional().nullable(),
   firstImportDate: z.string().optional().nullable(),
   lastImportDate: z.string().optional(),
   unpublishDate: z.string().optional().nullable(),
-  registerNumber: z.string().trim().min(1).max(40),
-  NACCode: z.string(),
-  NACLibelle: z.string().optional(),
-  endCaseCode: z.string(),
-  libelleEndCaseCode: z.string().optional(),
-  chamberId: z.string().optional(),
-  chamberName: z.string().optional(),
-  jurisdictionCode: z.string(),
-  jurisdictionId: z.string(),
-  jurisdictionName: z.string(),
+  
+  // Interet particulier
   selection: z.boolean(),
   sommaire: z.string().optional(),
-  occultation: zOccultation,
-  recommandationOccultation: zSuiviOccultation,
-  parties: z.union([z.array(zParty), z.object({})]).optional(),
-  composition: z.string().max(200).nullable().optional(),
-  public: z.boolean(),
-  debatPublic: z.boolean(),
   indicateurQPC: z.boolean().optional(),
   matiereDeterminee: z.boolean().optional(),
   pourvoiLocal: z.boolean().optional(),
   pourvoiCourDeCassation: z.boolean().optional(),
   raisonInteretParticulier: zRaisonInteretParticulier.nullable().optional(),
+
+  // Publicité de la décision
+  public: z.boolean(),
+  debatPublic: z.boolean(),
+
+  // Nature de l'affaire
+  NACCode: z.string(),
+  NACLibelle: z.string().optional(),
+
+  // Nature de la décision
+  endCaseCode: z.string(),
+  libelleEndCaseCode: z.string().optional(),
+
+  // Service/Chambre ayant rendu la décision
+  chamberId: z.string().optional(),
+  chamberName: z.string().optional(),
+
+  // Lien avec le fichier source
+  filenameSource: z.string().optional(),
+
+  // Personnes liées à la décision
+  parties: z.union([z.array(zParty), z.object({})]).optional(),
+  composition: z.string().max(200).nullable().optional(),
+  
+
+  // ????????????????????????????????????????
   solution: z.string().optional(),
-  decatt: zDecisionAttaquee.nullable().optional(),
-  filenameSource: z.string().optional()
+  
+  // Chaînage
+  decatt: zDecisionAttaquee.nullable().optional()
+
 })
 export type DecisionCaV2 = z.infer<typeof decisionCaV2Schema>
 export type UnIdentifiedDecisionCaV2 = Omit<DecisionCaV2, '_id'>
