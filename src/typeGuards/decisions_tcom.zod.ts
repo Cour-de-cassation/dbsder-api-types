@@ -68,47 +68,84 @@ const partieTcomSchema = z.object({
 export type PartieTcom = z.infer<typeof partieTcomSchema>
 
 export const decisionTcomSchema = z.object({
+  // Identifiant Mongo
   _id: zObjectId,
+
+  // Identifiant juritcom
   sourceId: z.number(),
   sourceName: z.literal('juritcom'),
-  __v: z.number().or(z.nan()),
-  originalText: z.string(),
-  pseudoText: z.string().optional(),
-  registerNumber: z.string(),
+
+  // Identifiants métier
+  /// Date
   dateDecision: z.string(),
+  /// Juridiction
   jurisdictionCode: z.string(),
   jurisdictionId: z.string(),
   jurisdictionName: z.string(),
-  public: z.boolean().nullable().optional(),
-  solution: z.string().nullable().optional(),
+  /// Dossier
+  registerNumber: z.string(),
+
+  // Textes
+  originalText: z.string(),
+  pseudoText: z.string().optional(),
+
+  // Règles d'occultation
+  blocOccultation: zBlocOccultation,
+  occultation: zOccultation,
+  motifsSecretAffaires: z.boolean(),
+  motifsDebatsChambreConseil: z.boolean(),
+
+  // Traitements NLP
+  labelTreatments: zLabelTreatments.optional(),
+
+  // Zonage
+  zoning: z.record(z.string(), z.unknown()).optional().nullable(),
+  originalTextZoning: zZoning.optional(),
+  pseudoTextZoning: zZoning.optional(),
+
+  // Statut
   labelStatus: zLabelStatus,
   publishStatus: zPublishStatus.optional(),
-  labelTreatments: zLabelTreatments.optional(),
+
+  // Dates d'événements
   dateCreation: z.string(),
   publishDate: z.string().optional().nullable(),
   firstImportDate: z.string().optional(),
   lastImportDate: z.string().optional(),
   unpublishDate: z.string().optional().nullable(),
-  zoning: z.record(z.string(), z.unknown()).optional().nullable(),
-  originalTextZoning: zZoning.optional(),
-  pseudoTextZoning: zZoning.optional(),
+
+  // Intérêt particulier
+  selection: z.boolean(),
+
+  // Publicité de la décision et des débats
+  public: z.boolean().nullable().optional(),
+  debatPublic: z.boolean(),
+
+  // Nature de l'affaire et de la décision
+  codeProcedure: z.string().nullable().optional(),
+  solution: z.string().nullable().optional(),
+  codeMatiereCivil: z.string().nullable().optional(),
+  libelleMatiere: z.string().nullable().optional(),
+
+  // Service/Chambre ayant rendu la décision
   chamberId: z.string().nullable().optional(),
   chamberName: z.string().nullable().optional(),
-  debatPublic: z.boolean(),
-  selection: z.boolean(),
-  blocOccultation: zBlocOccultation,
-  occultation: zOccultation,
-  parties: z.array(partieTcomSchema).nullable().optional(),
+
+  // Lien avec le fichier source
   filenameSource: z.string(),
-  appeals: z.array(z.never()),
-  codeMatiereCivil: z.string().nullable().optional(),
+
+  // Personnes liées à la décision
+  parties: z.array(partieTcomSchema).nullable().optional(),
+  composition: z.array(compositionTcomSchema).nullable().optional(),
+
+  // Autre: groupement émettant la décision
   idGroupement: z.string(),
   idDecisionTCOM: z.string(),
-  codeProcedure: z.string().nullable().optional(),
-  libelleMatiere: z.string().nullable().optional(),
-  composition: z.array(compositionTcomSchema).nullable().optional(),
-  motifsSecretAffaires: z.boolean(),
-  motifsDebatsChambreConseil: z.boolean()
+
+  // ?
+  __v: z.number().or(z.nan()),
+  appeals: z.array(z.never()),
+
 })
 export type DecisionTcom = z.infer<typeof decisionTcomSchema>
 export type UnIdentifiedDecisionTcom = Omit<DecisionTcom, '_id'>
