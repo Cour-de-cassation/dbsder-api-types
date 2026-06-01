@@ -299,7 +299,7 @@ export type Zoning = z.infer<typeof zZoning>
 
 export const zEvent = z.object({
   date: z.date(),
-  type: z.literal('created').or(z.literal('updated')),
+  type: z.literal('created').or(z.literal('recreated')).or(z.literal('patched')),
   withStatus: z.object({ labelStatus: zLabelStatus, publishStatus: zPublishStatus.optional() })
 })
 export type Event = z.infer<typeof zEvent>
