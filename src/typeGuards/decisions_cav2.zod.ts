@@ -1,6 +1,7 @@
 import { z } from 'zod'
 
 import {
+  zBlocOccultation,
   zLabelStatus,
   zLabelTreatments,
   zObjectId,
@@ -58,6 +59,7 @@ export const decisionCaV2Schema = z.object({
   jurisdictionName: z.string(),
   selection: z.boolean(),
   sommaire: z.string().optional(),
+  blocOccultation: zBlocOccultation.optional().nullable(),
   occultation: zOccultation,
   recommandationOccultation: zSuiviOccultation,
   parties: z.union([z.array(zParty), z.object({})]).optional(),
