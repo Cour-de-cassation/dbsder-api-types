@@ -297,18 +297,11 @@ export type CurrentZoning = z.infer<typeof zCurrentZoning>
 export const zZoning = zCurrentZoning.or(record(z.string(), z.unknown()))
 export type Zoning = z.infer<typeof zZoning>
 
-const zEventCreated = z.object({
+export const zEvent = z.object({
   date: z.date(),
-  type: z.literal('created').or(z.literal('recreated')),
-  rawFileId: z.string(),
-  withStatus: z.object({ labelStatus: zLabelStatus, publishStatus: zPublishStatus.optional() })
+  type: z.literal('created').or(z.literal('recreated')).or(z.literal('patched')),
+  state: z.object({ rawFileId: z.string(), labelStatus: zLabelStatus, publishStatus: zPublishStatus.optional() })
 })
-const zEventUpdated = z.object({
-  date: z.date(),
-  type: z.literal('patched'),
-  withStatus: z.object({ labelStatus: zLabelStatus, publishStatus: zPublishStatus.optional() })
-})
-export const zEvent = zEventCreated.or(zEventUpdated)
 export type Event = z.infer<typeof zEvent>
 export const zEvents = z.array(zEvent)
 
