@@ -102,7 +102,7 @@ export const decisionTcomSchema = z.object({
   occultation: zOccultation,
   parties: z.array(partieTcomSchema).nullable().optional(),
   filenameSource: z.string(),
-  rawFileSource: z.string(),
+  rawFileId: z.string(),
   appeals: z.array(z.never()),
   codeMatiereCivil: z.string().nullable().optional(),
   idGroupement: z.string(),
