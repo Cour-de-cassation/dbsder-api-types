@@ -300,7 +300,7 @@ export type Zoning = z.infer<typeof zZoning>
 export const zEvent = z.object({
   date: z.date(),
   type: z.literal('created').or(z.literal('recreated')).or(z.literal('patched')),
-  state: z.object({ rawFileId: z.string(), labelStatus: zLabelStatus, publishStatus: zPublishStatus.optional() })
+  state: z.object({ rawFileId: z.string().optional(), labelStatus: zLabelStatus, publishStatus: zPublishStatus.optional() })
 })
 export type Event = z.infer<typeof zEvent>
 export const zEvents = z.array(zEvent)
