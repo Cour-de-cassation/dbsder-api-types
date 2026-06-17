@@ -93,7 +93,7 @@ export const decisionTjSchema = z.object({
   president: presidentTJSchema.nullable().optional(),
   parties: z.array(partieTJSchema).nullable().optional(),
   filenameSource: z.string(),
-  rawFileId: z.string(),
+  rawFileId: z.string().optional(),
   idDecisionTJ: z.string(),
   idDecisionWinci: z.string().nullable().optional(),
   numeroRoleGeneral: z.string(),
