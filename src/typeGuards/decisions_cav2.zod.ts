@@ -30,6 +30,7 @@ export type PartyCaV2 = z.infer<typeof zParty>
 export const decisionCaV2Schema = z.object({
   _id: zObjectId,
   sourceId: zObjectId,
+  rawFileId: z.string(),
   sourceName: z.literal('juricav2'),
   oracle_id: z.number().optional().nullable(),
   jurica_mongo_id: zObjectId.optional().nullable(),
