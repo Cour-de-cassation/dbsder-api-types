@@ -58,7 +58,7 @@ export const decisionCphSchema = z.object({
   pourvoiCourDeCassation: z.boolean(),
   pourvoiLocal: z.boolean(),
   filenameSource: z.string(),
-  rawFileId: z.string(),
+  rawFileId: z.string().optional(),
   raisonInteretParticulier: zRaisonInteretParticulier.nullable().optional()
 })
 export type DecisionCph = z.infer<typeof decisionCphSchema>
