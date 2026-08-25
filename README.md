@@ -1,3 +1,6 @@
+# Repository archivé
+Ce repository est désormais archivé. La librairie contenant les types est dans le repo de l'api : https://github.com/Cour-de-cassation/dbsder-api/tree/master/src/dbsder-api-types
+
 # DBSDER API Types
 
 Cette librairie contient défini les types correspondant aux données contenue dans la base de donnée mongo DBSDER. Elle contient également des fonctions de parsing permettant de valider les objets en s'appuyant sur leur schéma zod.
